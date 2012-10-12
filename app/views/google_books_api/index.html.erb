@@ -1,0 +1,19 @@
+
+
+<div id="google_books_resp">
+ <ul>
+   <% @response['items'].each do |b| %>
+     <li>
+     	<a href="#" class="book_resp">
+     	  <span class="title_resp"> 
+     	  	   <%= b['volumeInfo']['title'] %> 
+     	  </span>
+     	</a>
+
+    </li>
+  <% end %>
+  
+ 
+  <a href="#" id="abook_resp">click me</a>
+ </ul>
+</div>

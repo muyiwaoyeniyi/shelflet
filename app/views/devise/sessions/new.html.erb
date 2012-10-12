@@ -1,0 +1,60 @@
+<% provide(:title, 'Login') %>
+
+﻿    <div class="MainBodyWrapper">
+
+     <%= render "shared/searchbar" %>
+
+     <%= devise_error_messages! %>
+
+       <div class="container">
+        <div class="row">         
+        <div class="span12">
+        <div id="SettingsBoxWrapper">
+           <div id="FormsWrapper"> 
+           <%= link_to image_tag("facebook.png"), user_omniauth_authorize_path(:facebook), :class => "FacebookConnect" %> 
+           <h6 style="margin-bottom: -10px;">or</h6>                   
+            <div id="LoginFormsWrapper">
+            <fieldset> 
+                <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => "loginForm", :class => "form-horizontal" } ) do |f| %>
+               <div class="control-group">
+                    <div class="controls">
+
+                    	<%= f.email_field :email, :class => 'input-xlarge input-margin required email', :id => "EmailAddress", :placeholder => "Enter Email Address" %>
+
+                    </div>
+                </div> 
+             <div class="control-group">
+                 <div class="controls">
+
+                 	<%= f.password_field :password, :class => 'input-xlarge required', :id => "Password", :placeholder => "Enter Password" %>
+
+                  </div>
+                 </div>
+
+                 <%= f.submit "Login", :class => "btn btn-info btn-margin" %>
+              
+				<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+  				   <%= link_to "Forgot your password?", new_password_path(resource_name), :class => "btn" %><br />
+				<% end -%>
+            
+            <div class="control-group">  
+              <div class="controls">  
+               <label class="checkbox">  
+
+               	   <% if devise_mapping.rememberable? -%>
+    				<%= f.check_box :remember_me, :id => "RememberMe" %> <%= f.label :remember_me %>
+  					<% end -%>
+
+               </label>  
+              </div> 
+             </div>               
+            
+            <% end %>
+            
+           </fieldset>
+           </div>           
+         </div>
+         </div>
+         </div>
+        </div>
+     </div>

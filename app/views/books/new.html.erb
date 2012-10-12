@@ -1,0 +1,80 @@
+  
+
+    <div class="MainBodyWrapper">
+
+	  <%= render "shared/searchbar" %>
+
+      <div class="container">
+        <div class="row" style="margin-top: 18px;">
+         
+        <div class="span8">
+
+           <div id="listBoxWrapper">          
+            <fieldset>
+            <p class="listing-text">Let's Know About Your Book</p>
+             <div class="listing-text-border"></div>
+
+             <%= form_for(@book, :html => { :class => "form-inline" }, :style => "margin-bottom: 60px" ) do |f| %>
+
+				  <% if @book.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this book from been saved:</h2>
+
+				      <ul>
+				      <% @book.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+              
+                <div class="control-group">
+                  <label class="control-label" for="Title">Title</label>
+                  <div class="controls">
+
+                    <%= f.text_field :title, :class => 'input-xlarge input-title', :id => "Title", :placeholder => "autocompletion for fields enabled" %>
+
+                  </div>
+                </div>
+              <div class="partition">
+              <div style="float: left;">
+                <div class="control-group">
+                  <label class="control-label" for="ISBN">ISBN</label>
+                  <div class="controls">
+
+					<%= f.text_field :isbn, :class => 'input-xlarge', :id => "ISBN" %>
+
+                  </div>
+                </div>                            
+                            
+              <div class="form-inline">
+               <div class="control-group" style="display: inline-table;">
+               <label class="control-label" for="First Name">Price($/Month)</label>
+                 <div class="controls">
+
+                  <%= f.fields_for :user_books do |p| %>
+
+                    <%= p.text_field :price, :class => 'input-xlarge input-name' %> 
+
+                    <% end %>
+
+                  </div>
+                </div>
+                       
+
+                 <div class="listingButtons actions">
+                   <%= f.submit "Add to Shelf!", :class => "btn btn-info" %>
+               
+                   <%= f.file_field :photo %>
+
+              </div>  
+			<% end %>
+      
+            
+      
+
+           </fieldset>
+             </div>
+             <%= link_to 'Back', books_path %>
+           </div>
+         </div></div>

@@ -1,0 +1,33 @@
+ 
+
+
+ <div class="BookColumnMore">
+             <div class="row">
+              <div class="span5">              
+              <div class="DescriptionBoxText">Decription</div>
+                 <div class="DescriptionBorder"></div>
+               <div class="DescriptionBox">
+                <p class="Description">
+
+                  <%= @user_book.book.description %>
+                </p>
+                <p class="DescriptionBoxBorder"></p>
+                <p><strong class="textPadding">ISBN:</strong><span class="ISBN"><%= @user_book.book.isbn %></span></p>
+                <p><strong class="textPadding">Author(s):</strong><span class="Author"><%= @user_book.book.author %></span></p>
+                <p class="DescriptionBoxBorder"></p>
+                <p><strong>Condition</strong></p>
+                <p class="Condition"><%= @user_book.condition.name %></p>
+                
+                <% if @user_book.conditionNotes? %>
+                <p><strong>Notes</strong></p>
+                <p class="ConditionNotes"><%= @user_book.conditionNotes %></p>
+                <% end %>
+
+               </div>     
+               </div>  
+
+
+      <%= render "maps" %>
+
+    </div>
+  </div>

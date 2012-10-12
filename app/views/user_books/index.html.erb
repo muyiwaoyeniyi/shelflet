@@ -1,0 +1,30 @@
+
+<%= render "shared/searchbar" %>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+
+
+<% @user_books.each do |user_book| %>
+  <tr>
+    <td><%= user_book.book.title %></td>
+    <td><%= link_to 'Show', user_book %></td>
+
+    <% if can? :update, @user_book %>
+    <td><%= link_to 'Edit', edit_user_book_path(user_book) %></td>
+    <td><%= link_to 'Destroy', user_book, confirm: 'Are you sure?', method: :delete %></td>
+
+    <% end %>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User book', new_user_book_path %>

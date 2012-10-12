@@ -1,0 +1,15 @@
+<% provide :title, @book.title %>
+
+<%= render "shared/searchbar" %>
+
+<p id="notice"><%= notice %></p>
+
+
+<%= @book.title %>
+
+
+
+
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>

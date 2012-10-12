@@ -1,0 +1,45 @@
+     <header class="headerWrapper">
+      <div class="navbar">
+         <div class="navbar-inner">
+            <div class="container">
+              <a class="brand" href="/">
+               <%= image_tag "shelflet.jpg", :alt => "Shelflet", :height => '37' %>
+              </a>
+              <!-- Everything you want hidden at 940px or less, place within here -->
+              <div class="nav-collapse">
+                <ul class="nav">
+                  <li class="divider-vertical"></li>
+                  <li><a href="/list"><strong>List</strong></a></li>         <!--class="active"--> 
+                  <li class="divider-vertical"></li>
+                  <li class="dropdown" ><a id="Rent" href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                        <strong>Rent</strong><b class="caret"></b></a></li>
+                 </ul>
+                <ul class="nav pull-right">
+                  <% if user_signed_in? %>
+
+                     <li>
+                        <%= link_to current_user, :title =>"Go to my Shelf" do %>
+                       <%= current_user.email %></li>
+                        <% end %>
+                     <li class="divider-vertical"></li>
+                     <li><a href="/cart"><i class="icon-shopping-cart icon-white"></i>Cart<span class="cartItems">0</span></a> 
+                     <li class="divider-vertical"></li>
+                     <li>  <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
+ 
+                 <% else %>
+                     
+		                 <li><a href="/howitworks">How It Works</a></li>
+                     <li class="divider-vertical"></li>
+                     <li>  <%= link_to "Sign up", new_user_registration_path %>  </li>
+                     <li class="divider-vertical"></li>
+                     <li>  <%= link_to "Login", new_user_session_path %> </li>
+                     <li class="divider-vertical"></li>            
+                     <li><a href="#"><i class="icon-shopping-cart icon-white"></i>Cart<span class="cartItems">0</span></a> 
+
+                  <% end %>   
+                 </ul>
+              </div> <!-- nav-collapse -->             
+            </div>      
+           </div>
+         </div>        
+    </header>

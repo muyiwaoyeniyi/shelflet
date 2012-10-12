@@ -1,0 +1,1580 @@
+/* import bootstrap CSS file */
+@import "bootstrap";
+/*@import url('/Contents/bootstrapCSS/css/bootstrap-responsive.css');*/
+@import url(http://fonts.googleapis.com/css?family=PT+Sans);
+/*@import url('/Contents/bootstrapCSS/css/jquery.fancybox.css');*/
+
+/* Custom CSS for header */
+.headerWrapper, .MainBodyWrapper, .RL_Wrapper, .footerWrapper
+{
+  font-family: 'PT Sans'; /*add more selection*/
+}
+
+.headerWrapper .cartItems
+{
+    margin-left: 5px; 
+}
+.navbar .navbar-inner .container
+{
+    height: 53px;
+    width: 940px;   
+}
+
+.nav-collapse ul li 
+{
+    padding-top: .70em;     
+}
+
+.headerWrapper .dropdown .caret
+{
+    margin-left: 5px;
+}
+
+.icon-shopping-cart, .icon-book, .icon-wrench, .icon-barcode, .icon-edit, .icon-pencil,
+ .icon-ok, .icon-remove, .icon-bullhorn, .icon-map-marker, .icon-ok, .icon-edit, .icon-repeat, .icon-arrow-left,
+ .icon-thumbs-up, .icon-plus-sign, .icon-arrow-left
+{
+    padding-right: 3px;
+}
+
+.icon-arrow-right
+{
+    margin-left: 5px;
+}
+/* End Custom CSS for header elements*/
+
+/* CSS for MainBodyWrapper*/
+/* CSS for search bar*/
+.SearchWrapper .input-medium
+{
+    width: 89.5%;
+}
+/* End CSS for search bar*/
+
+/* CSS for Side Nav */
+ .nav-pills > li > a
+{
+    display: inline;
+    padding: 4px 8px;
+    line-height: 2.3em;
+    border: 1px solid #F7F7F7;
+    color: #575757;
+    background-color: #F7F7F7; 
+}
+
+.nav .nav-header
+{
+    padding: 0px;
+    font-weight: 550; 
+    font-family: Garamond; 
+    color: #575757;
+    border-bottom: 1px solid #E6E6E6;
+    margin-bottom: 7px; 
+    
+}
+/* End CSS for Side Nav */
+/* End CSS for MainBodyWrapper*/
+
+/* CSS for RL Wrapper */
+.RL_Wrapper
+{
+    border-top: 1px solid #E6E6E6;
+    height: auto;
+    padding-bottom: 20px;
+}
+
+.RL_Wrapper h3
+{
+    margin-top: 7px;
+    margin-bottom: 7px;
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+.RL_Wrapper .thumbnail
+{
+    padding: 0px;
+}
+
+.RL_Wrapper a.thumbnail:hover 
+{
+    border-color: #AAA;
+    -webkit-box-shadow: 0 0px 0px transparent;
+    -moz-box-shadow: 0 0px 0px transparent;
+    box-shadow: 0 0px 0px transparent;
+}
+
+.RL_Wrapper li
+{
+    overflow: hidden;
+    white-space: nowrap;
+    width: 99px;
+    margin-right: 31px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    text-align: center;
+}
+
+/* End CSS for RL Wrapper */
+
+/* footerWrapper*/
+.footerWrapper 
+{
+    background-color: #f7f7F7;  
+    border-top: 1px solid #CDD0D4;
+    font-family: 'PT Sans', Century Schoolbook;    
+}
+
+.footerWrapper h4
+{
+    padding-top: 7px; 
+}
+
+.footerWrapper p
+{
+    margin-bottom: -4px;
+    padding-top: 7px; 
+}
+
+.footerWrapper .span2
+{
+    margin-left: -0.5px;
+    margin-top: 25px;
+}
+
+.footerWrapper .span2a
+{
+    height: 84px;
+    width: 140px;
+    margin-left: -43px;
+    margin-top: 25px;
+}
+
+/* socials sprite*/
+#facebook-link
+{
+    display: inline-block;
+    background: url('/assets/socials.png'); 
+    background-position: -109px 0; width: 59px; height: 60px;
+    margin-top: 25px;
+}
+#facebook-link:hover,#facebook-link:active   
+{
+    background-position: 0 0; width: 59px; height: 60px;
+    margin-top: 25px;
+}
+
+#twitter-link
+{
+    display: inline-block;
+    background: url('/assets/socials.png') no-repeat;
+    background-position: -327px 0; width: 59px; height: 60px;
+    margin-top: 25px;
+}
+#twitter-link:hover,#twitter-link:active   
+{
+    background-position : -218px 0; width: 59px; height: 60px;
+    margin-top: 25px;
+}
+/* end Socials sprite*/
+/* End footerWrapper*/
+
+/*for sticky footer*/
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+.MainBodyWrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -137px; /* the bottom margin is the negative value of the footer's height */
+}
+.footerWrapper, .push {
+	height: 137px; /* .push must be the same height as .footer */		
+}
+
+/* End for sticky footer*/
+
+/* Style for HTML5 Placeholder */
+::-webkit-input-placeholder
+{
+   font-family: 'PT Sans';
+}
+				
+:-moz-placeholder
+{
+   font-family: 'PT Sans';
+}
+
+:-ms-input-placeholder 
+{
+   font-family: 'PT Sans';
+}
+/* End Style for HTML5 Placeholder */
+
+/* Sidebar Wrapper*/
+.SidebarWrapper .span3
+{
+    margin-bottom: 20px;
+    margin-left: -1px;
+    border-top: 1px solid #E6E6E6;  
+    margin-top: 17px;
+}
+
+.SidebarWrapper .thumbnail
+{
+    border-top: 0px;   
+    padding: 0px; 
+    padding-bottom: 5px;
+}
+
+.SidebarWrapper .thumbnail .SnapshotText
+{
+    font-weight: bold;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: WhiteSmoke;
+}
+
+.SidebarWrapper .thumbnail .SnapshotInfo
+{
+    padding-left: 20px;
+    padding-right: 23px;
+}
+
+.SidebarWrapper .thumbnail .SnapshotBorder
+{
+    border-top: 1px solid #E6E6E6;
+    margin-bottom: 10px;
+}
+
+.SidebarWrapper .nav
+{
+    margin-top: 18px;
+}
+
+.SidebarWrapper .nav-pipe-fix
+{
+     margin-right: 4px;
+    margin-left: 5px;
+}
+
+.SidebarWrapper .btn
+{
+    width: 198px;
+}
+/* End Sidebar Wrapper*/
+
+/* BookColumnWrapper */
+.span9 #BookColumnWrapper 
+{
+    height: auto;
+    margin-top: 18px;
+    margin-bottom: 50px;
+}
+
+#BookColumnWrapper .thumbnail
+{
+    height: 135px;
+    border: 1px solid #CDD0D4;
+    background-color: #fafafa;
+    width: 678px;
+    margin-left: -26px;
+    padding-right: 0px;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-top: -1px;
+    margin-bottom: 20px;
+}
+
+#BookColumnWrapper .thumbnail:hover, .BookColumnMore .DescriptionBox:hover, .BookColumnMore .ReviewsBox:hover
+{
+    background-color: #f2f2f2;
+}
+
+.BCWLeft
+{
+    float: left;
+}
+
+.BCWLeft .more
+{
+    font-size: 11px;
+    color: #08C; 
+    font-size: 12px;
+}
+
+.BCWCenter
+{
+    margin-left: 16px;
+    margin-top: 5px;
+    float: left;
+    width: 340px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.map-marker
+{
+    margin-left: -3px; 
+    margin-bottom: 2px;
+}
+
+.BCWCenter .icon-envelope
+{
+    margin-left: 10px; 
+    margin-top: 2px;
+}
+
+.BCWCenter_Border
+{
+    border-bottom: 1px solid #CDD0D4;
+    width: 180px;
+    margin-top: 14px;
+    margin-bottom: 12px;
+}
+
+.BCWCenter .Edition
+{
+    margin-top: -7px;
+}
+
+.BCWCenter .Author
+{
+    padding-top: 10px;
+}
+
+.BCWCenter .pipe
+{
+    margin-left: 6px; 
+    margin-right: 5px;
+}
+
+.BCWRight
+{
+    border-left: 1px solid #CDD0D4;
+    height: 126px;
+    float: right;
+    margin-top: -20px;
+    text-align: center;
+    width: 200px;
+    padding-top: 2.6em;
+    background-color: #EBEBEB;
+}
+
+.BCWRight_Fix
+{
+    padding-top: 1.5em;
+    height: 140px;
+}
+
+.BCWRight .btn
+{
+    margin-top: 3px;
+}
+
+.BCWRight .btn-group
+{
+    margin-left: 46px;
+}
+
+.BCWRight a.x_icon
+{
+    float: right;
+    margin-top: -33px;
+    margin-right: 3px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.BCWRight a.x_icon_fix
+{
+    float: right;
+    margin-top: -19px;
+    margin-right: 3px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.BCWRight .nav-pills > li
+{
+    float: none;
+    margin-top: -9px;
+    margin-bottom: -16px;
+    background-color: #EBEBEB;
+}
+
+.BCWRight .nav-pills > li > a 
+{
+    background-color: #EBEBEB;
+    border: none;
+}
+
+.BCWRight .nav-pills .dropdown-menu 
+{
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    width: 160px;
+    float: none;
+    margin-left: 19px;
+}
+
+.BCWRight .nav-pills .open .dropdown-toggle, .nav > li.dropdown.open.active > a:hover 
+{
+    color: inherit;
+    width: 177px;
+    background-color: #D6D6D6;
+}
+
+.BCWRight .nav li.dropdown.open .caret, .nav li.dropdown.open.active .caret, .nav li.dropdown.open a:hover .caret
+{
+    border-top-color: black;
+    border-bottom-color: black;
+}
+
+.BCWRight .nav-pills .dropdown-toggle .caret 
+{
+    border-top-color: inherit;
+    border-bottom-color: inherit;
+    margin-top: 13px;
+}
+
+.BCWRight_Border
+{
+    border-bottom: 1px solid #CDD0D4;
+    width: 176px;
+    margin: 0px auto;
+    margin-top: -5px;
+    margin-bottom: 12px;
+}
+
+.Shipped
+{
+    color: green;
+}
+
+.pShipment
+{
+    color: Red;
+}
+
+.Returned
+{
+    color: Blue;
+}
+
+.pAcceptance
+{
+    color: purple;    
+}
+/* End BookColumnWrapper */
+
+/* Full page BookColumnWrapper */
+.BookColumnMore .span5, .BookColumnMore .span4 
+{
+    border: 1px solid #CDD0D4;
+}
+
+.BookColumnMore
+{
+    margin-bottom: 50px;
+    margin-top: -35px;
+}
+
+.BookColumnMore .Description
+{    
+    padding-bottom: 4px;
+    word-wrap: break-word;
+}
+
+.BookColumnMore .DescriptionBox
+{
+    height: auto;
+    padding: 10px 17px;
+    background-color: #FAFAFA;
+}
+
+.BookColumnMore .ReviewsBox
+{
+    height: auto;
+    padding: 10px 17px;
+    background-color: #FAFAFA;
+}
+
+.BookColumnMore .textPadding
+{
+    margin-right: 25px;
+}
+
+.DescriptionBorder, .DescriptionBoxBorder 
+{
+    border-bottom: 1px solid #CDD0D4;
+}
+
+.DescriptionBoxBorder 
+{
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.DescriptionBoxText
+{
+    padding-left: 17px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.BookColumnMore .Map
+{
+    height: 204px;
+}
+
+.BookColumnMore .ReviewFix
+{
+    margin-top: -8px;
+}
+
+.BookColumnMore .span4
+{
+    margin-left: 15px;
+}
+
+
+
+/* End Fullpage BookColumnWrapper */
+
+/*SettingsBoxWrapper*/
+.span9 #SettingsBoxWrapper
+{
+    border: 1px solid #E6E6E6;
+    height: auto;
+    margin-left: 20px;
+    margin-bottom: 50px;
+    background-color: Whitesmoke;
+    width: auto;
+    margin-top: 18px;
+}
+
+#SettingsBoxWrapper .form-horizontal
+{
+    margin-bottom: -12px; 
+}
+
+#SettingsBoxWrapper .form-horizontal .control-label 
+{
+    width: 140px;
+    padding-top: 5px;
+    text-align: left;
+    margin-left: 41px; 
+}
+
+#SettingsBoxWrapper .form-horizontal .controls
+{
+    margin-left: 40px;
+    margin-top: 28px;
+    margin-bottom: -10px;
+}
+
+#SettingsBoxWrapper .form-horizontal .control-group
+{
+    margin-bottom: 15px;
+}
+
+#SettingsBoxWrapper .form-inline .control-group 
+{
+    margin-bottom: 9px;
+    display: inline-table;
+}
+
+#SettingsBoxWrapper .form-inline
+{
+    margin-left: 40px;
+    padding-top: 20px;
+    margin-bottom: -5px;
+}
+
+#SettingsBoxWrapper .form-horizontal .form-actions
+{
+    padding-left: 41px;
+    margin-top: 40px;
+}
+
+#SettingsBoxWrapper .btn-info
+{
+    margin-left: 41px;
+    margin-top: 15px;
+}
+
+#SettingsBoxWrapper .btn
+{
+    margin-top: 15px;
+}
+
+.GSWrapper
+{
+    height: 850px;
+}
+
+.BSWrapper
+{
+    height: 820px;
+}
+
+.DDBorder
+{
+    border-top: 1px solid #E5E5E5;
+    width: 300px;
+    margin-left: 40px;
+    margin-top: 35px;
+}
+
+.POWrapper
+{
+    height: 555px;
+}
+
+.POText
+{
+    border: 1px solid #E6E6E6;
+    width: 630px;
+    margin-top: 15px;
+    margin-left: 18px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+/* End SettingsBoxWrapper*/
+
+/* For All Forms */
+input 
+{
+    margin-top: -3px;
+}
+
+legend 
+{
+    padding-left: 40px;
+    width: 94.3%;
+}
+/* End For All Forms */
+
+/*Forms Wrapper*/
+.span12 #SettingsBoxWrapper
+{
+    margin: 0px auto;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#FormsWrapper
+{
+    width: 362px;
+    margin: 0px auto;
+    border: 1px solid #E6E6E6;
+    height: auto;
+    background-color: Whitesmoke;
+    text-align: left;
+}
+
+#FormsWrapper p
+{
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+#FormsWrapper .form-horizontal .control-group
+{
+    margin-bottom: 5px;
+}
+
+#FormsWrapper .btn
+{
+    margin-top: 20px;
+}
+
+#FormsWrapper .input-small, #CartFormsWrapper #signUpFormsWrapper .input-small, #CartFormsWrapper #shippingFormsWrapper .input-fix, 
+#CartFormsWrapper #billingFormsWrapper .input-fix
+{
+    width: 128px;
+}
+
+#FormsWrapper .form-horizontal 
+{
+    margin-bottom: 13px;
+}
+
+#FormsWrapper legend
+{
+    width: 96%;
+    height: 70px;
+}
+
+#FormsWrapper h6
+{
+    text-transform: lowercase;
+    text-align: center;
+    padding-bottom: 1px;
+    padding-top: 10px;
+}
+
+#FormsWrapper .FacebookConnect
+{
+    /*background-repeat: no-repeat;*/
+    /*background-image: url('/assets/facebook.png');*/
+    /*padding-bottom: 25px;*/
+    display: block;
+    margin-left: 78px;
+    margin-top: 25px;
+    margin-right: 41px;
+}
+
+#FormsWrapper .checkbox 
+{
+    margin-top: -25px;
+    margin-bottom: 27px;
+}
+
+#FormsWrapper .text-fix 
+{ 
+    margin-bottom: 1px; 
+    width: 280px;
+}
+
+#FormsWrapper .text-fix2 
+{ 
+    margin-bottom: -25px; 
+    width: 280px;
+}
+/* End Forms Wrapper*/
+
+/* All Edges*/
+.nav-pills > li > a, .well, .btn, .navbar-inner, .thumbnail, .input, textarea, input[type="text"], input[type="password"], 
+input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], 
+input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], 
+input[type="color"], .uneditable-input, .btn-group > .btn:first-child, .btn-group > .dropdown-toggle, .dropdown-menu,
+.input-append .add-on:last-child, .input-append .btn:last-child
+{
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.thumbnail
+{
+    -webkit-box-shadow: 0 0px 0px transparent;
+    -moz-box-shadow: 0 0px 0px rgba(0, 0, 0, 0);
+    box-shadow: 0 0px 0px transparent;
+}
+/*End All Edges*/
+
+/* Some HTML elements...overrides bootstraps settings*/
+input, button, select, textarea 
+{
+    font-family: 'PT Sans';
+}
+/* End*/
+
+/*All Navs and Links*/
+.nav-pills > .active > a, .nav-pills > .active > a:hover 
+{
+    color: #575757;
+    background-color: #DEDEDE;
+}
+ 
+a, a:hover 
+{
+    color: #333;    
+}
+
+a.Default, a:hover.Default
+{
+    color: #08C;    
+}
+/*End All Navs and Links*/
+
+/* Cart Wrapper*/
+.CartWrapper .cart .thumbnail
+{
+    padding: 0px;
+    padding-top: 15px;
+    border: none; 
+    border-bottom: 1px solid #E6E6E6;
+    height: 105px;
+}
+
+.CartWrapper .cart .thumbnail:hover
+{
+    background-color: whitesmoke;
+}
+
+.cart > ul, ol 
+{
+    margin-left: 0px;
+}
+
+.CartWrapper .cart .CWLeft
+{
+    float: left;
+    width: auto;
+}
+    
+.CartWrapper .cart .CWCenter
+{
+    float: left;
+    width: auto;
+    text-align: center;    
+}
+
+.CartWrapper .CWRight
+{
+    float: right;
+    text-align: right;
+}
+
+.CartWrapper .cart .CWRight
+{
+    float: right;
+    text-align:left;
+}
+
+.CartWrapper .cart .CWRight .radio input[type="radio"], .CartWrapper .cart .CWRight .checkbox input[type="checkbox"]
+{
+    margin-left: -16px;
+}
+
+.CartWrapper .cart .CWLeft_Border
+{
+    border-bottom: 1px solid #CDD0D4;
+    width: 110px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.span7 .CartWrapper
+{
+    width: 596px;
+    margin-bottom: 100px;
+}
+
+.CartWrapper .cart .CWLeft_Book
+{
+    font-size: 12px;
+    margin-left: 58px;
+    margin-top: -68px;
+    width: 340px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;    
+}
+
+.CartWrapper .cart .CWLeft_Book .Edition
+{
+    margin-top: 5px;
+}
+
+.CartWrapper .cart .CWLeft_Book .Author
+{
+    margin-top: -8px;
+}
+
+.CartWrapper .cart .CWLeft_Book .pipe
+{
+    margin-left: 6px; 
+    margin-right: 2px;
+}
+
+.CartWrapper .cart .CWRight .control-group
+{
+    margin-top: -7px;
+    margin-right: 7px;
+}
+
+.CartWrapper .CWRight .subtotalPadding
+{
+    padding-right: 20px;
+}
+
+.CartWrapper .CWRightText
+{
+    float: left;
+    border-bottom: 1px solid #CDD0D4;
+    margin-bottom: 10px;
+}
+
+.CartWrapper .CWRightValue
+{
+    float: right;
+    border-bottom: 1px solid #CDD0D4;
+    margin-bottom: 10px;
+}
+/* End Cart Wrapper*/
+
+/* CartFormsWrapper Wrapper*/
+
+.span5 #CartFormsWrapper     /*default*/
+{
+    width: 325px;
+    margin-left: 54px;
+    border: 1px solid #E6E6E6;
+    text-align: center;
+    height: auto;
+    background-color: WhiteSmoke;
+    margin-bottom: 90px;
+}
+
+/* options view */
+#CartFormsWrapper .cartLogin
+{
+    margin-bottom: 35px;
+}
+
+#CartFormsWrapper .cartLogin h3
+{
+    margin-bottom: 7px;
+    margin-top: 25px;
+}
+
+#CartFormsWrapper .FacebookConnect
+{
+    background-repeat: no-repeat;
+    background-image: url('/assets/facebook.png');
+    padding-bottom: 25px;
+    display: block;
+    margin-left: 63px;
+}
+
+#CartFormsWrapper .btn-signUp
+{
+    width: 200px;
+}
+/* End options view */
+/* Login View */
+#CartFormsWrapper #LoginFormsWrapper
+{
+    text-align:left; 
+    background-color: WhiteSmoke;   
+}
+
+#CartFormsWrapper #LoginFormsWrapper .controls, #CartFormsWrapper #LoginFormsWrapper .btn-margin, 
+#CartFormsWrapper #shippingFormsWrapper .fix, #CartFormsWrapper #billingFormsWrapper .fix
+{
+    margin-left: 22px;
+}
+
+#CartFormsWrapper #LoginFormsWrapper .input-margin, #CartFormsWrapper #signUpFormsWrapper .form-margin
+{
+    margin-top: 25px;
+}
+/* End Login View */
+/* SignUp View */
+#CartFormsWrapper #signUpFormsWrapper .controls, #CartFormsWrapper #resetFormsWrapper .controls
+{
+    margin: 0px;
+}
+
+#CartFormsWrapper #signUpFormsWrapper .btn-info
+{
+    margin-left: -209px;
+}
+
+#CartFormsWrapper #signUpFormsWrapper .text-fix
+{
+    text-align: left;
+    margin-left: 23px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+/* End Signup View */
+/* reset password View*/
+#CartFormsWrapper #resetFormsWrapper
+{
+    text-align: left;
+}
+
+#CartFormsWrapper #resetFormsWrapper .text-fix
+{
+    margin-left: 11px;
+    margin-top: 17px;
+    margin-bottom: 20px;
+}
+
+#CartFormsWrapper #resetFormsWrapper .controls, #CartFormsWrapper #resetFormsWrapper button
+{
+    margin-left: 21px;
+}
+
+/* checkoutFormsWrapper */
+
+#CartFormsWrapper .ship-bill-wrapper
+{
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+#CartFormsWrapper .form-horizontal .controls 
+{
+    margin-left: 22px;
+}
+
+#CartFormsWrapper .ship-bill-wrapper .billing-text
+{
+    font-size: 19px;
+    padding-left: 21px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#CartFormsWrapper .ship-bill-wrapper .billing-text-border
+{
+    border-bottom: 1px solid #CDD0D4;
+    margin-bottom: 12px;
+}
+/* End checkoutFormsWrapper */
+/* End cartformsWrapper*/
+
+/*listFormsWrapper*/
+#listBoxWrapper .thumbnail
+{
+    width: 100px;
+    margin-top: 20px;
+}
+
+.span8 #listBoxWrapper
+{
+    background-color: whiteSmoke; 
+    border: 1px solid #E6E6E6;
+    height: auto;
+    margin-left: 20px;
+    /*margin-bottom: 60px;*/
+    width: auto;   
+}
+
+#listBoxWrapper .listing-text
+{
+    font-size: 19px;
+    padding-left: 74px;
+    margin-bottom: 10px;
+    margin-top: 10px;    
+}
+
+#listBoxWrapper .listing-text-border
+{
+     border-bottom: 1px solid #CDD0D4;
+     margin-bottom: 28px;
+}
+
+#listBoxWrapper .mini-fix
+{
+    width: 32px;
+    text-align: center;
+}
+
+#listBoxWrapper .input-title
+{
+    width: 425px;
+}
+
+#listBoxWrapper .control-group
+{
+    margin-left: 75px;
+}
+
+#listBoxWrapper .PricePadding
+{
+    padding-left: 30px;
+    padding-right: 20px;
+}
+
+#listBoxWrapper .Locationtip
+{
+    margin-top: -2px;
+    margin-left: -5px;
+}
+
+#listBoxWrapper .listingButtons
+{    
+    margin-top: 30px;
+    margin-left: 76px;
+    margin-bottom: 40px;
+}
+
+#listBoxWrapper .partition
+{    
+    width: 510px;
+}
+
+#listBoxWrapper #Price, #listBoxWrapper #SuggestedPrice
+{    
+    text-align: center;
+}
+
+/* End listFormWrapper*/
+
+/* Thank you page */
+
+.thankyouWrapper .thumbnail
+{
+    padding: 12px;
+    border: none;
+    border-bottom: 1px solid #E6E6E6;
+    height: 85px;
+}
+
+.thankyouWrapper .cart .thumbnail:hover
+{
+    background-color: whitesmoke;
+}
+.cart > ul, ol 
+{
+    margin-left: 0px;
+}
+
+.thankyouWrapper .cart .CWLeft
+{
+    float: left;
+    width: 400px;
+}
+
+.span7 .thankyouWrapper
+{
+    width: 596px;
+    margin-bottom: 100px;
+}
+
+.thankyouWrapper .cart .CWLeft_Book
+{
+    font-size: 12px;
+    margin-left: 58px;
+    margin-top: -68px;
+    width: 470px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;    
+}
+
+.thankyouWrapper .cart .CWLeft_Book .Edition
+{
+    margin-top: 5px;
+}
+
+.thankyouWrapper .cart .CWLeft_Book .Author
+{
+    margin-top: -8px;
+}
+
+.thankyouWrapper .CWRight .subtotalPadding
+{
+    padding-right: 20px;
+}
+
+.thankyouWrapper .cart .CWLeft_Border
+{
+    border-bottom: 1px solid #CDD0D4;
+    width: 110px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.thankyouBox
+{
+    width: 325px;
+    margin-left: 54px;
+    border: 1px solid #E6E6E6;
+    text-align: left;
+    height: auto;
+    background-color: WhiteSmoke;
+    margin-bottom: 90px;
+}
+
+.thankyouDetails
+{
+    padding: 20px;
+    padding-left: 30px;
+    background-color: White;
+}
+
+.thankyouBorder
+{
+    border-bottom: 1px solid #CDD0D4;
+}
+
+.thankyouText
+{
+    font-size: 14px;
+    margin-top: 20px;
+    width: 596px;
+    margin-bottom: 35px;
+}
+
+.thankyouBoxText
+{
+    padding-left: 28px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.thankyouText .nav-pipe-fix
+{
+    margin-right: 4px;
+    margin-left: 2px;
+}
+
+/* slight changes for List Page*/
+.ListBoxDetailsFix
+{
+    padding-left: 20px; 
+    font-size: 14px; 
+    text-align: justify;
+}
+/* Thank you page */
+
+/*
+ * jQuery Nivo Slider v3.0.1
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2012, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+	width:100%;
+	height:auto;
+	overflow: hidden;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.nivo-main-image {
+	display: block !important;
+	position: relative !important; 
+	width: 100% !important;
+}
+
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:6;
+	display:none;
+}
+/* The slices and boxes in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:5;
+	height:100%;
+	top:0;
+}
+.nivo-box {
+	display:block;
+	position:absolute;
+	z-index:5;
+	overflow:hidden;
+}
+.nivo-box img { display:block; }
+
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	color: black;
+	width:100%;
+	z-index:8;
+	padding: 5px 10px;
+	overflow: hidden;
+	display: none;
+	-moz-opacity: 0.8;
+	filter:alpha(opacity=8);
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+.nivo-caption a {
+	display:inline !important;
+}
+.nivo-html-caption {
+    display:none;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:9;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav {
+	text-align:center;
+	padding: 15px 0;
+}
+.nivo-controlNav a {
+	cursor:pointer;
+}
+.nivo-controlNav a.active {
+	font-weight:bold;
+}
+/*
+Skin Name: Nivo Slider Default Theme
+Skin URI: http://nivo.dev7studios.com
+Skin Type: flexible
+Description: The default skin for the Nivo Slider.
+Version: 1.2
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+*/
+
+.theme-default .nivoSlider {
+	position:relative;
+	background:#fff url("/assets/loading.gif") no-repeat 50% 50%;
+    margin-bottom: 4px;
+    margin-top: -6px;
+}
+
+.theme-default .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-default .nivoSlider a {
+	display:block;
+}
+
+.theme-default .nivo-controlNav {
+	text-align: left;
+	padding: 20px 0;
+}
+.theme-default .nivo-controlNav a {
+	display:inline-block;
+	width:22px;
+	height:22px;
+	background:url(/assets/bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin: 0 2px;
+}
+.theme-default .nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+
+.theme-default .nivo-directionNav a {
+	display:block;
+	width:30px;
+	height:30px;
+	background:url(/assets/arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+
+.theme-default a.nivo-nextNav {
+	background-position:-30px 0;
+	right:15px;
+}
+.theme-default a.nivo-prevNav {
+	left:15px;
+}
+
+.theme-default .nivo-caption {
+    font-family:  'PT Sans', sans-serif;
+}
+.theme-default .nivo-caption a {
+    color:#fff;
+}
+.theme-default .nivo-caption a:hover {
+    color:#fff;
+}
+
+.theme-default .nivo-controlNav.nivo-thumbs-enabled {
+	width: 100%;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled a {
+	width: auto;
+	height: auto;
+	background: none;
+	margin-bottom: 5px;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+	width: 120px;
+	height: auto;
+}
+/* End homepage slider*/
+
+/* Empty views markup*/
+.emptyviewsText
+{
+    position: absolute;
+    margin-left: 470px;
+    margin-top: 130px;
+    font-weight: bold;
+}
+
+.emptyresultsText
+{
+    position: absolute;
+    margin-left: 470px;
+    margin-top: 130px;
+    font-weight: bold;
+    text-align: right;
+}
+/* End Empty views markup*/
+
+/* Static page wrapper*/
+.staticPageNav .span3
+{
+    width: 170px; 
+    margin-bottom: 40px; 
+    border-bottom: 1px solid #E6E6E6;
+}
+
+.staticPageWrapper
+{
+    margin-top: 17px;
+    border: 1px solid #E6E6E6;
+    width: 729px;
+    height: auto;
+    margin-left: 19px;
+    background-color: WhiteSmoke;
+    margin-bottom: 70px; 
+    padding-bottom: 20px;
+}
+
+.staticPageWrapper .padding
+{
+    padding-top: 10PX;
+    padding-left: 26PX;
+    padding-right: 26PX;
+}
+
+.staticPageWrapper .inputwidth
+{
+    width: 350px;
+}
+
+.staticPageBorder
+{
+    border-top: 1px solid #cdd0d4; 
+    margin-top: 10px;
+}
+
+.termsPadding
+{
+    padding-left: 15px;
+}
+
+.aboutUsImg
+{
+    height: 280px;
+    width: 690px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.aboutUsFont
+{
+    font-size: 14px;
+}
+/* End Static page wrapper*/
+
+/* credit card validation */
+form input.valid {
+  background: url(/assets/tick.png) 260px center no-repeat;
+  background-size: 15px;
+}
+
+.cards {
+  overflow: hidden;
+}
+.cards li {
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+  background-image: url(/assets/card_logos.png);
+  background-position: 0 0;
+  float: left;
+  height: 32px;
+  margin-right: 8px;
+  text-indent: -9999px;
+  width: 51px;
+}
+.cards li:last-child {
+  margin-right: 0;
+}
+.cards .visa_electron {
+  background-position: 204px 0;
+}
+.cards .mastercard {
+  background-position: 153px 0;
+}
+.cards .maestro {
+  background-position: 102px 0;
+}
+.cards .discover {
+  background-position: 51px 0;
+}
+.cards .visa.off {
+  background-position: 0 32px;
+}
+.cards .visa_electron.off {
+  background-position: 204px 32px;
+}
+.cards .mastercard.off {
+  background-position: 153px 32px;
+}
+.cards .maestro.off {
+  background-position: 102px 32px;
+}
+.cards .discover.off {
+  background-position: 51px 32px;
+}
+/* end credit card validation */
+
+/* form validation CSS */
+input[type='text'].required, textarea.required { 
+	/*background: url(/assets/required-input.png) right 2px no-repeat;*/
+}
+input[type='text'].invalid, textarea.invalid, select.invalid { 
+	border-color: #E80000 ; /*#C1272D;*/
+}
+input[type='text'].inactive, textarea.inactive, select.inactive, option.inactive { 
+	color: #999;
+	font-style: italic;
+}
+/* End form validation CSS */

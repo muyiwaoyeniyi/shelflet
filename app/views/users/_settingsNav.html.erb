@@ -1,0 +1,29 @@
+
+
+     <div class="container">  
+                <div class="span3"> <!--Side Nav Bar-->             
+                    <ul class="nav nav-pills nav-stacked">  
+                      <li class="active">
+
+                     <%= link_to "General",  edit_user_path(current_user) %>
+                      </li>
+
+                      <li><a href="#">Billing Info</a></li>  
+                      <li><a href="#">Payout</a></li>                      
+                   </ul>
+                </div><!--side Nav Bar-->
+          </div>
+         <div class="container">
+                <div class="span3"> <!--Side Nav Bar-->             
+                    <ul class="nav nav-pills nav-stacked">
+                      <li>
+ 					<%= link_to current_user do %>
+                        <i class="icon-book"></i>Return to Shelf
+                        <% end %>
+
+                      </li>  
+                   </ul>
+                </div><!--side Nav Bar-->
+               </div>
+             </div>
+           </div>

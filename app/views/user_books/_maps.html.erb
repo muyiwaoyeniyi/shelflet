@@ -1,0 +1,56 @@
+
+<div class="row">
+              <div class="span4">
+              <div class="DescriptionBoxText">Estimated Location</div>
+                 <div class="DescriptionBorder"></div>
+
+<div class="Map">
+    
+   	<div class="project_map_wdgt">
+		<script type="text/javascript"
+      		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCC5GZYiojTOSgN1nGr_hcII98-0IRbi9U&sensor=false">
+		</script>
+
+
+<script type="text/javascript">
+		function initialize() {
+			 geocoder = new google.maps.Geocoder();
+		var mapOptions = {
+		        zoom: 15,
+		        disableDefaultUI: true,
+		        // center: latlng,
+		      mapTypeId: google.maps.MapTypeId.ROADMAP
+		    }
+		var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+		return map;
+		}
+
+		function codeAddress() {
+		    var address = "<%= @user_book.location %>";//document.getElementById("address").value;
+		    geocoder.geocode( { 'address': address}, function(results, status) {
+		      if (status == google.maps.GeocoderStatus.OK) {
+		        map.setCenter(results[0].geometry.location);
+		        var marker = new google.maps.Marker({
+		            map: map,
+		            position: results[0].geometry.location
+		        });
+		      } else {  //need to change this
+		        alert("Geocode was not successful for the following reason: " + status);
+		      }
+		    });
+		  }
+
+		$(document).ready(function(){
+		map = initialize();
+	    codeAddress();
+	   });
+</script>
+
+<div id="map_canvas" style="width: 300px; height: 204px;"></div>
+
+     	</div>
+     </div>
+
+   </div>
+
+ </div>

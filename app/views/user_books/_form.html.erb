@@ -1,0 +1,201 @@
+
+
+<%= form_for(@user_book, html: { multipart: true }) do |f| %>
+
+  <% if @user_book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_book.errors.count, "error") %> prohibited this book from been saved:</h2>
+
+      <ul>
+      <% @user_book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+
+
+ <div id="google_books_result">
+        
+  </div>
+
+
+
+ <div class="control-group">
+                  <label class="control-label" for="Title">Title</label>
+                  <div class="controls">
+    <%= f.text_field :title, placeholder: "autocompletion by google...", id: "book_title", :class => "input-xlarge input-title" %>
+  </div>
+</div>
+
+
+<div class="partition">
+              <div style="float: left;">
+                <div class="control-group">
+                  <label class="control-label" for="ISBN">ISBN</label>
+                  <div class="controls">
+
+                    
+      <%= f.text_field :isbn, id: "ISBN", :class => "input-xlarge" %>
+
+                  </div>
+                </div>  
+
+                <div class="control-group">
+                  <label class="control-label" for="Author">Author(s)</label>
+                  <div class="controls">
+
+                    <%= f.text_field :author, id: "ISBN", :class => "input-xlarge" %>
+
+                  </div>
+                </div>     
+
+                <div class="control-group">
+                  <label class="control-label" for="Publisher">Publisher(s)</label>
+                  <div class="controls">
+
+                    <%= f.text_field :publisher, id: "Publisher", :class => "input-xlarge" %>
+
+                  </div>
+                </div>
+                </div>
+
+                <div style="float: right;">
+                  <div class="thumbnail">
+                    <#img src="http://placehold.it/100x116" alt="Picture"></div>
+                 </div>        
+               </div>
+
+               <div class="control-group" style="clear: both;">
+                  <label class="control-label" for="Edition">Edition</label>
+                  <div class="controls">
+
+                    <%= f.text_field :edition, id: "Edition", :class => "input-mini mini-fix" %>
+
+                  </div>
+                </div>
+
+                <div class="control-group">
+                  <label class="control-label" for="Category">Category:</label>
+                  <div class="controls">
+                    <%= select("user_book", "category", Category.all.collect {|p| [ p.name, p.id ] }, { :prompt => true }, :id => "Category", :class => "input-xlarge") %>
+
+                      <%= f.text_field :otherCategory, id: "otherCategory", :style => "margin-top: 0px;", :placeholder => "Enter category" %>
+                     
+                  </div>
+                </div>
+              
+                <div class="control-group">
+                  <label class="control-label" for="Description">Description</label>
+                  <div class="controls">
+                    
+                    <%= f.text_area :description, id: "Description", :rows => 5, :cols => 3, :class => "input-xlarge" %>
+
+                  </div>
+                </div>
+
+                  <div class="control-group">
+                  <label class="control-label" for="Condition">Condition</label>
+                  <div class="controls">
+
+                    <%= select("user_book", "condition_id", Condition.all.collect {|p| [ p.name, p.id ] }, { :prompt => true }, :id => "Condition", :class => "input-xlarge") %>
+
+                    <p class="help-block" style="margin-top: 7px;">
+                       <%= f.text_area :conditionNotes, id: "ConditionNotes", :rows => 2, :cols => 3, :class => "input-xlarge", :placeholder => "Enter additional condition notes (optional)" %>
+                    </p>
+                  </div>
+                </div> 
+
+
+             <p class="listing-text" style="margin-top: 30px;">Enter Rental Information</p>
+             <div class="listing-text-border"></div>              
+              <div class="form-inline">
+               <div class="control-group" style="display: inline-table;">
+               <label class="control-label" for="First Name">Price($/Month)</label>
+                 <div class="controls">
+
+                  <%= f.text_field :price, :class => "input-mini", :id => "Price" %>
+
+                  </div>
+                </div>
+
+
+                 <div class="control-group" style="display: inline-table; margin-left: 30px;">          
+                   <label class="control-label" for="Suggested Price">Suggested Price</label>
+                   <div class="controls">
+                   <span class="input-append">
+
+                  <%= f.text_field :suggestedPrice, :class => "input-mini", :id => "SuggestedPrice", :disabled => true, :size => 16 %>
+
+                    <a class="btn Locationtip" href="#">tip</a>                        
+                   </span>
+                    </div>               
+                   </div>
+                 </div>
+
+
+                  <div class="control-group">
+               <label class="control-label" for="First Name">Location</label>
+                 <div class="controls">
+                   <div class="input-append">
+
+                    <%= f.text_field :location, :class => "input-large", :id => "Location", :placeholder => "Ex. Seattle, WA", :size => 16 %>
+
+                    <a class="btn Locationtip" href="#">tip</a>
+                   </div>
+                 </div> 
+              </div>
+
+               <div class="control-group">
+               <label class="control-label" for="Quantity">Quantity</label>
+                 <div class="controls">
+                   
+                   <%= f.text_field :quantity, :class => "input-mini mini-fix", :id => "Quantity" %>
+
+                  </div>
+                 </div>
+
+
+                <div class="control-group">
+               <label class="control-label" for="First Name">Rental Durations (Month) <a href="#" class="Default">?</a></label>
+                 <div class="controls form-inline" style="margin-top: -7px;">
+                   <label class="checkbox inline">  
+                    <%= f.check_box :duration1, :id => "Checkbox1" %>1
+                 
+               </label> 
+               <label class="checkbox inline">  
+
+                   <%= f.check_box :duration2, :id => "Checkbox2" %>2                 
+               </label>
+               <label class="checkbox inline">  
+
+                  <%= f.check_box :duration3, :id => "Checkbox3" %>3
+
+               </label>
+               <a href="#"><p class="help-block" style="margin-top: 1px;">You may select 2 or more!</p></a>
+                  </div>
+                </div>
+
+      <div class="control-group">
+         <label class="control-label" for="Photos"></label>
+            <div class="controls">
+          </div>
+        </div> 
+
+                  <div class="listingButtons">
+                    
+                    <%= button_tag(:type => 'submit', :class => 'btn btn-info', :name => "commit", :disable_with => "Please Wait...") do %>
+                    <i class="icon-book icon-white"></i>Add to Shelf!
+                    <% end %>
+                    
+                    <%=  file_field_tag 'user_book[user_book_photos_attributes][][photo]', :multiple => true do |p| %>
+                            <%= p.file_field :photo %> 
+                     <% end %>
+                  </div>
+
+                <% end %>           
+           </fieldset>
+             </div>
+           </div>
+         
+          </div></div>

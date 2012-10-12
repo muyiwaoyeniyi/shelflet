@@ -1,0 +1,41 @@
+
+<% provide :title, @user_book.book.title %>
+
+<%= render "shared/searchbar" %>
+
+
+ <div class="container">
+        <div class="row">
+         <div class="span3">
+          <div class="SidebarWrapper">  
+
+
+		<% if can? :update, @user_book %>  
+			<%= render "shared/snapshot" %>
+
+			<%= render "shared/shelfNav" %>
+		<% else %>
+			<%= render "shared/sidenavSearch" %>
+		</div></div></div>
+
+        <% end %>
+ <div class="span9">
+        
+         <div class="row" style="margin-left: 0px;">
+           <div id="BookColumnWrapper"> 
+            <ul>
+
+
+
+<%= render "bookInfo" %>
+
+<%= render "bookInfoMore" %>
+
+
+
+</div>
+
+           </div>
+         </div>
+       </div>
+

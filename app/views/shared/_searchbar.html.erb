@@ -1,0 +1,27 @@
+    
+
+      <div class="container"> <!--Search Bar -->
+           <div class="row">
+               <div class="span12">
+               <div class="SearchWrapper">
+
+                 
+                      <%= form_tag books_path, method: :get, :class =>"well form-search", :id => "SearchBar" do %>
+                        <div class="">
+                             <%= text_field_tag :search, params[:search], :class => "input-medium search-query", :placeholder => "Enter textbook name, author or ISBN here" %>
+                                <%#= submit_tag "Search", name: nil, :class => "btn" %>
+
+
+                                <%= button_tag(type: 'submit', class: "btn", name: nil, ) do %>
+                                    <i class="icon-search"></i> Search
+                                    <% end %>
+                         </div>
+                        <% end %>
+                  </div>                    
+               </div>
+            </div>
+         </div> <!-- Search Bar -->
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<p id="notice"><%= notice %></p>

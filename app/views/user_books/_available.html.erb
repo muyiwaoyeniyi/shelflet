@@ -1,0 +1,31 @@
+
+
+
+<% if (@user_book.duration1 == true) && (@user_book.duration2 == false) && (@user_book.duration3 == false)  %>
+
+<p>Available: <span class="Availability">1</span> Month</p>
+
+<% elsif (@user_book.duration1 == true) && (@user_book.duration2 == true) && (@user_book.duration3 == true) %>
+
+<p>Available: <span class="Availability">1, 2 or 3</span> Months</p>
+
+<% elsif (@user_book.duration1 == false) && (@user_book.duration2 == false) && (@user_book.duration3 == true) %>
+
+<p>Available: <span class="Availability">3</span> Months</p>
+
+
+<% elsif (@user_book.duration1 == true) && (@user_book.duration2 == true) && (@user_book.duration3 == false) %>
+
+<p>Available: <span class="Availability">1 or 2</span> Months</p>
+
+
+<% elsif (@user_book.duration1 == false) && (@user_book.duration2 == true) && (@user_book.duration3 == true) %>
+
+<p>Available: <span class="Availability">2 or 3</span> Months</p>
+
+<% elsif (@user_book.duration1 == false) and (@user_book.duration2 == true) and (@user_book.duration3 == false) %>
+
+<p>Available: <span class="Availability">2</span> Months</p>
+
+
+<% end %>

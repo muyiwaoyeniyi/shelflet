@@ -1,0 +1,26 @@
+
+                  <div class="RL_Wrapper">
+
+                  
+            
+
+               <h3>Recent Listings</h3>
+               <ul class="thumbnails">
+                <% @recentListings.each do |w| %>
+                  <li class="span3">
+
+                    <%= link_to user_book_path(w), :class => "thumbnail" do %>
+                          <%= image_tag "placehold.jpg", :alt => "Cover Photo" %>
+                        <% end %>
+                    <p><a href="#">$<span class="Price"><%= w.price %></span> | 1 month</a></p>
+                  </li>
+
+                  <% end %>                 
+                </ul>   
+                </div>         
+
+              
+
+                /*<img src="99x120" alt="">*/
+
+                /*<li class="span3" style="margin-right: 0px;">*/

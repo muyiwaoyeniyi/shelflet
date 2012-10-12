@@ -1,0 +1,151 @@
+<% provide(:title, "My Shelf") %>
+
+<div class="MainBodyWrapper">
+
+    <%= render "shared/searchbar" %>
+
+
+ <div class="container">
+        <div class="row">
+         <div class="span3">
+          <div class="SidebarWrapper">       
+
+  <%= render "shared/sidenavSearch" %>
+      
+    </div>
+  </div>
+</div>
+
+<div class="span9">
+          <div id="BookColumnWrapper"> 
+
+            <ul>
+
+              <% @books.each do |book| %>
+
+
+
+              <% book.user_books.each do |w| %>
+
+          <li class="thumbnail">
+                      
+                    
+                    <div class="BCWLeft">
+
+                      <%= link_to user_book_path(w), :class => "Title" do %>
+                          <%= image_tag "placehold.jpg", :alt => "Cover Photo" %>
+                        <% end %>
+                    <p><%= link_to "more", :rel => "gallery1", :class => "fancybox more" %> <p>
+
+
+                     <div style="display:none">
+                      <div id="morephotos">
+                        <% w.user_book_photos.each do |r| %>
+                        <a class="fancybox" rel="gallery1"><%= image_tag r.photo, :alt => "" %> </a>
+                        <% end %>
+                       </div>
+                      </div> 
+
+                      </div>
+
+                   <div class="BCWCenter">
+
+                      <%= link_to user_book_path(w), :class => "Title" do %>
+                          <strong> <%= w.book.title %></strong>
+                        <% end %>
+                      
+                      <p class="Author" style="margin-top: -7px;">By   <%= w.book.author %>  </p>
+                      <p class="Edition" style="padding-top: 10px;">Edition:<span> <%= w.book.edition %> </span> </p>             
+
+                      <div class="BCWCenter_Border"></div>
+                      <p style="margin-left: -3px; margin-bottom: 2px;">
+                         <%= link_to user_book_path(w), :style => "margin-left: -3px; margin-bottom: 2px;" do %>
+                                ><i class="icon-map-marker"></i> <%= w.location %>
+                        <% end %>
+                           </p>
+                      
+                      <p><span class="numberOfBooks" href="#"><%= w.user.user_books.count %> Books from Lister</span>
+                        <span class="pipe">|</span>
+                      <span>
+
+                        <%= link_to user_book_path(w), :class => "Condition" do %>
+                        <%= w.condition.name %>
+                        <% end %>
+
+                        </span>
+                      <span style="margin-left: 6px; margin-right: 2px;">|</span>
+                      <span><span class="reviews" href="#">0 reviews</span></span><span><a href="#">
+                      <i class="icon-envelope" style="margin-left: 10px; margin-top: 2px;"></i></a></span></p>
+
+
+                   </div>
+
+                   <div class="BCWRight BCWRight_Fix">                  
+
+          
+                           
+                      <p><strong>Rental Price: $<span class="Price">  <%= w.price %></span> / Month</strong></p>
+
+                      <div class="BCWRight_Border style="margin-top: -5px; margin-bottom: 10px;""></div>
+
+                <form action="#" class="form-inline" style="margin-top: 11px; margin-bottom: -5px;">
+
+                  <div class="control-group">
+                        <label style="margin-top: -10px;" class="control-label" for="inlineCheckboxes">Rental Duration (month)
+                        <span><a href="#" style="font-size: 12px; margin-left: 1px;" class="Default">?</a></span></label>
+                        <div class="controls" style="margin-top: -6px; margin-bottom: 12px;">
+
+                      <% if (w.duration1 == true) %>
+
+                            <%= radio_button_tag(:duration, "1", true) %>
+                              <%= label_tag "1", nil, :class => "radio inline" %>
+
+                      <% else %>
+
+                          <%= radio_button_tag(:duration, "1", false, :disabled => true) %>
+                              <%= label_tag "1", nil, :class => "radio inline" %>
+                      <% end %>
+
+                      <% if (w.duration2 == true) %>
+
+                            <%= radio_button_tag(:duration, "2", true) %>
+                              <%= label_tag "2", nil, :class => "radio inline" %>
+
+                      <% else %>
+
+                          <%= radio_button_tag(:duration, "2", false, :disabled => true) %>
+                              <%= label_tag "2", nil, :class => "radio inline" %>
+                      <% end %>
+
+                      <% if (w.duration3 == true) %>
+
+                            <%= radio_button_tag(:duration, "3", true) %>
+                              <%= label_tag "3", nil, :class => "radio inline" %>
+
+                      <% else %>
+
+                          <%= radio_button_tag(:duration, "3", false, :disabled => true) %>
+                              <%= label_tag "3", nil, :class => "radio inline" %>
+                      <% end %>
+
+                      
+                    </div>                        
+                      </div>
+                  </form>
+
+            <button type="submit" class="btn btn-mini btn-info" disabled><i class="icon-shopping-cart icon-white"></i>Add to Cart</button>
+                     
+                       </div>
+                    </li>
+              
+               <% end %>
+                <% end %>
+                </ul>
+               </div>
+
+         </div>
+       </div>
+    </div>
+  
+
+

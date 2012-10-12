@@ -1,0 +1,164 @@
+<% provide(:title, "My Shelf") %>
+
+<div class="MainBodyWrapper">
+
+    <%= render "shared/searchbar" %>
+
+
+ <div class="container">
+        <div class="row">
+         <div class="span3">
+          <div class="SidebarWrapper">       
+           
+<%= render "shared/snapshot" %>
+
+  <%= render "shared/shelfNav" %>
+
+
+<div class="span9">
+          <div id="BookColumnWrapper"> 
+
+
+<% if @user_books_count == 0 %> 
+  
+<div class="emptyShelf">
+                 <p><strong>You currently have zero books in Your Shelf. Start Listing on Shelflet!</strong></p>
+                 <div class="emptyviewsText">
+                 <a class="btn btn-info" href="/list">Add Books to Your Shelf</a><br /><br />
+                 <a class="btn btn-danger">Learn more</a><br /><br />
+                 <p>We're here for you! Let us<br />know if you have any<br />questions or concerns at<br />hello@shelflet.com</p>               
+                 </div>
+                 <p style="border-top: 1px solid #E6E6E6;"></p>
+                 <p><img src="/assets/Shelflet-empty.jpg" width="700" height="450" 
+                        style="margin-top: 7px; margin-bottom: 75px" alt="Smiley"/></p>                
+            </div>
+</div>
+       </div>
+     </div>
+      
+
+<% else %>
+            <ul>
+              <% @user_books.each do |w| %>
+
+          <li class="thumbnail">
+
+                    <div class="BCWLeft">
+
+                      <%= link_to user_book_path(w), :class => "Title" do %>
+                          <%= image_tag "placehold.jpg", :alt => "Cover Photo" %>
+                        <% end %>
+                    <p><%= link_to "more", :rel => "gallery1", :class => "fancybox more" %> <p>
+
+
+                     <div style="display:none">
+                      <div id="morephotos">
+                        <% w.user_book_photos.each do |r| %>
+                        <a class="fancybox" rel="gallery1"><%= image_tag r.photo, :alt => "" %> </a>
+                        <% end %>
+                       </div>
+                      </div> 
+
+                      </div>
+
+                   <div class="BCWCenter">
+
+                      <%= link_to user_book_path(w), :class => "Title" do %>
+                          <strong> <%= w.book.title %></strong>
+                        <% end %>
+                      
+                      <p class="Author">By   <%= w.book.author %>  </p>
+
+                      <p class="Edition">Edition:<span> <%= w.book.edition %> </span> </p>
+                      
+
+                      <div class="BCWCenter_Border"></div>
+                      <p class="map-marker"><i class="icon-map-marker"></i>  
+                         <%= link_to user_book_path(w) do %>
+                        <%= w.location %>
+                        <% end %>
+                           </p>
+
+                      <p>Quantity: <span class="Quantiy">  <%= w.quantity %> 
+
+                      </span><span class="pipe">|</span><span><a href="#" class="Condition">
+
+                        <%= link_to user_book_path(w) do %>
+                        <%= w.condition.name %>
+                        <% end %>
+
+                      </a></span><span class="pipe">|</span>
+
+                      <span><span class="reviews" href="#">0 reviews</span></span></p>
+                   </div>
+
+                   <div class="BCWRight BCWRight_Fix">                  
+
+          <%= link_to 'x', w, confirm: 'Are you sure', method: :delete, :class => "x_icon_fix" %>
+                           
+                      <p><strong>Rental Price: $<span class="Price">  <%= w.price %></span> / Month</strong></p>
+
+                      <div class="BCWRight_Border"></div>
+
+                      <p>Listed: <span class="orderDate">  <%= w.created_at.strftime("%b %d, %y")  %>   </span></p>
+
+                     
+
+
+                     
+
+                      <% if (w.duration1 == true) && (w.duration2 == false) && (w.duration3 == false)  %>
+
+                          <p>Available: <span class="Availability">1</span> Month</p>
+
+                      <% elsif (w.duration1 == true) && (w.duration2 == true) && (w.duration3 == true) %>
+
+                        <p>Available: <span class="Availability">1, 2 or 3</span> Months</p>
+
+                    <% elsif (w.duration1 == false) && (w.duration2 == false) && (w.duration3 == true) %>
+
+                        <p>Available: <span class="Availability">3</span> Months</p>
+
+
+                    <% elsif (w.duration1 == true) && (w.duration2 == true) && (w.duration3 == false) %>
+
+                      <p>Available: <span class="Availability">1 or 2</span> Months</p>
+
+
+                    <% elsif (w.duration1 == false) && (w.duration2 == true) && (w.duration3 == true) %>
+
+                    <p>Available: <span class="Availability">2 or 3</span> Months</p>
+
+                          <% elsif (w.duration1 == false) and (w.duration2 == true) and (w.duration3 == false) %>
+
+                    <p>Available: <span class="Availability">2</span> Months</p>
+
+
+                      <% end %>
+
+
+
+
+                     
+
+            <button type="submit" class="btn btn-info" disabled><i class="icon-bullhorn icon-white"></i>Promote</button>
+                      <span>
+
+
+                       <%= link_to edit_user_book_path(w), :class => "btn" do %>
+                           <i class="icon-edit"></i>Edit
+                        <% end %>
+
+
+                        </span>
+                       </div>
+                    </li>
+                
+                <% end %>
+
+              </ul>
+          </div>
+       </div>
+     </div>
+</div>
+  <% end %>

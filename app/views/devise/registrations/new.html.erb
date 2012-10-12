@@ -1,0 +1,60 @@
+<% provide(:title, 'Sign up') %>
+    <div class="MainBodyWrapper">
+ 
+     <%= render "shared/searchbar" %>
+
+     <%= devise_error_messages! %>
+
+<div class="container">
+        <div class="row">         
+        <div class="span12">
+        <div id="SettingsBoxWrapper">
+           <div id="FormsWrapper"> 
+           <%= link_to image_tag("facebook.png"), user_omniauth_authorize_path(:facebook), :class => "FacebookConnect" %>
+            <h6>or</h6>
+            <div id="signUpFormsWrapper">
+            <fieldset>
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:id => "signupForm", :class => "form-horizontal" } ) do |f| %>
+	        
+
+                <div class="control-group">
+                    <div class="controls">
+
+                         <%= f.text_field :first_name, :class => 'input-small required', :id => "FirstName", :placeholder => "Enter First Name" %>
+                         <%= f.text_field :last_name, :class => 'input-small required', :id => "LastName", :placeholder => "Enter Last Name" %>
+
+                     </div>
+                    </div>
+                 <div class="control-group">
+                    <div class="controls">
+
+                       <%= f.text_field :school_or_city, :class => 'input-xlarge required', :id => "School/City", :placeholder => "Enter School or City" %>
+
+                    </div>
+                </div>                         
+                 <div class="control-group">
+                    <div class="controls">
+
+                       <%= f.email_field :email, :class => 'input-xlarge required email', :id => "EmailAddress", :placeholder => "Enter Email Address" %>
+
+                    </div>
+                </div>              
+             <div class="control-group">
+                    <div class="controls"> 
+
+                       <%= f.password_field :password, :class => 'input-small required', :id => "Password", :placeholder => "Enter Password" %>
+                       <%= f.password_field :password_confirmation, :class => 'input-small required', :id => "VerifyPassword", :placeholder => "Enter Password" %>
+
+                    </div>
+                </div>
+               <%= f.submit "Sign Up!", :class => "btn btn-info" %>
+               <% end %>
+               <p class="text-fix">By signing up, you agree to the <a href="/terms" class="Default">Terms of Use.</a> © 2012 Shelflet Inc. We are your friends!</p>               
+            </fieldset>
+            </div>
+            </div>
+         </div>
+         </div>
+        </div>
+        </div></div>
+

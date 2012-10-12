@@ -1,0 +1,101 @@
+<% provide(:title, 'Contact Us') %>
+
+    <div class="MainBodyWrapper">
+
+       <%= render "shared/searchbar" %>
+
+<%= form_for @message do |f| %>
+
+  <% if @user_book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_book.errors.count, "error") %> prohibited this user_book from being saved:</h2>
+
+      <ul>
+      <% @user_book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <p>hello</p>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+
+
+       <div class="container">
+        <div class="row">
+
+       <div class="staticPageNav">
+                <div class="span3"> <!--Side Nav Bar-->             
+                    <ul class="nav nav-pills nav-stacked">
+                      <li class="nav-header">Useful Links</li> 
+                      <li><a href="/about">About Us</a></li>  
+                      <li><a href="http://blog.shelflet.com">Blog</a></li>  
+                      <li class="active"><a href="/contact">Contact Us</a></li>  
+                      <li><a href="/faqs">FAQs</a></li>  
+                      <li><a href="/howitworks">How it Works</a></li> 
+                      <li><a href="/privacy">Privacy Policy</a></li> 
+                      <li><a href="/storeowners">Store Owners</a></li>  
+                      <li><a href="/terms">Terms & Conditions</a></li>
+                   </ul>
+                   <img src="/assets/Shelflet-Fotolia.jpg" alt="smiley" />
+                </div><!--side Nav Bar-->
+            </div>
+
+
+        <div class="span9">
+           <div class="staticPageWrapper"> 
+               <div class="padding">
+                <p><strong style="font-size: 15px;">Tell Us More</strong></p>
+                <p>For all questions, comments or general feedback, kindly drop us a line by completing our contact form below or at     help@shelflet.com</p>
+               </div>
+               <div class="staticPageBorder"></div>
+               <div class="padding">
+                 <#form action="#" class="form-inline" style="margin-bottom: 35px; margin-top: 10px;">
+                <div class="partition">
+                <div style="float: left;">
+                <div class="control-group">
+                  <label class="control-label" for="Title">What is your Name?</label>
+                  <div class="controls">
+                    <%= f.text_field :name, placeholder: "", id: "Name", :style => "width:350px", :class => "input-xlarge inputwidth" %>
+                    <#input type="text" class="input-xlarge inputwidth" id="Name" placeholder="" style="width: 350px;">
+                  <#/div>
+                </div>
+                </div>
+                <div style="float: right;">
+                <div class="thankyouBox" style="margin-left: 0px; margin-left: 20px; margin-top: 20px; width: 270px;"> 
+                 <div class="thankyouBoxText" style="padding-left: 20px;">Share with friends!</div>
+                 <div class="thankyouBorder"></div>
+                 <div class="thankyouDetails" style="padding-left: 20px;"> 
+                    <p>Tell your awesome friends or followers on Facebook/twitter about Shelflet!</p>
+                    <img src="/assets/shout.jpg" width="120" height="80" alt="Smiley" />
+                  </div>      
+                 </div>
+                </div>
+               </div>
+                 <div class="control-group">
+                  <label class="control-label" for="ISBN">What is your Email Address?</label>
+                  <div class="controls">
+
+                    <%= f.text_field :email, id: "Email", :class => "input-xlarge inputwidth" %>
+                    <#input type="text" class="input-xlarge inputwidth" id="Email"><#/div>
+                  </div>
+                <div class="control-group">
+                  <label class="control-label" for="Author">Subject of your Inquiry?</label>
+                  <div class="controls">
+                    <%= f.text_field :subject, id: "Subject", :class => "input-xlarge inputwidth" %>
+                    <#input type="text" class="input-xlarge inputwidth" id="Subject">
+                  <#/div>
+                </div>              
+                <div class="control-group">
+                  <label class="control-label" for="Publisher">How can we be of help?</label>
+                  <div class="controls">
+                    <textarea class="input-xlarge inputwidth" id="InquiryNotes" rows="10" cols="3" ></textarea>
+                  </div>
+                </div>
+                <br /><p><% end %></p><#a class="btn btn-info">Submit message<#/a><#/p>
+             <#/form></div>
+            </div>
+           </div>
+         </div>
+       </div>
+
+
