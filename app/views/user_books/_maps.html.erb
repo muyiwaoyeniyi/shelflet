@@ -35,7 +35,8 @@
 		            position: results[0].geometry.location
 		        });
 		      } else {  //need to change this
-		        alert("Geocode was not successful for the following reason: " + status);
+		        $("#map_canvas").html("<img src='/assets/mapNotFound.png' alt='location Not Found' />");
+		        //alert("Geocode was not successful for the following reason: " + status);
 		      }
 		    });
 		  }

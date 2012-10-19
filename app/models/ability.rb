@@ -7,8 +7,8 @@ class Ability
     if user.admin?
        can :manage, :all
     else
-       can [:read, :new, :create ], [ UserBook ]
-       can [:read], [ Book ]
+       can [:show, :new, :create ], [ UserBook ]
+       can [:index], [ Book ]
        can :manage, user
        can :manage, user.user_books
     end

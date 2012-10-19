@@ -5,16 +5,21 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-    # Setup accessible (or protected) attributes for your model
+  #Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_accessible :first_name, :last_name, :school_or_city, :provider, :uid
   
+  #stripping
+  auto_strip_attributes :first_name, :last_name, :school_or_city, :nullify => false, :squish => true
+
+  #Validations
   validates_presence_of :first_name, :last_name, :school_or_city
 
+  #model relationships
   has_many :user_books, :dependent => :destroy
   has_many :books, :through => :user_books
     
-  #devise confirm! method overriden
+  #devise confirm! method overriden for welcome message
   def confirm!
     welcome_message
     super
@@ -22,9 +27,9 @@ class User < ActiveRecord::Base
 
   #for facebook login
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-  user = User.where(:provider => auth.provider, :uid => auth.uid).first
-  unless user
-    user = User.create(first_name:auth.extra.raw_info.first_name,
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    unless user
+      user = User.create(first_name:auth.extra.raw_info.first_name,
                         last_name:auth.extra.raw_info.last_name,
                         provider:auth.provider,
                          uid:auth.uid,
@@ -32,8 +37,8 @@ class User < ActiveRecord::Base
                          school_or_city:auth.info.location,
                          password:Devise.friendly_token[0,20]
                          )
-  end
-   user
+    end
+    user
   end
 
 private

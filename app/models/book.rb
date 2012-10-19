@@ -1,6 +1,6 @@
 class Book < ActiveRecord::Base
    
-    attr_accessible :title, :isbn, :author, :publisher, :edition, :description, :category_attributes#, :isbn
+    attr_accessible :title, :isbn, :author, :publisher, :edition, :description, :category_attributes
 
     #validates_presence_of :title, :isbn, :author, :publisher, :edition, :description
     #validates_numericality_of :edition, :message => "The book edition has to be a number"
@@ -15,8 +15,11 @@ class Book < ActiveRecord::Base
     
     #for sphinx search
     define_index do
+
         # fields
         indexes title#, :sortable => true
+        indexes isbn
+        indexes author
 
     end
 

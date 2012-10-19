@@ -11,12 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010115409) do
+ActiveRecord::Schema.define(:version => 20121016141553) do
 
   create_table "book_categories", :force => true do |t|
     t.integer "category_id"
     t.integer "book_id"
   end
+
+  add_index "book_categories", ["book_id"], :name => "index_book_categories_on_book_id"
+  add_index "book_categories", ["category_id"], :name => "index_book_categories_on_category_id"
 
   create_table "books", :force => true do |t|
     t.string   "title",       :default => "", :null => false
@@ -51,10 +54,12 @@ ActiveRecord::Schema.define(:version => 20121010115409) do
     t.integer  "user_book_id"
   end
 
+  add_index "user_book_photos", ["user_book_id"], :name => "index_user_book_photos_on_user_book_id"
+
   create_table "user_books", :force => true do |t|
-    t.float    "price"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.decimal  "price",          :precision => 8, :scale => 2
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
     t.integer  "book_id"
     t.integer  "user_id"
     t.text     "conditionNotes"
@@ -65,6 +70,10 @@ ActiveRecord::Schema.define(:version => 20121010115409) do
     t.integer  "quantity"
     t.integer  "condition_id"
   end
+
+  add_index "user_books", ["book_id"], :name => "index_user_books_on_book_id"
+  add_index "user_books", ["condition_id"], :name => "index_user_books_on_condition_id"
+  add_index "user_books", ["user_id"], :name => "index_user_books_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false

@@ -1,6 +1,6 @@
 class UserBooksController < ApplicationController
 
-   before_filter :authenticate_user!, except: [:index, :show, :new]
+   before_filter :authenticate_user!, except: [:index, :show]
    
    load_and_authorize_resource  
 
@@ -31,7 +31,7 @@ class UserBooksController < ApplicationController
   # GET /user_books/new.json
   def new
       @user_book = UserBook.new   
-      @user_book.from_cheapbooks     #for price suggestion
+      #@user_book.from_cheapbooks     #for price suggestion
       @user_book.user_book_photos.build 
 
     respond_to do |format|
@@ -52,24 +52,27 @@ class UserBooksController < ApplicationController
     @user_book.edition = @book.edition
     @user_book.isbn = @book.isbn
     @user_book.category = @book.categories.first.id   #would need to change this when we add multicategories
+    #@user_book.user.user_book_photos = @book.categories.first.id
 
   end
 
   # POST /user_books
   # POST /user_books.json
-  def create
-    @user_book = UserBook.new(params[:user_book]) 
-    @user_book = current_user.user_books.build(params[:user_book])      
-        
-    respond_to do |format|
-      if @user_book.save
-        format.html { redirect_to @user_book, notice: 'User book was successfully created.' }
-        format.json { render json: @user_book, status: :created, location: @user_book }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @user_book.errors, status: :unprocessable_entity }
+  def create    
+  
+       @user_book = UserBook.new(params[:user_book])
+       @user_book = current_user.user_books.build(params[:user_book])    
+
+      respond_to do |format|
+        if @user_book.save
+          format.html { redirect_to new_user_book_path, notice: 'Your book was successfully added. You may add more books or go back to your shelf.'  }   #redirect_to @user_book
+          format.json { render json: @user_book, status: :created, location: @user_book }
+        else
+          format.html { render action: "new" }
+          format.json { render json: @user_book.errors, status: :unprocessable_entity }
+        end
+
       end
-    end
   end
 
   # PUT /user_books/1
@@ -79,7 +82,7 @@ class UserBooksController < ApplicationController
 
     respond_to do |format|
       if @user_book.update_attributes(params[:user_book])
-        format.html { redirect_to @user_book, notice: 'User book was successfully updated.' }
+        format.html { redirect_to new_user_book_path, notice: 'Your book was successfully updated. You can add more or go back to your shelf' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -95,8 +98,22 @@ class UserBooksController < ApplicationController
     @user_book.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_books_url }
+      format.html { redirect_to current_user,  notice: 'Your book has been deleted.'}       # redirect_to user_books_url
       format.json { head :no_content }
     end
   end
 end
+
+
+#Check to see if the user is registered/logged in
+    #if User.find_by_email(params[:user_book][:email]).present?           
+     #@user = User.find_by_email(params[:user_book][:email])
+      #current_user = @user
+      #session[:user_book] = params          # Store the form data in the session so we can retrieve it after login
+      #params["user_book"]["user_book_photos_attributes"] = nil   
+    #redirect_to new_user_session_path    # Redirect the user to register/login    
+    #else
+      # If the user is already logged in, proceed as normal
+     # @user_book = UserBook.new(params[:user_book]) 
+     # @user_book = current_user.user_books.build(params[:user_book])      
+    #end  

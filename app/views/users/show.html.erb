@@ -21,20 +21,7 @@
 
 <% if @user_books_count == 0 %> 
   
-<div class="emptyShelf">
-                 <p><strong>You currently have zero books in Your Shelf. Start Listing on Shelflet!</strong></p>
-                 <div class="emptyviewsText">
-                 <a class="btn btn-info" href="/list">Add Books to Your Shelf</a><br /><br />
-                 <a class="btn btn-danger">Learn more</a><br /><br />
-                 <p>We're here for you! Let us<br />know if you have any<br />questions or concerns at<br />hello@shelflet.com</p>               
-                 </div>
-                 <p style="border-top: 1px solid #E6E6E6;"></p>
-                 <p><img src="/assets/Shelflet-empty.jpg" width="700" height="450" 
-                        style="margin-top: 7px; margin-bottom: 75px" alt="Smiley"/></p>                
-            </div>
-</div>
-       </div>
-     </div>
+<%= render "emptyShelf" %>
       
 
 <% else %>
@@ -46,20 +33,24 @@
                     <div class="BCWLeft">
 
                       <%= link_to user_book_path(w), :class => "Title" do %>
-                          <%= image_tag "placehold.jpg", :alt => "Cover Photo" %>
+                          <%= image_tag "placehold.jpg", :alt => "Cover Photo", :width => "88", :height => "114" %>
                         <% end %>
-                    <p><%= link_to "more", :rel => "gallery1", :class => "fancybox more" %> <p>
+                     
+                       <% if w.user_book_photos.present? %>  
 
+             <p><%= link_to "more", w.user_book_photos.first.photo.url, :class => "fancybox more", :rel => "gallery1" %></p>
 
                      <div style="display:none">
                       <div id="morephotos">
                         <% w.user_book_photos.each do |r| %>
                         <a class="fancybox" rel="gallery1"><%= image_tag r.photo, :alt => "" %> </a>
-                        <% end %>
+                        <% end %>  
                        </div>
-                      </div> 
-
                       </div>
+
+                    <% end %>
+
+                    </div>
 
                    <div class="BCWCenter">
 
@@ -73,21 +64,19 @@
                       
 
                       <div class="BCWCenter_Border"></div>
-                      <p class="map-marker"><i class="icon-map-marker"></i>  
-                         <%= link_to user_book_path(w) do %>
+                      <p class="map-marker"><i class="icon-map-marker" style="margin-right: -6px;"></i>  
+                         
                         <%= w.location %>
-                        <% end %>
+                       
                            </p>
 
                       <p>Quantity: <span class="Quantiy">  <%= w.quantity %> 
 
-                      </span><span class="pipe">|</span><span><a href="#" class="Condition">
+                      </span><span class="pipe">|</span><span class="Condition">
 
-                        <%= link_to user_book_path(w) do %>
                         <%= w.condition.name %>
-                        <% end %>
 
-                      </a></span><span class="pipe">|</span>
+                      </span><span class="pipe">|</span>
 
                       <span><span class="reviews" href="#">0 reviews</span></span></p>
                    </div>
@@ -141,7 +130,9 @@
 
                      
 
-            <button type="submit" class="btn btn-info" disabled><i class="icon-bullhorn icon-white"></i>Promote</button>
+            <%#<button type="submit" class="btn btn-info" disabled><i class="icon-bullhorn icon-white" ></i>Promote</button> %>
+                      <a href="#" onclick="return false;" class="btn btn-info element" rel="tooltip" title="We just opened up the listing feature on Shelflet, start listing your old/used books"><i class="icon-bullhorn icon-white" ></i>Promote</a>
+
                       <span>
 
 
@@ -157,6 +148,8 @@
                 <% end %>
 
               </ul>
+
+              <%= will_paginate @user_books %>
           </div>
        </div>
      </div>

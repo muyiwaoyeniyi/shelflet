@@ -13,3 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require custom
+//= require jquery.fancybox.pack.js
+//= require bootstrap-tooltip.js
+//= require bootstrap-alert.js

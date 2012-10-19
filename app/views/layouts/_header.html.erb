@@ -5,9 +5,11 @@
               <a class="brand" href="/">
                <%= image_tag "shelflet.jpg", :alt => "Shelflet", :height => '37' %>
               </a>
+
               <!-- Everything you want hidden at 940px or less, place within here -->
               <div class="nav-collapse">
                 <ul class="nav">
+                  <li><a style="font-size:20px; color: white; margin-left: -20px;" href="/">Shelflet</a></li>
                   <li class="divider-vertical"></li>
                   <li><a href="/list"><strong>List</strong></a></li>         <!--class="active"--> 
                   <li class="divider-vertical"></li>
@@ -22,7 +24,7 @@
                        <%= current_user.email %></li>
                         <% end %>
                      <li class="divider-vertical"></li>
-                     <li><a href="/cart"><i class="icon-shopping-cart icon-white"></i>Cart<span class="cartItems">0</span></a> 
+                     <li><a href="#" onclick="return false;" rel="tooltip" title="We just opened up the listing feature on Shelflet, start listing your old/used books" class="element" data-placement='bottom'><i class="icon-shopping-cart icon-white"></i>Cart<span class="cartItems">0</span></a> 
                      <li class="divider-vertical"></li>
                      <li>  <%= link_to "Logout", destroy_user_session_path, method: :delete %> </li>
  
@@ -34,7 +36,7 @@
                      <li class="divider-vertical"></li>
                      <li>  <%= link_to "Login", new_user_session_path %> </li>
                      <li class="divider-vertical"></li>            
-                     <li><a href="#"><i class="icon-shopping-cart icon-white"></i>Cart<span class="cartItems">0</span></a> 
+                     <li><a href="#" onclick="return false;" rel="tooltip" title="We just opened up the listing feature on Shelflet, start listing your old/used books" class="element" data-placement='bottom'><i class="icon-shopping-cart icon-white"></i>Cart<span class="cartItems">0</span></a> 
 
                   <% end %>   
                  </ul>

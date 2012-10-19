@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def show    
     @user = User.find(params[:id])
-    @user_books = UserBook.find_all_by_user_id(@user.id, :include => [:book])   #find user's books for shelf view
+    @user_books = UserBook.where(:user_id => current_user).paginate(:page => params[:page], :per_page => 5)  #find_all_by_user_id(@user.id, :include => [:book])   #find user's books for shelf view
     @user_books_count = @user_books.count      #for shelf Nav count
   end  
   

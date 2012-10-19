@@ -3,19 +3,18 @@
                 <div class="span3"> <!--Side Nav Bar-->             
                     <ul class="nav nav-pills nav-stacked">  
                       <li class="nav-header">Popular Categories</li> 
-                      <li><a href="#">Accounting</a></li>  
-                      <li><a href="#">Art History</a></li>  
-                      <li><a href="#">Business & Finance</a></li>  
-                      <li><a href="#">Computer Science</a></li>  
-                      <li><a href="#">Communication & Journalism</a></li> 
-                      <li><a href="#">Economics</a></li>  
-                      <li><a href="#">Engineering</a></li>  
-                      <li><a href="#">Mathematics</a></li>  
-                      <li><a href="#">Medicine & Health Sciences</a></li>  
-                      <li><a href="#">Nursing</a></li>  
-                      <li><a href="#">Political Science</a></li>
-                      <li><a href="#">Psychology</a></li>  
-                      <li><a href="#"><i class="icon-plus-sign"></i>More</a></li>   
+                      <li><%= link_to "Accounting", :controller => "books", :search => "accounting" %></li>
+                      <li><%= link_to "Art History", :controller => "books", :search => "art history" %></li>
+                      <li><%= link_to "Business & Finance", :controller => "books", :search => "business & finance" %></li>
+                      <li><%= link_to "Computer Science", :controller => "books", :search => "computer science" %></li>
+                   <li><%= link_to "Communication & Journalism", :controller => "books", :search => "communication & journalishm" %></li>
+                      <li><%= link_to "Economics", :controller => "books", :search => "economics" %></li>
+                      <li><%= link_to "Engineering", :controller => "books", :search => "engineering" %></li>
+                      <li><%= link_to "Mathematics", :controller => "books", :search => "mathematics" %></li>
+                   <li><%= link_to "Medicine & Health Sciences", :controller => "books", :search => "medicine & health sciences" %></li> 
+                      <li><%= link_to "Nursing", :controller => "books", :search => "nursing" %></li>
+                      <li><%= link_to "Political Science", :controller => "books", :search => "political science" %></li>
+                      <li><%= link_to "Psychology", :controller => "books", :search => "psychology" %></li>
                    </ul>
                 </div><!--side Nav Bar-->
 

@@ -1,4 +1,4 @@
-<% provide(:title, 'Home') %>
+<% provide(:title, 'Rent Books. Book Rentals') %>
 
 
 <% content_for :javascript_includes do %>
@@ -18,40 +18,26 @@
                   <div class="slider-wrapper theme-default">
                   <div class="ribbon"></div>
                         <div id="slider" class="nivoSlider">
-		            <%= image_tag "homepage1.jpg", :alt => "slider1", :title => "#htmlcaption1" %>
-                            <%= image_tag "homepage2.jpg", :alt => "", :title => "#htmlcaption2" %>
-                            <%= image_tag "homepage3.jpg", :alt => "", :title => "#htmlcaption3" %>                            
+		            <%= image_tag "homepage3.jpg", :alt => "slider1", :title => "#htmlcaption1" %>
+                            <%= image_tag "homepage2.jpg", :alt => "", :title => "#htmlcaption2" %>                      
                         </div>
-                    </div>
-                    <div id="htmlcaption1" class="nivo-html-caption">
-                        <p style="margin-left: 12px;"><strong>Hey Genius! Rent out Your<br />idle Textbooks and Earn More,<br /> instead of Selling at a Fraction<br />
-                        of what You Paid.<br /><br />
-                        List Your Books to Start<br />Renting to Your Peers!<br />
-                        <p style="margin-right: 32px; text-align: right; font-weight: bold;">Need a textbook for the semester?</p>
-                        <a style="margin-left: 17px;" class="btn btn-info" href="/list">Start Listing</a><br /><br />
-                        <a style="margin-left: 17px;" class="btn btn-danger" href="/howitworks">Learn More</a></strong>
-                        <p style="margin-right: 32px; text-align: right; font-weight: bold;">Save Big when you rent from <br />
-                        someone near you, or friendly<br />neighborhood stores</p>     
-                        </p><br /><br /><br /><br />
                     </div>    
                     <div id="htmlcaption2" class="nivo-html-caption">
-                        <p style="margin-left: 12px;"><strong>We connect you with awesome people<br />
-                        and textbooks from across the country<br /> to help you save more as<br />
-                        a Renter, or earn extra<br />
-                        cash from the books<br />
-                        you already own<br /><br />
+                        <p style="margin-left: 12px;"><strong style="margin-top: 10px; font-size: 16px;">Merchant or Store owner? </strong><br /><br /><strong>Start renting out your <br />
+                        inventory with zero setup <br />&
+                        infrastructure cost. <br />
+                        We're pusing your books <br />to where your customers <br />spend most of their time...<br /><br />
                         <a class="btn btn-info" href="/list" >Start Listing</a><br /><br />
                         <a class="btn btn-danger" href="/howitworks" >Learn More</a></strong>  
-                        </p><br /><br /><br /><br /><br /><br />
+                        </p><br /><br /><br /><br />
                     </div> 
-                    <div id="htmlcaption3" class="nivo-html-caption">
-                        <p style="margin-left: 335px;"><strong>Store owner? Start renting out your <br />
-                        inventory with zero setup & <br />
-                        infrastructure cost. We're pusing your<br />
-                        books to where your customers spend<br />
-                        most of their time...<br /><br />
-                        <a class="btn btn-info" href="/list" >Start adding Your Inventory</a><br /><br /><br /><br />
-                        <a class="btn btn-danger" href="/howitworks" >Learn More</a></strong>  
+                    <div id="htmlcaption1" class="nivo-html-caption">
+                        <p style="margin-bottom: 60px; font-size: 20px; margin-left: 80px;"><strong>Find &<span style="border-bottom: 3px solid #E62020;"> Rent </span>Books from awesome people...</strong><%= image_tag "underline2.png", :alt => "" %></p>
+                        <p style="margin-left: 335px;"><strong>We connect you with people and books <br />
+                        from across the country to help you <br />save more as
+                        a renter, or earn more <br />from the books you already own!<br /><br />
+                        <a class="btn btn-info" href="/list" >Start Listing</a><a style="margin-left: 15px;" class="btn btn-danger" href="/howitworks" >Learn More</a></strong>  <br /><br /><br /><br /><br />
+                        
                         </p><br /><br /><br />
                     </div>                 
              </div>

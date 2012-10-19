@@ -16,14 +16,26 @@
   </div>
 </div>
 
-<div class="span9">
+<div class="span9" id="bcwSearchFix">
           <div id="BookColumnWrapper"> 
 
+   <% if params[:value] %>  <%# for rent search suggestion %>  
+          <% @books.each do |t| %>   <%# to check if a user book for a book exist before suggestiing %>  
+            <% if t.user_books %>
+               <div id="search_resp">                          
+                    <span><%= t.excerpts.title %> by <%= t.excerpts.author %> with ISBN <%= t.excerpts.isbn %> </span><br />
+               </div>
+            <% end %>              
+          <% end %>   <%# end to check if a user book for a book exist before suggestiing %>  
+     <% else %>
+
+      <% if @books.count == 0 %> 
+  
+          <%= render "emptyResults" %>      
+
+        <% else %>
             <ul>
-
               <% @books.each do |book| %>
-
-
 
               <% book.user_books.each do |w| %>
 
@@ -33,18 +45,25 @@
                     <div class="BCWLeft">
 
                       <%= link_to user_book_path(w), :class => "Title" do %>
-                          <%= image_tag "placehold.jpg", :alt => "Cover Photo" %>
-                        <% end %>
-                    <p><%= link_to "more", :rel => "gallery1", :class => "fancybox more" %> <p>
 
+
+                          <%= image_tag "placehold.jpg", :alt => "Cover Photo", :width => "88", :height => "114" %>
+                        <% end %>
+                    
+
+                    <% if w.user_book_photos.present? %>  
+
+             <p><%= link_to "more", w.user_book_photos.first.photo.url, :class => "fancybox more", :rel => "gallery1" %></p>
 
                      <div style="display:none">
                       <div id="morephotos">
                         <% w.user_book_photos.each do |r| %>
                         <a class="fancybox" rel="gallery1"><%= image_tag r.photo, :alt => "" %> </a>
-                        <% end %>
+                        <% end %>  
                        </div>
-                      </div> 
+                      </div>
+
+                    <% end %> 
 
                       </div>
 
@@ -54,27 +73,21 @@
                           <strong> <%= w.book.title %></strong>
                         <% end %>
                       
-                      <p class="Author" style="margin-top: -7px;">By   <%= w.book.author %>  </p>
-                      <p class="Edition" style="padding-top: 10px;">Edition:<span> <%= w.book.edition %> </span> </p>             
+                      <p class="Author" style="margin-top: 0px;">By   <%= w.book.author %>  </p>
+                      <p class="Edition">Edition:<span> <%= w.book.edition %> </span> </p>             
 
                       <div class="BCWCenter_Border"></div>
-                      <p style="margin-left: -3px; margin-bottom: 2px;">
-                         <%= link_to user_book_path(w), :style => "margin-left: -3px; margin-bottom: 2px;" do %>
-                                ><i class="icon-map-marker"></i> <%= w.location %>
-                        <% end %>
-                           </p>
+                      <p style="margin-left: -3px; margin-bottom: -2px;">
+                         <i class="icon-map-marker" style="margin-right: -6px;"></i> <%= w.location %>
+                      </p>
                       
                       <p><span class="numberOfBooks" href="#"><%= w.user.user_books.count %> Books from Lister</span>
                         <span class="pipe">|</span>
-                      <span>
-
-                        <%= link_to user_book_path(w), :class => "Condition" do %>
+                      <span class="Condition">
                         <%= w.condition.name %>
-                        <% end %>
-
-                        </span>
+                      </span>
                       <span style="margin-left: 6px; margin-right: 2px;">|</span>
-                      <span><span class="reviews" href="#">0 reviews</span></span><span><a href="#">
+                      <span><span class="reviews" href="#">0 reviews</span></span><span><a href="javascript:void(0)" class="element" rel="tooltip" title="We opened up just the listing feature on Shelflet, start listing your old/used books">
                       <i class="icon-envelope" style="margin-left: 10px; margin-top: 2px;"></i></a></span></p>
 
 
@@ -133,14 +146,21 @@
                       </div>
                   </form>
 
-            <button type="submit" class="btn btn-mini btn-info" disabled><i class="icon-shopping-cart icon-white"></i>Add to Cart</button>
+            <%# <button type="submit" class="btn btn-info" disabled></button> %>
+              <a href="#" class="btn btn-info element" rel="tooltip" title="We opened up just the listing feature on Shelflet, start listing your old/used books"><i class="icon-shopping-cart icon-white"></i>Add to Cart</a>
                      
                        </div>
                     </li>
               
-               <% end %>
-                <% end %>
+               <% end %>   <%# book.user_books.each do |w| %>
+                <% end %>    <%# @books.each do |book| %>
                 </ul>
+
+                <%= will_paginate @books %>
+
+                <% end %> <%# end empty shelf test %>
+          <% end %>    <%# if params[:value] %>  
+
                </div>
 
          </div>

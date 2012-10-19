@@ -15,18 +15,17 @@
    <% end %>
 
 
+ <div class="control-group">
+                  <label class="control-label" for="Title">Title</label>
+                  <div class="controls">
+    <%= f.text_field :title, placeholder: "Enter title, isbn etc (autosuggestion by google)", id: "book_title", :class => "input-xlarge input-title btitle", :autocomplete => "off" %>
+  </div>
+</div>
+
  <div id="google_books_result">
         
   </div>
 
-
-
- <div class="control-group">
-                  <label class="control-label" for="Title">Title</label>
-                  <div class="controls">
-    <%= f.text_field :title, placeholder: "autocompletion by google...", id: "book_title", :class => "input-xlarge input-title" %>
-  </div>
-</div>
 
 
 <div class="partition">
@@ -45,7 +44,7 @@
                   <label class="control-label" for="Author">Author(s)</label>
                   <div class="controls">
 
-                    <%= f.text_field :author, id: "ISBN", :class => "input-xlarge" %>
+                    <%= f.text_field :author, id: "authors", :class => "input-xlarge" %>
 
                   </div>
                 </div>     
@@ -61,13 +60,14 @@
                 </div>
 
                 <div style="float: right;">
-                  <div class="thumbnail">
-                    <#img src="http://placehold.it/100x116" alt="Picture"></div>
-                 </div>        
+                  <%# <div class="thumbnail"> %>
+                    <%# img src="http://placehold.it/100x116" alt="Picture"> </div> %>
+                  </div>      
                </div>
 
                <div class="control-group" style="clear: both;">
                   <label class="control-label" for="Edition">Edition</label>
+                  <div class="list_page_tip" style="margin-top: 0px;">Please enter "0" if your book has no edition!</div>
                   <div class="controls">
 
                     <%= f.text_field :edition, id: "Edition", :class => "input-mini mini-fix" %>
@@ -109,40 +109,13 @@
 
              <p class="listing-text" style="margin-top: 30px;">Enter Rental Information</p>
              <div class="listing-text-border"></div>              
-              <div class="form-inline">
-               <div class="control-group" style="display: inline-table;">
-               <label class="control-label" for="First Name">Price($/Month)</label>
-                 <div class="controls">
-
-                  <%= f.text_field :price, :class => "input-mini", :id => "Price" %>
-
-                  </div>
-                </div>
-
-
-                 <div class="control-group" style="display: inline-table; margin-left: 30px;">          
-                   <label class="control-label" for="Suggested Price">Suggested Price</label>
-                   <div class="controls">
-                   <span class="input-append">
-
-                  <%= f.text_field :suggestedPrice, :class => "input-mini", :id => "SuggestedPrice", :disabled => true, :size => 16 %>
-
-                    <a class="btn Locationtip" href="#">tip</a>                        
-                   </span>
-                    </div>               
-                   </div>
-                 </div>
-
-
+            
                   <div class="control-group">
                <label class="control-label" for="First Name">Location</label>
                  <div class="controls">
-                   <div class="input-append">
-
-                    <%= f.text_field :location, :class => "input-large", :id => "Location", :placeholder => "Ex. Seattle, WA", :size => 16 %>
-
-                    <a class="btn Locationtip" href="#">tip</a>
-                   </div>
+                   
+                   <%= f.text_field :location, :class => "input-large", :id => "Location", :placeholder => "Ex. Seattle, WA", :size => 16 %>
+                   
                  </div> 
               </div>
 
@@ -155,9 +128,22 @@
                   </div>
                  </div>
 
+                 <div class="form-inline">
+               <div class="control-group" style="display: inline-table;">
+               <label class="control-label" for="First Name">Price($/Month)</label>
+               <div class="list_page_tip" style="margin-top: 16px; margin-left:130px;">Average rental price ranges between 25% - <br />60% of the price of a new book...</div>
+                 <div class="controls">
+
+                  <%= f.text_field :price, :class => "input-mini", :id => "Price" %>
+
+                  </div>
+                </div>
+
+
 
                 <div class="control-group">
-               <label class="control-label" for="First Name">Rental Durations (Month) <a href="#" class="Default">?</a></label>
+               <label class="control-label" for="First Name">Duration (Month)</label>
+               <div class="list_page_tip">You can select more than 1 rental period!</div>
                  <div class="controls form-inline" style="margin-top: -7px;">
                    <label class="checkbox inline">  
                     <%= f.check_box :duration1, :id => "Checkbox1" %>1
@@ -172,27 +158,27 @@
                   <%= f.check_box :duration3, :id => "Checkbox3" %>3
 
                </label>
-               <a href="#"><p class="help-block" style="margin-top: 1px;">You may select 2 or more!</p></a>
                   </div>
                 </div>
 
-      <div class="control-group">
-         <label class="control-label" for="Photos"></label>
-            <div class="controls">
-          </div>
-        </div> 
+ 
+                 <div class="control-group" style="margin-top: 18px;">          
+                   <label class="control-label" for="Suggested Price">Add Photo(s)</label>
+                   <div class="controls">                  
+                <%= file_field_tag 'user_book[user_book_photos_attributes][][photo]', :multiple => true do |p| %>
+                            <%= p.file_field :photo %> 
+                     <% end %>         
+                    </div>               
+                   </div>                 
 
-                  <div class="listingButtons">
-                    
+                  <div class="listingButtons">                    
+                    <%#= f.submit "List my Book!", class: "btn btn-large btn-primary" %>
+
                     <%= button_tag(:type => 'submit', :class => 'btn btn-info', :name => "commit", :disable_with => "Please Wait...") do %>
                     <i class="icon-book icon-white"></i>Add to Shelf!
                     <% end %>
-                    
-                    <%=  file_field_tag 'user_book[user_book_photos_attributes][][photo]', :multiple => true do |p| %>
-                            <%= p.file_field :photo %> 
-                     <% end %>
-                  </div>
-
+                  
+                </div>
                 <% end %>           
            </fieldset>
              </div>

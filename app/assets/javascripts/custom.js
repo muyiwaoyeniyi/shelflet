@@ -8,41 +8,114 @@ $(document).ready(function () {
     $("#book_title").keyup(function () {
 
         var that = this,
-        value = $(this).val();           
+        value = $(this).val();         
+
         if (value.length < minlength) { $('#google_books_result').hide(); }
 
         else if(value.length >= minlength)  {
 
             $('#google_books_result').show();
 
-            value = value.replace(/ /g, '');   
+            //value = value.replace(/ /g, '').toLowerCase() 
 
             if (req != null) req.abort();
 
             req = $.ajax({
-            url: 'user_books', //google_books_api?value=' + value,
+            url: '/static_pages?dummy=' + 'a',
             success: function(data) {
               //$("#google_books_result").html($(data).find("#google_books_resp")); 
               //$("#google_books_result").html(data);                            
 
               $('#google_books_result').html('<img src="/assets/spinner.gif" />');
-              $('#google_books_result').load('/google_books_api?value=' + value + ' #google_books_resp'); 
-            }
+              $('#google_books_result').load('/google_books_api?value=' + value + ' #google_books_resp',
+                    function (responseText, textStatus, req) {
+                        if (textStatus == "error") {
+                            $('#google_books_result').html("<div class='noresp_padding'>No suggestions were found</div>");
+                           }
+                 }); 
+               }
+            /*error: function(XMLHttpRequest, textStatus, errorThrown) {
+              //$("#google_books_result").html($(data).find("#google_books_resp")); 
+              //$("#google_books_result").html(data);                            
+
+              alert("error");//$('#google_books_result').html('<p>No suggestion</p>');
+            }*/
           });
         }
     });
     //for google book suggestion
 
+
+    $("#google_books_result").on("click", ".book_resp",function() {
     
-   // $('#abook_resp').click(function () {
+        var value = $(this).find('.google_title').html();
+        value = value.trim();
+        $("#book_title").val(value);
+        
+        var value = $(this).find('.google_authors').html();
+        value = value.trim().replace(/\s+/g, " ");
+        $("#authors").val(value);
 
-       //var b = this.$('.title_resp').html();
-       //var vav = $(".title_resp").html(); 
-      // $('#book_title').val('vav');
-     //   alert('hello');
+        var value = $(this).find('.google_description').html();
+        value = value.trim().replace(/\s+/g, " ");
+        $("#Description").val(value);
 
-    //});
+        var value = $(this).find('.google_publisher').html();
+        value = value.trim().replace(/\s+/g, " ");
+        $("#Publisher").val(value);
 
+        var value = $(this).find('.google_isbn').html();
+        value = value.trim();
+        $("#ISBN").val(value);
+
+        $('#google_books_result').hide();
+
+        /*$('#book_title').blur(function() {
+            $('#google_books_result').hide();
+            //alert("hello");
+        });*/
+
+        
+    });
+/*$(".btitle").live("blur", function(event){
+    $('#google_books_result').hide();
+});*.
+    
+   
+
+  /* $("#search").keyup(function () {
+
+        var that = this,
+        value = $(this).val().trim();    
+
+        if (value.length < minlength) { $('#search_result').hide(); }
+
+        else if(value.length >= minlength)  {
+
+            $('#search_result').show();
+
+            value = value.replace(/ /g, '').toLowerCase() 
+
+            if (req != null) req.abort();
+
+            req = $.ajax({
+            url: '/static_pages?dummy=' + 'a',
+            success: function(data) {                        
+
+              $('#search_result').html('<img src="/assets/spinner.gif" />');
+              $('#search_result').load('/books?value=' + value + ' #search_resp', 
+                   function (responseText, textStatus, req) {
+                        if (textStatus == "error") {
+                            $('#search_result').html('<span class="noresp_padding">No suggestions were found</span>');
+                           }
+                 }); 
+            }
+          });
+        }
+    });*/
+
+    
+       
     //Code to toggle Search bar
     if (location.pathname == "/") {
         $(window).load(function () {
@@ -56,7 +129,7 @@ $(document).ready(function () {
         });
     }
     else if (location.pathname == "/users/login" || location.pathname == "/users/signup" || location.pathname == "/users/password/edit"
-                || location.pathname == "/thankyou" || location.pathname == "/cart" || location.pathname == "/list" || location.pathname == "/users/password/new") {
+                || location.pathname == "/thankyou" || location.pathname == "/users/password" || location.pathname == "/users" || location.pathname == "/cart" || location.pathname == "/list" || location.pathname == "/users/password/new") {
         $('#SearchBar').hide();
         $('#Rent').on('click', function (event) {
             $("#SearchBar").toggle('slide', { direction: "up" }, 700);
@@ -91,10 +164,12 @@ $(document).ready(function () {
     // End Hide Other Category and Condition
 
 
-    //*****************for book photos*************
-    // $(".fancybox").fancybox();      
-
+    //for book photos
+    $(".fancybox").fancybox();      
+    $('.element').tooltip();
     
+    //$(".alert").hide();
+    //$(".alert").alert();
 
     //For form validation
     /*$("#settingsForm1").validVal();

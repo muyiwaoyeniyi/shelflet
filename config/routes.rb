@@ -6,6 +6,8 @@ ShelfletV01::Application.routes.draw do
   match 'contact' => 'messages#create', :as => 'contact', :via => :post
   match '/terms',   to: 'static_pages#terms'
   match '/privacy',   to: 'static_pages#privacy'
+  match '/howitworks',   to: 'static_pages#howitworks'
+  match '/faqs',   to: 'static_pages#faqs'
 
   devise_for :users, :path_names => { sign_in: "login", sign_out: "logout", sign_up: "signup" }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   devise_scope :user do
@@ -13,12 +15,17 @@ ShelfletV01::Application.routes.draw do
   end
 
   match '/list',   to: 'user_books#new'
-  resources :user_books
-
-  resources :messages  
+  resources :user_books #do
+     #resources :user_book_photos, :only => [:index]  
+  #end  
+  
+  resources :user_book_photos, :only => [:index] 
   resources :users
-  resources :books
-  resources :google_books_api, :only => [:index] #need to secure this at some point
+
+  resources :books, :only => [:index]
+  resources :google_books_api, :only => [:index]    #need to secure this at some point
+  resources :static_pages, :only => [:index]        #for list page google book controller..need something that returns quickly...see JS
+  resources :messages, :only => [:new, :create]     #for contact use page
   
   match "/*other", to: 'static_pages#to_404'      #all non-existent routes go to 404
  

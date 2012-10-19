@@ -2,6 +2,19 @@
 
 <%= render "shared/searchbar" %>
 
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=287289154633208";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
 <%= form_for @message do |f| %>
 
     <% if @message.errors.any? %>
@@ -28,8 +41,7 @@
                       <li class="active"><a href="/contact">Contact Us</a></li>  
                       <li><a href="/faqs">FAQs</a></li>  
                       <li><a href="/howitworks">How it Works</a></li> 
-                      <li><a href="/privacy">Privacy Policy</a></li> 
-                      <li><a href="/storeowners">Store Owners</a></li>  
+                      <li><a href="/privacy">Privacy Policy</a></li>  
                       <li><a href="/terms">Terms & Conditions</a></li>
                    </ul>
                    <img src="/assets/Shelflet-Fotolia.jpg" alt="smiley" />
@@ -63,6 +75,7 @@
                  <div class="thankyouDetails" style="padding-left: 20px;"> 
                     <p>Tell your awesome friends or followers on Facebook/twitter about Shelflet!</p>
                     <img src="/assets/shout.jpg" width="120" height="80" alt="Smiley" />
+                    <div class="fb-like" style = "margin-top: 16px;" data-href="http://www.shelflet.com" data-send="false" data-width="250" data-show-faces="false" data-font="tahoma"></div>
                   </div>      
                  </div>
                 </div>

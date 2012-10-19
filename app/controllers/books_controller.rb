@@ -4,19 +4,22 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    if params[:search] 
-      @books = Book.search(params[:search], :match_mode => :any)
-      #@books.user.each do |r| @user_books = UserBook.find_all_by_book_id(r.id)
-      #@favorites = current_user.votes.map {|vote| vote.voteable }
-      
+    if params.has_key?(:search) && params[:search].strip != ""     #for rental search across site
+       @books = Book.search(params[:search], :match_mode => :any, :star => true, :page => params[:page], :per_page => 1)
+    elsif params[:value]                         #for autosuggest on search bar
+       @books = Book.search(params[:value], :match_mode => :any, :star => true)
+    #elsif params[:category]                        # would need this when I change quick search to category search
+       #@categories = Category.find_all_by_id(12) 
     else    
-         @books = Book.all(limit: 10)
+       @books = Book.where(:id => [34, 37, 38]).paginate(:page => params[:page], :per_page => 1)  #paginate(:page => params[:page], :per_page => 1)    #(limit: 10)
+       flash.now[:notice] = "Please type in something to search. Some recent listings have been shown."
     end
    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @books }
     end
+
   end
 
   # GET /books/1
