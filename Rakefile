@@ -10,5 +10,5 @@ rescue LoadError
   puts "You can't load Thinking Sphinx tasks unless the thinking-sphinx gem is installed."
 end
 
-ShelfletV01::Application.load_tasks
+Shelflet::Application.load_tasks
 

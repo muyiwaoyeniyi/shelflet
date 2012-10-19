@@ -1,4 +1,4 @@
-ShelfletV01::Application.routes.draw do
+Shelflet::Application.routes.draw do
     
   root to: 'static_pages#home'  
   match '/about',   to: 'static_pages#about'
