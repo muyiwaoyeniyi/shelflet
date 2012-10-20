@@ -25,10 +25,6 @@ gem "auto_strip_attributes", "~> 1.0"
 gem 'omniauth'
 gem 'oauth2'
 gem 'omniauth-facebook', '1.4.0'
-
-gem 'rack-cache', :require => 'rack/cache'
-gem 'dragonfly', '~>0.9.12'
-
 gem 'thinking-sphinx'
 gem 'flying-sphinx',   '0.8.4'
 gem 'whenever', :require => false
