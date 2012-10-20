@@ -42,6 +42,16 @@ test:
 # pool: 5
 # timeout: 5000
 
+production:
+  adapter: mysql
+  encoding: utf8
+  reconnect: false
+  database: shelflet_production
+  pool: 5
+  username: root
+  password: wisdom
+  timeout: 5000
+  host: localhost
 
 #production:
  # adapter:  postgresql
