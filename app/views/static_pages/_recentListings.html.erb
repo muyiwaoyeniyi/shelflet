@@ -6,6 +6,8 @@
 
                <h3>Recent Listings</h3>
                <ul class="thumbnails">
+
+                <% if @recentListings != nil %> 
                 <% @recentListings.each do |w| %>
                   <li class="span3">
 
@@ -23,7 +25,10 @@
                     <p><span>$<span class="Price"><%= w.price %></span> | 1 month</span></p>
                   </li>
 
-                  <% end %>                 
+                  <% end %>      
+
+                  <% end %>
+
                 </ul>   
                 </div>         
 
