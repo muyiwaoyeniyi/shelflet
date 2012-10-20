@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require custom
-//= require jquery.fancybox.pack.js
-//= require bootstrap-tooltip.js
-//= require bootstrap-alert.js
-//= require jquery.nivo.slider.pack.js
+//= require jquery.fancybox.pack
+//= require bootstrap-tooltip
+//= require bootstrap-alert
+//= require jquery.nivo.slider.pack
