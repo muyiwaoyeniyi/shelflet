@@ -34,16 +34,17 @@ group :development do
   gem 'annotate', '2.5.0'
   gem 'faker', '1.0.1'
   #gem 'populate'
-  gem 'mysql'
 end
+
+gem 'mysql'
 
 group :development, :test do
   gem 'rspec-rails', '2.10.0'
 end
 
-group :production do
-  gem 'pg'
-end
+#group :production do
+ # gem 'pg'
+#end
 
 group :production do
   gem 'thin'
