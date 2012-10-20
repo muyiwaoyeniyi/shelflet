@@ -10,9 +10,17 @@
                   <li class="span3">
 
                     <%= link_to user_book_path(w), :class => "thumbnail" do %>
-                          <%= image_tag "placehold.jpg", :alt => "Cover Photo", :width => "96"%>
+
+                          <% if w.book.cover_photo.present? %>
+                               <%= image_tag w.book.cover_photo.url(:cover), :alt => "Cover Photo" %>
+                            <% elsif w.user_book_photos.present? %>
+                               <%= image_tag w.user_book_photos.first.photo.url(:cover), :alt => "Cover Photo", :width => "97", :height => "125" %>
+                            <% else %>
+                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :width => "97", :height => "125" %>
+                            <% end %> <%# end if cover photo is present %>
+
                         <% end %>
-                    <p><a href="#">$<span class="Price"><%= w.price %></span> | 1 month</a></p>
+                    <p><span>$<span class="Price"><%= w.price %></span> | 1 month</span></p>
                   </li>
 
                   <% end %>                 

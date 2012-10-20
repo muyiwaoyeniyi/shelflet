@@ -1,14 +1,15 @@
 ﻿
 $(document).ready(function () {
 
-    //for google book suggestion
-    var minlength = 3;
-    var req = null;
+    //***********************************for google book suggestion******************************************
+    var minlength = 4;
+    var req;
+    var timer;
 
     $("#book_title").keyup(function () {
 
-        var that = this,
-        value = $(this).val();         
+        var that = this;
+        value = $(this).val().replace(/ /g, '');
 
         if (value.length < minlength) { $('#google_books_result').hide(); }
 
@@ -16,72 +17,129 @@ $(document).ready(function () {
 
             $('#google_books_result').show();
 
-            //value = value.replace(/ /g, '').toLowerCase() 
+            value = value.toLowerCase();
 
-            if (req != null) req.abort();
+            if (req) req.abort();
 
-            req = $.ajax({
-            url: '/static_pages?dummy=' + 'a',
-            success: function(data) {
-              //$("#google_books_result").html($(data).find("#google_books_resp")); 
-              //$("#google_books_result").html(data);                            
+            clearTimeout(timer);
 
-              $('#google_books_result').html('<img src="/assets/spinner.gif" />');
-              $('#google_books_result').load('/google_books_api?value=' + value + ' #google_books_resp',
-                    function (responseText, textStatus, req) {
-                        if (textStatus == "error") {
-                            $('#google_books_result').html("<div class='noresp_padding'>No suggestions were found</div>");
-                           }
-                 }); 
-               }
-            /*error: function(XMLHttpRequest, textStatus, errorThrown) {
-              //$("#google_books_result").html($(data).find("#google_books_resp")); 
-              //$("#google_books_result").html(data);                            
+            timer = setTimeout(function() {
 
-              alert("error");//$('#google_books_result').html('<p>No suggestion</p>');
-            }*/
-          });
+                req = $.ajax({
+                url: '/static_pages?dummy=' + 'a',
+                success: function(data) {
+                  //$("#google_books_result").html($(data).find("#google_books_resp")); 
+                  //$("#google_books_result").html(data);                            
+
+                  $('#google_books_result').html('<img src="/assets/spinner.gif" />');
+                  $('#google_books_result').load('/google_books_api?value=' + value + ' #google_books_resp',
+                        function (responseText, textStatus, req) {
+                            if (textStatus == "error") {
+                                $('#google_books_result').html("<div class='noresp_padding'>No suggestions were found</div>");
+                               }
+                     }); 
+                   }
+                /*error: function(XMLHttpRequest, textStatus, errorThrown) {
+                  //$("#google_books_result").html($(data).find("#google_books_resp")); 
+                  //$("#google_books_result").html(data);                            
+
+                  alert("error");//$('#google_books_result').html('<p>No suggestion</p>');
+                }*/
+                });
+             }, 750);
         }
     });
-    //for google book suggestion
 
-
+    $('.wrong_cover_label').hide();
     $("#google_books_result").on("click", ".book_resp",function() {
-    
+
+
         var value = $(this).find('.google_title').html();
-        value = value.trim();
-        $("#book_title").val(value);
-        
+        if (value) {
+            value = value.trim();
+            $("#book_title").val(value);
+        }
+
         var value = $(this).find('.google_authors').html();
-        value = value.trim().replace(/\s+/g, " ");
-        $("#authors").val(value);
+        if (value) {
+            value = value.trim().replace(/\s+/g, " ");
+            $("#authors").val(value);
+        }
 
         var value = $(this).find('.google_description').html();
-        value = value.trim().replace(/\s+/g, " ");
-        $("#Description").val(value);
+        if (value) {
+            value = value.trim().replace(/\s+/g, " ");
+            $("#Description").val(value);
+        }
 
         var value = $(this).find('.google_publisher').html();
-        value = value.trim().replace(/\s+/g, " ");
-        $("#Publisher").val(value);
+        if (value) {
+            value = value.trim().replace(/\s+/g, " ");
+            $("#Publisher").val(value);
+        }
 
-        var value = $(this).find('.google_isbn').html();
-        value = value.trim();
-        $("#ISBN").val(value);
+        var value = $(this).find('.google_isbn13').html();
+        var value1 = $(this).find('.google_isbn10').html();
+        var value2 = $(this).find('.google_other').html();
+        if (value) { 
+            value = value.trim().replace(/\s+/g, " ");
+            $("#ISBN").val(value);
+        }
+        else if (value1)  {
+            value1 = value1.trim().replace(/\s+/g, " ");
+            $("#ISBN").val(value1);
+        }
+        else if (value2)  {
+            value2 = value2.trim().replace(/\s+/g, " ");
+            $("#ISBN").val(value2);
+        }
 
-        $('#google_books_result').hide();
+        var value = $(this).find('.google_categories').html();
+        if (value) {
+            $("#Category").val("27");
+            $("#otherCategory").show();
+            value = value.trim().replace(/\s+/g, " ");
+            $("#otherCategory").val(value);
+        }
 
-        /*$('#book_title').blur(function() {
-            $('#google_books_result').hide();
-            //alert("hello");
-        });*/
+        //if google's cover photo is incorrect
+        var google_cover = $(this).find(".google_thumbnail").attr("src");
+        if (google_cover) { 
+            
+            $('#cover_thumbnail').attr('src', google_cover);  
+            $("#cover_photo_url").val(google_cover);     
+            $('.wrong_cover_label').show();
+        }
 
-        
-    });
-/*$(".btitle").live("blur", function(event){
-    $('#google_books_result').hide();
-});*.
+        $("input#wrongCover").click(function () {
+            if ($("input#wrongCover").is(':checked')) {
+                $('#cover_thumbnail').attr('src', "/assets/placehold.jpg");     
+                $("#cover_photo_url").val('');     
+            }
+            else {
+                $('#cover_thumbnail').attr('src', google_cover);
+                 $("#cover_photo_url").val(google_cover);     
+            }
+        });
+
+    //end if google's cover photo is incorrect
+
+       // $('#Edition').attr('style', "border: 1px solid red");
+
+            $('#google_books_result').hide();        
+        });
+      
+
+        var mouseOver = false;
+        $("#google_books_result").mouseover(function() { mouseOver = true; }).mouseout(function() { mouseOver = false; });
+
+        $(".btitle").blur(function() {
+            if (mouseOver) { return; }
+            $('#google_books_result').hide(); 
+        });
     
-   
+   // ***************************end for google book suggestion*************************************
+
 
   /* $("#search").keyup(function () {
 
@@ -129,7 +187,7 @@ $(document).ready(function () {
         });
     }
     else if (location.pathname == "/users/login" || location.pathname == "/users/signup" || location.pathname == "/users/password/edit"
-                || location.pathname == "/thankyou" || location.pathname == "/users/password" || location.pathname == "/users" || location.pathname == "/cart" || location.pathname == "/list" || location.pathname == "/users/password/new") {
+                || location.pathname == "/thankyou" || location.pathname == "/user_books/new" || location.pathname == "/users/password" || location.pathname == "/users" || location.pathname == "/cart" || location.pathname == "/list" || location.pathname == "/users/password/new") {
         $('#SearchBar').hide();
         $('#Rent').on('click', function (event) {
             $("#SearchBar").toggle('slide', { direction: "up" }, 700);

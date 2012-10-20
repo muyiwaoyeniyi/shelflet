@@ -80,6 +80,10 @@ class UserBooksController < ApplicationController
   def update
     @user_book = UserBook.find(params[:id])
 
+    if params["user_book"]["deletePhotos"] == "1"
+        UserBookPhoto.delete_all(:user_book_id => @user_book.id)
+    end
+
     respond_to do |format|
       if @user_book.update_attributes(params[:user_book])
         format.html { redirect_to new_user_book_path, notice: 'Your book was successfully updated. You can add more or go back to your shelf' }

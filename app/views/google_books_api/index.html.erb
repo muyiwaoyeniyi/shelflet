@@ -8,64 +8,98 @@
         
         <ul>
 
+        <%# if @response['items'] %>
          <% @response['items'].each do |b| %>
          
 <a href="javascript:void(0)" class="book_resp">
          
            <li>          	
          <div class="book_resp2">  	  
-    <div style="float: left;"><img src="<%= b['volumeInfo']['imageLinks']['thumbnail'] %>" width="55" height="64" /></div>
-           	  
+
+          <% if b['volumeInfo']['imageLinks']['thumbnail'] %>
+            <div style="float: left;"><img class="google_thumbnail" src="<%= b['volumeInfo']['imageLinks']['thumbnail'] %>" width="55" height="64" /></div>
+          <% end %>
+
               
               <div class="resp_padding">   
                    
-                    <% i = 0 %>
-                   <strong class="google_title"><%= b['volumeInfo']['title'] %> </strong><br />
-                    <span style="font-size: 11px;" class="google_authors"><% b['volumeInfo']['authors'].each do |p| %>  
-                          <% i = i + 1 %>
-                          <% if i == b['volumeInfo']['authors'].length  %>
-                             <%= p %>
-                          <% else %>
-                             <%= p %>,
-                          <% end %>
-                    <% end %></span><br />
-                   
+                   <% if b['volumeInfo']['title'] %>
+                     <% i = 0 %>
+                        <strong class="google_title"><%= b['volumeInfo']['title'] %> </strong><br />
+                        <span style="font-size: 11px;" class="google_authors"><% b['volumeInfo']['authors'].each do |p| %>  
+                            <% i = i + 1 %>
+                            <% if i == b['volumeInfo']['authors'].length  %>
+                               <%= p %>
+                            <% else %>
+                              <%= p %>,
+                            <% end %>
+                        <% end %></span><br />                  
+                  <% end %>
 
-                   
-                   <span style="font-size: 11px;"><%#= b['volumeInfo']['industryIdentifiers'].first.["type"] %>                    
-                          <span><%#= p['type'] %>: </span><span class="google_isbn"><%#= a['identifier'] %></span>
-                     <%# end %>
 
-                   </span>
+                  <% if b['volumeInfo']['industryIdentifiers'] %>
+                      <% i = 0 %>
+                      <div class="google_isbn"><span><% b['volumeInfo']['industryIdentifiers'].each do |a| %></span>
+
+                      <% i = i+ 1 %>
+
+                        <% if i == b['volumeInfo']['industryIdentifiers'].length  %>
+                            <% if a["type"] == "ISBN_13" %>
+                              <span><%= a['type'] %>: </span><span class="google_isbn13"><%= a['identifier'] %></span>
+                            <% elsif a["type"] == "ISBN_10" %> 
+                              <span><%= a['type'] %>: </span><span class="google_isbn10"><%= a['identifier'] %></span>
+                            <% else %>
+                              <span><%= a['type'] %>: </span><span class="google_other"><%= a['identifier'] %></span>
+                            <% end %>
+                        <% else %>
+
+                        <% if a["type"] == "ISBN_13" %>
+                            <span><%= a['type'] %>: </span><span class="google_isbn13"><%= a['identifier'] %></span><span> | </span>
+                        <% elsif a["type"] == "ISBN_10" %> 
+                            <span><%= a['type'] %>: </span><span class="google_isbn10"><%= a['identifier'] %></span><span> | </span>
+                        <% else %>
+                          <span><%= a['type'] %>: </span><span class="google_other"><%= a['identifier'] %></span><span> | </span>
+                        <% end %>
+                    <% end %>
+
+                    <% end %>
+
+                   </div>
+                
+                <% end %>
 
               </div>
               
 
-                  <% if b['volumeInfo']['publisher'] != nil %>
+
+                  <% if b['volumeInfo']['publisher'] %>
                       <div style="display: none" class="google_publisher"><%= b['volumeInfo']['publisher'] %></div>
                    <% end %>
 
-                   <% if b['volumeInfo']['categories'] != nil %>
+                  
+                   <% if b['volumeInfo']['categories'] %>
                        <% i = 0 %>
-                        <div style="display: none"><% b['volumeInfo']['categories'].each do |x| %>  
+                        <div style="display: none" class="google_categories"><% b['volumeInfo']['categories'].each do |x| %>  
                               <% i = i + 1 %>
                               <% if i == b['volumeInfo']['categories'].length  %>
-                                 <%= x %>...
+                                 <%= x %>
                               <% else %>
                                  <%= x %>,
                               <% end %>
                         <% end %></div>
                   <% end %> 
 
-                  <% if b['volumeInfo']['description'] != nil %>
+
+                  <% if b['volumeInfo']['description'] %>
                       <div style="display: none" class="google_description"><%= b['volumeInfo']['description'] %> </div>    
                   <% end %>                  	  
            	
-      </div>
+              </div>
 
-          </li>
-        </a>
-        <% end %> 
+              </li>
+            </a>
+          <% end %> 
+        <%# end %>
       </ul>
     
 

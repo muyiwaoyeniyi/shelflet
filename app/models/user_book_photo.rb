@@ -6,7 +6,7 @@ class UserBookPhoto < ActiveRecord::Base
   attr_accessible :photo          #, :photo_file_name
 
   belongs_to :user_book
-  has_attached_file :photo, 
+  has_attached_file :photo, :styles => { :cover => "97x125>", :thumbnail => "88x114>" },
   					:url => "/assets/photos/:id/:style/:basename.:extension", 
   					:path => ":rails_root/public/assets/photos/:id/:style/:basename.:extension"
   

@@ -2,11 +2,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+ruby "1.9.2"
 
 gem 'rails', '3.2.3'
 gem 'jquery-rails'
-gem 'mysql'
 
 gem "heroku"
 
@@ -27,7 +26,11 @@ gem 'omniauth'
 gem 'oauth2'
 gem 'omniauth-facebook', '1.4.0'
 
+gem 'rack-cache', :require => 'rack/cache'
+gem 'dragonfly', '~>0.9.12'
+
 gem 'thinking-sphinx'
+gem 'flying-sphinx',   '0.8.4'
 gem 'whenever', :require => false
 gem 'active_attr'
 
@@ -35,6 +38,7 @@ group :development do
   gem 'annotate', '2.5.0'
   gem 'faker', '1.0.1'
   #gem 'populate'
+  gem 'mysql'
 end
 
 group :development, :test do

@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration
 	
 	     t.column :title, :string, :null => false, :default => ""
        t.column :price, :float
-       t.column :isbn, :integer	
+       t.column :isbn, :string
 	     t.column :category, :string
 
       t.timestamps

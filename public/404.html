@@ -1,21 +1,31 @@
 ﻿﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>Shelf | 404</title>
+    <title>Shelf | 404 - Page does not exist</title>
     <meta charset="utf-8">
     <link href="/assets/custom.css.scss" rel="stylesheet" type="text/css"> 
+    <style>
+        body { margin-top: -18px;}
+    </style>
  </head>
-<body><header class="headerWrapper">
-  <div class="navbar">
+<body>
+   <header class="headerWrapper">
+      <div class="navbar">
          <div class="navbar-inner">
             <div class="container">
               <a class="brand" href="/">
-                <img src="/assets/shelflet.jpg" height="37" alt="Shelflet" />
+               <%= image_tag "shelflet.jpg", :alt => "Shelflet", :height => '37' %>
               </a>
-               
+              <!-- Everything you want hidden at 940px or less, place within here -->
+              <div class="nav-collapse">
+                <ul class="nav">
+                  <li><a style="font-size:20px; color: white; margin-left: -20px;" href="/">Shelflet</a></li>
+                 </ul>
+                
+              </div> <!-- nav-collapse -->             
             </div>      
            </div>
-         </div>       
+         </div>        
     </header>
 
     <div class="MainBodyWrapper">            

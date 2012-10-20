@@ -2,8 +2,16 @@
 
     <li class="thumbnail">
 
-                <div class="BCWLeft">                      
-                          <%= image_tag "placehold.jpg", :alt => "Cover Photo", :width => "88", :height => "114" %>    
+                <div class="BCWLeft">  
+
+                          <% if @user_book.book.cover_photo.present? %>
+                <%= image_tag @user_book.book.cover_photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
+                            <% elsif @user_book.user_book_photos.present? %>
+                               <%= image_tag @user_book.user_book_photos.first.photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
+                            <% else %>
+                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :class => "thumbnail_border" %>
+                            <% end %> <%# end if cover photo is preser %>                    
+                           
 
                         <% if @user_book.user_book_photos.present? %>  
 
@@ -13,7 +21,13 @@
                 <div class="BCWCenter">
                          <strong class="Title"> <%= @user_book.book.title %></strong>
                          <p class="Author">By   <%= @user_book.book.author %>  </p>
-                          <p class="Edition">Edition:<span> <%= @user_book.book.edition %> </span> </p>
+
+                         <% if @user_book.book.edition != 0 %>
+                            <p class="Edition">Edition:<span> <%= @user_book.book.edition %> </span> </p>
+                          <% else %>
+                            <br />
+                         <% end %>
+
                           <div class="BCWCenter_Border"></div>
                           <p class="map-marker" ><i class="icon-map-marker" style="margin-right: -6px;"></i>  
                           <%= @user_book.location %>

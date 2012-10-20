@@ -60,9 +60,19 @@
                 </div>
 
                 <div style="float: right;">
-                  <%# <div class="thumbnail"> %>
-                    <%# img src="http://placehold.it/100x116" alt="Picture"> </div> %>
-                  </div>      
+                   <div class="thumbnail">
+                     <%= image_tag "placehold.jpg", alt: "front cover", :id => "cover_thumbnail", width: "100", height: "116" %>
+                     <%= f.hidden_field :cover_photo_url, :class => "input-xlarge", :id => "cover_photo_url" %>
+                   </div>
+
+                   <div class="wrong_cover_label">
+                       <label class="checkbox inline">  
+                          <%= f.check_box :wrongCover, :id => "wrongCover" %>Not the cover?
+                      </label>
+                    </div>
+
+                </div>      
+
                </div>
 
                <div class="control-group" style="clear: both;">
@@ -168,8 +178,15 @@
                 <%= file_field_tag 'user_book[user_book_photos_attributes][][photo]', :multiple => true do |p| %>
                             <%= p.file_field :photo %> 
                      <% end %>         
-                    </div>               
-                   </div>                 
+                    </div>     
+                    <% if can? :update, @user_book %>
+                      <% if @user_book.user_book_photos.present? %>
+                       <label class="checkbox inline">  
+                         <%= f.check_box :deletePhotos, :id => "deletePhotos" %>Delete existing pictures                 
+                        </label> 
+                      <% end %>
+                   <% end %>
+                  </div>                 
 
                   <div class="listingButtons">                    
                     <%#= f.submit "List my Book!", class: "btn btn-large btn-primary" %>

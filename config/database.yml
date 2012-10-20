@@ -41,3 +41,14 @@ test:
 # database: db/production.sqlite3
 # pool: 5
 # timeout: 5000
+
+
+#production:
+ # adapter:  postgresql
+  #encoding: unicode
+  #pool: 5
+  #database: d88cobp96t39jh
+  #username: kyaxajjfxvwhxn
+  #password: KRJuIoFr2hQ2gJ8FKYqGVWcPgB
+  #host: ec2-107-22-169-202.compute-1.amazonaws.com
+  #port: 5432

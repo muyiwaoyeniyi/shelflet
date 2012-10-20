@@ -33,8 +33,16 @@
                     <div class="BCWLeft">
 
                       <%= link_to user_book_path(w), :class => "Title" do %>
-                          <%= image_tag "placehold.jpg", :alt => "Cover Photo", :width => "88", :height => "114" %>
-                        <% end %>
+
+                            <% if w.book.cover_photo.present? %>
+                               <%= image_tag w.book.cover_photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
+                            <% elsif w.user_book_photos.present? %>
+                               <%= image_tag w.user_book_photos.first.photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
+                            <% else %>
+                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :class => "thumbnail_border"%>
+                            <% end %> <%# end if cover photo is preser %>
+
+                        <% end %>  <%# end image link to book %>
                      
                        <% if w.user_book_photos.present? %>  
 
@@ -60,7 +68,11 @@
                       
                       <p class="Author">By   <%= w.book.author %>  </p>
 
+                      <% if w.book.edition != 0 %>
                       <p class="Edition">Edition:<span> <%= w.book.edition %> </span> </p>
+                      <% else %>
+                       <br />
+                      <% end %>
                       
 
                       <div class="BCWCenter_Border"></div>
