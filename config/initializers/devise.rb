@@ -7,7 +7,7 @@ Devise.setup do |config|
   config.mailer_sender = "team@shelflet.com"
 
   require "omniauth-facebook"
-  config.omniauth :facebook, "287289154633208", "857a2e1a8b1b8c947604c14ad659338a", :strategy_class => OmniAuth::Strategies::Facebook
+  config.omniauth :facebook, "287289154633208", "857a2e1a8b1b8c947604c14ad659338a", :strategy_class => OmniAuth::Strategies::Facebook,  {:scope => 'email, offline_access', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
   #, {:scope => 'email', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}} 
 
   # Configure the class responsible to send e-mails.
