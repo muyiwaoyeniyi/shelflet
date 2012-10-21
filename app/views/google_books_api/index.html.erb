@@ -8,7 +8,8 @@
         
         <ul>
 
-        <%# if @response['items'] %>
+        <% if @response['items'] != nil %>  <%# review this %>
+
          <% @response['items'].each do |b| %>
          
 <a href="javascript:void(0)" class="book_resp">
@@ -99,19 +100,21 @@
               </li>
             </a>
           <% end %> 
-        <%# end %>
+
+          <% else %>
+
+          <div class="noresp_padding">       
+            <span>No suggestions were found</span>
+          </div>
+
+        <% end %>   <%# end if != nil %>
       </ul>
     
+<% else %>   
 
-<% else %>
-
-   
-
-      <div class="noresp_padding">   
-    
-      <span>No suggestions were found</span>
-
-    </div>
+      <div class="noresp_padding">       
+        <span>No suggestions were found</span>
+      </div>
 <% end %>   <%# end if for request.code %>
  </div>
 
