@@ -16,3 +16,4 @@
 //= require jquery.fancybox.pack
 //= require bootstrap-tooltip
 //= require bootstrap-alert
+//= require jquery.nivo.slider.pack

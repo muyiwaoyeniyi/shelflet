@@ -12,6 +12,7 @@
  * require_tree .
  *= require custom
  *= require scaffolds
+ *= require jquery.fancybox.css
 */
 
 

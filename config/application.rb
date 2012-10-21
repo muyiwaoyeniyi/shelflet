@@ -50,7 +50,7 @@ module Shelflet
     # parameters by using an attr_accessible or attr_protected declaration.
     config.active_record.whitelist_attributes = true
 
-    config.assets.precompile += ['jquery.nivo.slider.pack.js']
+    #config.assets.precompile += ['jquery.nivo.slider.pack.js']
 
     # Enable the asset pipeline
     config.assets.enabled = true
