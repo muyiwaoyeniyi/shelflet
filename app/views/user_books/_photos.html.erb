@@ -1,0 +1,9 @@
+<p><%= link_to "more", @user_book.user_book_photos.first.photo.url, :class => "fancybox more", :rel => "gallery1" %></p>
+
+                     <div style="display:none">
+                      <div id="morephotos">
+                        <% @user_book.user_book_photos.each do |r| %>
+                        <a class="fancybox" rel="gallery1"><%= image_tag r.photo, :alt => "" %> </a>
+                        <% end %>  
+                       </div>
+                      </div>

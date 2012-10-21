@@ -24,7 +24,7 @@ Shelflet::Application.routes.draw do
 
   resources :books, :only => [:index]
   resources :google_books_api, :only => [:index]    #need to secure this at some point
-  resources :static_pages#, :only => [:index]        #for list page google book controller..need something that returns quickly...see JS
+  resources :static_pages, :only => [:index]        #for list page google book controller..need something that returns quickly...see JS
   resources :messages, :only => [:new, :create]     #for contact use page
   
   match "/*other", to: 'static_pages#to_404'      #all non-existent routes go to 404
