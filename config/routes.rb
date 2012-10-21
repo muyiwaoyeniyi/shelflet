@@ -6,8 +6,8 @@ Shelflet::Application.routes.draw do
   match 'contact' => 'messages#create', :as => 'contact', :via => :post
   match '/terms',   to: 'static_pages#terms'
   match '/privacy',   to: 'static_pages#privacy'
-  match '/howitworks',   to: 'static_pages#howitworks'
-  match '/faqs',   to: 'static_pages#faqs'
+  match '/howitworks', to: 'static_pages#howitworks'
+  match '/faqs', to: 'static_pages#faqs'
 
   devise_for :users, :path_names => { sign_in: "login", sign_out: "logout", sign_up: "signup" }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   devise_scope :user do
