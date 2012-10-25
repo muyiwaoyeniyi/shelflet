@@ -5,11 +5,11 @@
                 <div class="BCWLeft">  
 
                           <% if @user_book.book.cover_photo.present? %>
-                <%= image_tag @user_book.book.cover_photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
+                <%= image_tag @user_book.book.cover_photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" , :width => "88", :height => "114" %>
                             <% elsif @user_book.user_book_photos.present? %>
-                               <%= image_tag @user_book.user_book_photos.first.photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
+                               <%= image_tag @user_book.user_book_photos.first.photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border", :width => "88", :height => "114" %>
                             <% else %>
-                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :class => "thumbnail_border" %>
+                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :class => "thumbnail_border", :width => "88", :height => "114" %>
                             <% end %> <%# end if cover photo is preser %>                    
                            
 
