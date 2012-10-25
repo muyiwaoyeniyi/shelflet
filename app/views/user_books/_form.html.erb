@@ -179,10 +179,10 @@
                             <%= p.file_field :photo %> 
                      <% end %>         
                     </div>     
-                    <% if can? :update, @user_book %>
+                    <% if !(@user_book.new_record?) %>
                       <% if @user_book.user_book_photos.present? %>
-                       <label class="checkbox inline">  
-                         <%= f.check_box :deletePhotos, :id => "deletePhotos" %>Delete existing pictures                 
+                        <label class="checkbox inline">  
+                           <%= f.check_box :deletePhotos, :id => "deletePhotos" %>Delete existing pictures                 
                         </label> 
                       <% end %>
                    <% end %>

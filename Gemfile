@@ -25,9 +25,10 @@ gem 'omniauth'
 gem 'oauth2'
 gem 'omniauth-facebook', '1.4.0'
 gem 'thinking-sphinx'
-gem 'flying-sphinx',   '0.8.4'
+
 gem 'whenever', :require => false
 gem 'active_attr'
+gem 'mysql'
 
 group :development do
   gem 'annotate', '2.5.0'
@@ -35,18 +36,13 @@ group :development do
   #gem 'populate'
 end
 
-gem 'mysql'
-
 group :development, :test do
   gem 'rspec-rails', '2.10.0'
 end
 
-#group :production do
- # gem 'pg'
-#end
-
 group :production do
   gem 'thin'
+  gem 'flying-sphinx', '0.8.4'
 end
 # Gems used only for assets and not required
 # in production environments by default.

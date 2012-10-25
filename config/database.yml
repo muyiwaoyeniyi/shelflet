@@ -42,23 +42,23 @@ test:
 # pool: 5
 # timeout: 5000
 
-production:
-  adapter: mysql
-  encoding: utf8
-  reconnect: false
-  database: shelflet_production
-  pool: 5
-  username: root
-  password: wisdom
-  timeout: 5000
-  host: localhost
-
 #production:
- # adapter:  postgresql
-  #encoding: unicode
+ # adapter: mysql
+#encoding: utf8
+  #reconnect: false
+  #database: shelflet_production
+ # pool: 5
+#  username: root
+#  password: wisdom
+#  timeout: 5000
+#  host: localhost
+
+production:
+  adapter:  mysql
+  encoding: utf8
   #pool: 5
-  #database: d88cobp96t39jh
-  #username: kyaxajjfxvwhxn
-  #password: KRJuIoFr2hQ2gJ8FKYqGVWcPgB
+  database: us-cdbr-east-02.cleardb.com
+  username: bacfd9df52ae32
+  password: 5c7b7c88
   #host: ec2-107-22-169-202.compute-1.amazonaws.com
   #port: 5432

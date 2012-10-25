@@ -10,8 +10,9 @@
  *
  * require_self
  * require_tree .
- *= require custom
  *= require scaffolds
+ *= require custom
+ *= require jquery.fancybox
 */
 
 

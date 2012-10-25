@@ -11,7 +11,7 @@ class BooksController < ApplicationController
     #elsif params[:category]                        # would need this when I change quick search to category search
        #@categories = Category.find_all_by_id(12) 
     else    
-       @books = Book.where(:id => [34, 37, 38]).paginate(:page => params[:page], :per_page => 1)  #paginate(:page => params[:page], :per_page => 1)    #(limit: 10)
+       @books = Book.where(:id => [0..20]).paginate(:page => params[:page], :per_page => 1)  #paginate(:page => params[:page], :per_page => 1)    #(limit: 10)
        flash.now[:notice] = "Please type in something to search. Some recent listings have been shown."
     end
    
