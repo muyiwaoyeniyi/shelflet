@@ -14,7 +14,7 @@
                     <%= link_to user_book_path(w), :class => "thumbnail" do %>
 
                           <% if w.book.cover_photo.present? %>
-                               <%= image_tag w.book.cover_photo.url(:cover), :alt => "Cover Photo" %>
+                               <%= image_tag w.book.cover_photo.url(:cover), :alt => "Cover Photo", :width => "97", :height => "125" %>
                             <% elsif w.user_book_photos.present? %>
                                <%= image_tag w.user_book_photos.first.photo.url(:cover), :alt => "Cover Photo", :width => "97", :height => "125" %>
                             <% else %>
@@ -22,7 +22,7 @@
                             <% end %> <%# end if cover photo is present %>
 
                         <% end %>
-                    <p><span>$<span class="Price"><%= w.price %></span> | 1 month</span></p>
+                    <p><span>$<span class="Price"><%= w.price %></span> / month</span></p>
                   </li>
 
                   <% end %>      

@@ -4,11 +4,11 @@
 # http://en.wikipedia.org/wiki/Cron
 
 every 2.days do
-  rake "ts:index"
+  heroku run rake "fs:index"
 end
 
 every :reboot do
-  rake "ts:start"
+  heroku run rake "fs:start"		#rake "fs:start"
 end
 
 
