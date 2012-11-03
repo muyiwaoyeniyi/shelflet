@@ -1472,6 +1472,7 @@ input[type='text'].inactive, textarea.inactive, select.inactive, option.inactive
 .No_Edition
 {
     margin-left: 8px;
+    padding-bottom: 2px;
 }
 
 .MainBodyWrapper .HomeImage
@@ -1483,17 +1484,17 @@ input[type='text'].inactive, textarea.inactive, select.inactive, option.inactive
 .MainBodyWrapper .HomeImageText1
 {
     position: absolute;
-    top: 215px;
-    left: 520px;
     font-weight: bold;
     font-size: 25px;
+    margin-top: -340px;
+    margin-left: 80px;
 }
 
 .MainBodyWrapper .HomeImageText2
 {
     position: absolute;
-    top: 300px;
-    right: 308px;
+    margin-top: -250px;
+    margin-left: 345px;
     font-weight: bold;
 }
 
