@@ -42,15 +42,13 @@
                       <% i = 0 %>
                       <div class="google_isbn"><span><% b['volumeInfo']['industryIdentifiers'].each do |a| %></span>
 
-                      <% i = i+ 1 %>
+                      <% i = i + 1 %>
 
                         <% if i == b['volumeInfo']['industryIdentifiers'].length  %>
                             <% if a["type"] == "ISBN_13" %>
                               <span><%= a['type'] %>: </span><span class="google_isbn13"><%= a['identifier'] %></span>
                             <% elsif a["type"] == "ISBN_10" %> 
                               <span><%= a['type'] %>: </span><span class="google_isbn10"><%= a['identifier'] %></span>
-                            <% else %>
-                              <span><%= a['type'] %>: </span><span class="google_other"><%= a['identifier'] %></span>
                             <% end %>
                         <% else %>
 
@@ -58,8 +56,6 @@
                             <span><%= a['type'] %>: </span><span class="google_isbn13"><%= a['identifier'] %></span><span> | </span>
                         <% elsif a["type"] == "ISBN_10" %> 
                             <span><%= a['type'] %>: </span><span class="google_isbn10"><%= a['identifier'] %></span><span> | </span>
-                        <% else %>
-                          <span><%= a['type'] %>: </span><span class="google_other"><%= a['identifier'] %></span><span> | </span>
                         <% end %>
                     <% end %>
 

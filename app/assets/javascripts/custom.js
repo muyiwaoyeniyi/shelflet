@@ -140,6 +140,16 @@ $(document).ready(function () {
     
    // ***************************end for google book suggestion*************************************
 
+        $("input#No_Edition").click(function () {
+            if ($("input#No_Edition").is(':checked')) {
+                $('input#Edition').attr("disabled", "disabled");    
+                $("input#Edition").val('0');     
+            }
+            else {
+                $('input#Edition').removeAttr("disabled");
+                $("input#Edition").val('');     
+            }
+        });
 
   /* $("#search").keyup(function () {
 
@@ -175,18 +185,7 @@ $(document).ready(function () {
     
        
     //Code to toggle Search bar
-    if (location.pathname == "/") {
-        $(window).load(function () {
-            $('#slider').nivoSlider({
-                effect: 'fade',
-                animSpeed: 500,
-                pauseTime: 10000,
-                manualAdvance: true,
-                pauseOnHover: true
-            });
-        });
-    }
-    else if (location.pathname == "/users/login" || location.pathname == "/users/signup" || location.pathname == "/users/password/edit"
+   if (location.pathname == "/users/login" || location.pathname == "/users/signup" || location.pathname == "/users/password/edit"
                 || location.pathname == "/thankyou" || location.pathname == "/user_books/new" || location.pathname == "/users/password" || location.pathname == "/users" || location.pathname == "/cart" || location.pathname == "/list" || location.pathname == "/users/password/new") {
         $('#SearchBar').hide();
         $('#Rent').on('click', function (event) {

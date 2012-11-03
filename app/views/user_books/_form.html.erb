@@ -67,7 +67,7 @@
 
                    <div class="wrong_cover_label">
                        <label class="checkbox inline">  
-                          <%= f.check_box :wrongCover, :id => "wrongCover" %>Not the cover?
+                          <%= f.check_box :wrongCover, :id => "wrongCover" %>Not the cover
                       </label>
                     </div>
 
@@ -76,12 +76,15 @@
                </div>
 
                <div class="control-group" style="clear: both;">
-                  <label class="control-label" for="Edition">Edition</label>
-                  <div class="list_page_tip" style="margin-top: 0px;">Please enter "0" if your book has no edition!</div>
+                  <label class="control-label" for="Edition">Edition</label>                  
                   <div class="controls">
 
                     <%= f.text_field :edition, id: "Edition", :class => "input-mini mini-fix" %>
-
+                    
+                       <label class="checkbox inline No_Edition">  
+                          <%= f.check_box :No_Edition, :id => "No_Edition" %>No Edition
+                      </label>
+                    
                   </div>
                 </div>
 
@@ -179,12 +182,10 @@
                             <%= p.file_field :photo %> 
                      <% end %>         
                     </div>     
-                    <% if !(@user_book.new_record?) %>
-                      <% if @user_book.user_book_photos.present? %>
-                        <label class="checkbox inline">  
+                    <% if !(@user_book.new_record?) && @user_book.user_book_photos.present? %>
+                         <label class="checkbox inline">  
                            <%= f.check_box :deletePhotos, :id => "deletePhotos" %>Delete existing pictures                 
                         </label> 
-                      <% end %>
                    <% end %>
                   </div>                 
 

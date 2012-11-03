@@ -6,12 +6,12 @@ class UserBook < ActiveRecord::Base
   attr_accessible :price, :quantity, :conditionNotes, :condition_id, :user_book_photos_attributes
   attr_accessible :location, :duration1, :duration2, :duration3
   attr_accessible :title, :category, :otherCategory, :isbn, :author, :publisher, :edition, :description #for setting book model
-  attr_accessible :wrongCover, :deletePhotos, :cover_photo_url
+  attr_accessible :wrongCover, :No_Edition, :deletePhotos, :cover_photo_url
   attr_accessible :duration    #will be used for cart and orders
 
 
   attr_accessor :title, :category, :otherCategory, :isbn, :author, :publisher, :edition, :description  #for setting book model
-  attr_accessor :wrongCover, :deletePhotos, :cover_photo_url  #for handling photos
+  attr_accessor :wrongCover, :No_Edition, :deletePhotos, :cover_photo_url  #for handling photos
   attr_accessor :duration   #will be used for cart and orders
   #attr_accessor :suggestedPrice  #will be used for rental price suggestion api
 
