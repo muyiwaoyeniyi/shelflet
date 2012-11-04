@@ -75,6 +75,7 @@ protected
  def the_stripper       #remove leading and trailing whitespaces
      self.isbn = self.isbn.strip.to_s.upcase
      self.author = self.author.titleize
+     self.publisher = self.publisher.titleize
  end
 
  def set_book_and_category
