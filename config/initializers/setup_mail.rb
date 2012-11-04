@@ -3,7 +3,7 @@ ActionMailer::Base.smtp_settings = {
   :port                 => 587,
   :domain               => "shelflet.herokuapp.com",
   :user_name            => "team@shelflet.com",
-  :password             => "Wisdom20",
+  :password             => "Umbrella12",
   :authentication       => "plain",
   :enable_starttls_auto => true
 }

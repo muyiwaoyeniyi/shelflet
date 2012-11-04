@@ -10,7 +10,7 @@ class UserMailer < ActionMailer::Base
 
   def contact_us_message(message)
     @message = message
-    mail(:subject => "#{message.subject}", :to => "help@shelflet.com")
+    mail(:subject => "#{message.subject}", :to => "help@shelflet.com", :reply_to => "#{message.email}")
   end
 
 end
