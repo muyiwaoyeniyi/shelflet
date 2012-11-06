@@ -5,22 +5,23 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
 
     # Check to see if there is a temporary user_book saved in the session
-    #if session[:user_book].present?  
-       # @user_book = UserBook.new(session[:user_book]["user_book"]) 
-        #@user_book = current_user.user_books.build(session[:user_book]["user_book"])
-        #@user_book.user_book_photos = UserBookPhoto.create(session[:user_book]["user_book"]['user_book_photos_attributes'])    
-       # session[:user_book] = nil  
+    if session[:user_book].present?  
+       
+        #@user_book = UserBook.new(session[:user_book]["user_book"]) 
+        @user_book = current_user.user_books.create(session[:user_book]["user_book"])
+        #@user_book.save 
+        session[:user_book] = nil  
         #if @user_book.save 
-         # flash[:notice] = "Sweet, You have logged in and listed your book. You can list more or go to your shelf. :)"
-          #new_user_book_path
+          flash[:notice] = "Sweet, You have logged in and listed your book. You can add photos, list more or go to your shelf. :)"
+          new_user_book_path
         #else
          # flash[:notice] = "We couldn't save your book. Please reenter the book information"
-         # new_user_book_path
+          #new_user_book_path
         #end
-    #else
+    else
       # If there is not a temp user_book in the session proceed as normal
       user
-    #end
+    end
 
   end
 

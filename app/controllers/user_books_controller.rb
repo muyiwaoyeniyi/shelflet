@@ -1,6 +1,6 @@
 class UserBooksController < ApplicationController
 
-   before_filter :authenticate_user!, except: [:index, :show]
+   before_filter :authenticate_user!, except: [:index, :show, :create, :new]
    
    load_and_authorize_resource  
 
@@ -58,10 +58,18 @@ class UserBooksController < ApplicationController
 
   # POST /user_books
   # POST /user_books.json
-  def create    
-  
+def create    
+        
+      # Check to see if the user is registered/logged in
+    if current_user.nil?
+        session[:user_book] = params
+        # Redirect the user to register/login
+        redirect_to new_user_session_path  
+    
+    else 
+
        @user_book = UserBook.new(params[:user_book])
-       @user_book = current_user.user_books.build(params[:user_book])    
+       @user_book = current_user.user_books.build(params[:user_book])   
 
       respond_to do |format|
         if @user_book.save
@@ -71,9 +79,9 @@ class UserBooksController < ApplicationController
           format.html { render action: "new" }
           format.json { render json: @user_book.errors, status: :unprocessable_entity }
         end
-
       end
-  end
+    end 
+end
 
   # PUT /user_books/1
   # PUT /user_books/1.json
