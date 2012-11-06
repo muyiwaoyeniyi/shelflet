@@ -19,26 +19,32 @@
 
 		<% if can? :update, @user_book %>  
 			<%= render "shared/snapshot" %>
-
 			<%= render "shared/shelfNav" %>
-		<% else %>
-			<%= render "shared/sidenavSearch" %>
-		</div></div></div>
 
-        <% end %>
- <div class="span9">
+       <div class="span9">
         
          <div class="row" style="margin-left: 0px;">
            <div id="BookColumnWrapper"> 
             <ul>
 
 
+		<% else %>
+			<%= render "shared/sidenavSearch" %>
+		    </div></div></div>
+
+         <div class="span9">
+        
+         <div class="row" style="margin-left: 0px; margin-top: 17px;">
+           <div id="BookColumnWrapper"> 
+            <ul>
+
+
+        <% end %>
+
 
 <%= render "bookInfo" %>
 
 <%= render "bookInfoMore" %>
-
-
 
 </div>
 

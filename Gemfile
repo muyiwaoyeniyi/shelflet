@@ -28,7 +28,7 @@ gem 'thinking-sphinx'
 
 gem 'whenever', :require => false
 gem 'active_attr'
-gem 'mysql'
+gem 'mysql2'
 
 group :development do
   gem 'annotate', '2.5.0'

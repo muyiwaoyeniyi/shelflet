@@ -96,7 +96,7 @@ $(document).ready(function () {
 
         var value = $(this).find('.google_categories').html();
         if (value) {
-            $("#Category").val("27");
+            $("#Category").val("27");  //27
             $("#otherCategory").show();
             value = value.trim().replace(/\s+/g, " ");
             $("#otherCategory").val(value);
@@ -140,14 +140,12 @@ $(document).ready(function () {
     
    // ***************************end for google book suggestion*************************************
 
-        $("input#No_Edition").click(function () {
-            if ($("input#No_Edition").is(':checked')) {
-                $('input#Edition').attr("disabled", "disabled");    
-                $("input#Edition").val('0');     
+        $("#No_Edition").change(function () {
+            if ($("#No_Edition").is(':checked')) {
+                $('#Edition').attr("disabled", "disabled");    
             }
             else {
-                $('input#Edition').removeAttr("disabled");
-                $("input#Edition").val('');     
+                $('#Edition').removeAttr("disabled");
             }
         });
 

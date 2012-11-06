@@ -49,7 +49,11 @@ class UserBooksController < ApplicationController
     @user_book.author = @book.author
     @user_book.publisher = @book.publisher
     @user_book.description = @book.description
-    @user_book.edition = @book.edition
+    #if !(@user_book.edition)
+     # @user_book.No_Edition = 1
+    #else
+      @user_book.edition = @book.edition
+    #end
     @user_book.isbn = @book.isbn
     @user_book.category = @book.categories.first.id   #would need to change this when we add multicategories
     #@user_book.user.user_book_photos = @book.categories.first.id

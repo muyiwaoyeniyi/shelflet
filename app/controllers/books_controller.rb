@@ -5,13 +5,13 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     if params.has_key?(:search) && params[:search].strip != ""     #for rental search across site
-       @books = Book.search(params[:search], :match_mode => :any, :star => true, :page => params[:page], :per_page => 1)
+       @books = Book.search(params[:search], :match_mode => :any, :star => true, :page => params[:page], :per_page => 10)
     elsif params[:value]                         #for autosuggest on search bar
        @books = Book.search(params[:value], :match_mode => :any, :star => true)
     #elsif params[:category]                        # would need this when I change quick search to category search
        #@categories = Category.find_all_by_id(12) 
     else    
-       @books = Book.where(:id => [0..20]).paginate(:page => params[:page], :per_page => 1)  #paginate(:page => params[:page], :per_page => 1)    #(limit: 10)
+       @books = Book.where(:id => [0..191]).paginate(:page => params[:page], :per_page => 10)  #paginate(:page => params[:page], :per_page => 1)    #(limit: 10)
        flash.now[:notice] = "Please type in something to search. Some recent listings have been shown."
     end
    

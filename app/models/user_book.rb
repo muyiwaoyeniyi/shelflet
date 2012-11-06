@@ -10,8 +10,8 @@ class UserBook < ActiveRecord::Base
   attr_accessible :duration    #will be used for cart and orders
 
 
-  attr_accessor :title, :category, :otherCategory, :isbn, :author, :publisher, :edition, :description  #for setting book model
-  attr_accessor :wrongCover, :No_Edition, :deletePhotos, :cover_photo_url  #for handling photos
+  attr_accessor :title, :category, :otherCategory, :isbn, :author, :publisher, :edition, :description, :No_Edition  #for setting book model
+  attr_accessor :wrongCover, :deletePhotos, :cover_photo_url  #for handling photos
   attr_accessor :duration   #will be used for cart and orders
   #attr_accessor :suggestedPrice  #will be used for rental price suggestion api
 
@@ -27,13 +27,15 @@ class UserBook < ActiveRecord::Base
   validates_presence_of :price, :location, :quantity, :condition_id
   validates_numericality_of :price, :quantity, :message => "has to be a number"
   validate :at_least_one_duration_must_be_checked
+  #validate :check_category
 
   
   #validations for book and category models
-  validates_presence_of :title, :category, :author, :publisher, :edition, :description
+  validates_presence_of :title, :category, :author, :publisher, :description # :edition
   validates :isbn, :isbn_format => true
-  validates_numericality_of :edition, :message => "has to be a number"
-  validates_presence_of :otherCategory, :unless => lambda { self.category != 27 }
+  validates_presence_of :otherCategory, :if => lambda { self.category == "27" }   #27
+  #validates_presence_of :edition, :unless => lambda { self.No_Edition != 0 }
+  #validates_numericality_of :edition, :unless => lambda { self.No_Edition != 0 }, :message => "has to be a number"
 
 
   #Associations
@@ -66,7 +68,7 @@ class UserBook < ActiveRecord::Base
 
 protected
 
-  def at_least_one_duration_must_be_checked
+ def at_least_one_duration_must_be_checked
     unless duration1 || duration2 || duration3
        errors.add(:base, "Please select at least one duration")
     end
@@ -84,19 +86,28 @@ protected
     
     if !(@book)                     #if book does not exist, create new book
 
+      if self.No_Edition       #set edition to zero if book has no edition
+        self.edition = 0
+      end
+
       @book = Book.new(:title => self.title, :isbn => self.isbn, 
                       :publisher => self.publisher, :edition => self.edition, 
                       :author => self.author, :description => self.description)
+
+
 
       if (cover_photo_url != '' && cover_photo_url != nil)      #check if url contains a string
         @book.get_cover_photo_from_google(self.cover_photo_url)
       end
      
+      
+
+
       @book.save!
 
       #create a new category only if user selects other category
-      if (self.category == 27)
-       
+      if (self.category == 27) #27
+      
         @category = Category.new(:name => self.otherCategory)
         @category.save! 
         self.category = @category.id

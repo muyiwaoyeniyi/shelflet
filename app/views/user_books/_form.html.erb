@@ -16,7 +16,7 @@
 
 
  <div class="control-group">
-                  <label class="control-label" for="Title">Title</label>
+                  <label class="control-label" for="Title">Book Title</label>
                   <div class="controls">
     <%= f.text_field :title, placeholder: "Enter ISBN (recommended) or book title for suggestions by google", id: "book_title", :class => "input-xlarge input-title btitle", :autocomplete => "off" %>
   </div>
@@ -31,7 +31,7 @@
 <div class="partition">
               <div style="float: left;">
                 <div class="control-group">
-                  <label class="control-label" for="ISBN">ISBN</label>
+                  <label class="control-label" for="ISBN">ISBN 10 or 13</label>
                   <div class="controls">
 
                     
@@ -69,7 +69,7 @@
 
                    <div class="wrong_cover_label">
                        <label class="checkbox inline">  
-                          <%= f.check_box :wrongCover, :id => "wrongCover" %>Not the cover
+                          <%= f.check_box :wrongCover, id: "wrongCover" %>Not the cover
                       </label>
                     </div>
 
@@ -85,7 +85,7 @@
                     <%= f.text_field :edition, id: "Edition", :class => "input-mini mini-fix" %>
                     
                        <label class="checkbox inline No_Edition">  
-                          <%= f.check_box :No_Edition, :id => "No_Edition" %>No Edition
+                          <%= f.check_box :No_Edition, id: "No_Edition" %>No Edition
                       </label>
                     
                   </div>
@@ -96,7 +96,7 @@
                   <div class="controls">
                     <%= select("user_book", "category", Category.all.collect {|p| [ p.name, p.id ] }, { :prompt => true }, :id => "Category", :class => "input-xlarge") %>
 
-                      <%= f.text_field :otherCategory, id: "otherCategory", :style => "margin-top: 0px;", :placeholder => "Enter category" %>
+                      <%= f.text_field :otherCategory, id: "otherCategory", :style => "margin-top: 0px;", :placeholder => "Enter other category" %>
                      
                   </div>
                 </div>
@@ -130,7 +130,7 @@
                <label class="control-label" for="First Name">Location</label>
                  <div class="controls">
                    
-                   <%= f.text_field :location, :class => "input-large", :id => "Location", :placeholder => "Ex. Seattle, WA or Madrid, Spain", :size => 16 %>
+                   <%= f.text_field :location, :class => "input-large", :id => "Location", :placeholder => "Ex. Los Angeles, CA or Paris, France", :size => 16 %>
                    
                  </div> 
               </div>
@@ -146,7 +146,7 @@
 
                  <div class="form-inline">
                <div class="control-group" style="display: inline-table;">
-               <label class="control-label" for="First Name">Price($/Month)</label>
+               <label class="control-label" for="First Name">Price/Month</label>
                <div class="list_page_tip" style="margin-top: 16px; margin-left:130px;">Average rental price ranges between 25% - <br />60% of the price of a new book...</div>
                  <div class="controls">
 

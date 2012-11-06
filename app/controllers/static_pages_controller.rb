@@ -1,4 +1,6 @@
 class StaticPagesController < ApplicationController
+
+    
   def home
     @recentListings = UserBook.new.recent_Listings
   end

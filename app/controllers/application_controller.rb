@@ -7,17 +7,17 @@ class ApplicationController < ActionController::Base
     # Check to see if there is a temporary user_book saved in the session
     if session[:user_book].present?  
        
-        #@user_book = UserBook.new(session[:user_book]["user_book"]) 
-        @user_book = current_user.user_books.create(session[:user_book]["user_book"])
-        #@user_book.save 
+        @user_book = UserBook.new(session[:user_book]["user_book"]) 
+        @user_book = current_user.user_books.build(session[:user_book]["user_book"])
         session[:user_book] = nil  
-        #if @user_book.save 
+        if @user_book.save
           flash[:notice] = "Sweet, You have logged in and listed your book. You can add photos, list more or go to your shelf. :)"
           new_user_book_path
-        #else
-         # flash[:notice] = "We couldn't save your book. Please reenter the book information"
-          #new_user_book_path
-        #end
+        else
+          flash[:alert] = "We couldn't save your book. You may have left out some required fields. Please reenter the book information"
+          flash[:notice] = ""
+          new_user_book_path
+        end
     else
       # If there is not a temp user_book in the session proceed as normal
       user

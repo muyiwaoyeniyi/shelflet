@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121020141312) do
+ActiveRecord::Schema.define(:version => 20121106152231) do
 
   create_table "book_categories", :force => true do |t|
     t.integer "category_id"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(:version => 20121020141312) do
     t.integer  "cover_photo_file_size"
     t.datetime "cover_photo_updated_at"
   end
+
+  add_index "books", ["isbn"], :name => "index_books_on_isbn"
 
   create_table "categories", :force => true do |t|
     t.datetime "created_at", :null => false
