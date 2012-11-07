@@ -30,6 +30,9 @@ gem 'whenever', :require => false
 gem 'active_attr'
 gem 'mysql2'
 
+gem 'rack-ssl'
+gem 'aws-sdk'
+
 group :development do
   gem 'annotate', '2.5.0'
   gem 'faker', '1.0.1'

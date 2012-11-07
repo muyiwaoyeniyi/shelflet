@@ -16,9 +16,9 @@ class Book < ActiveRecord::Base
 	has_many :categories, :through => :book_categories
 
 
-    has_attached_file :cover_photo, :styles => { :cover => "97x125>", :thumbnail => "88x114>"},
-                    :url => "/assets/cover_photos/:id/:style/:basename.:extension", 
-                    :path => ":rails_root/public/assets/cover_photos/:id/:style/:basename.:extension"
+    has_attached_file :cover_photo, :styles => { :cover => "97x125#", :thumbnail => "88x114#" }#,
+                    #:url => "/assets/cover_photos/:id/:style/:basename.:extension", 
+                    #:path => ":rails_root/public/assets/cover_photos/:id/:style/:basename.:extension"
 
   
     validates_attachment_size :cover_photo, :less_than => 1.megabytes

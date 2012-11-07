@@ -27,15 +27,14 @@ class UserBook < ActiveRecord::Base
   validates_presence_of :price, :location, :quantity, :condition_id
   validates_numericality_of :price, :quantity, :message => "has to be a number"
   validate :at_least_one_duration_must_be_checked
-  #validate :check_category
 
   
   #validations for book and category models
   validates_presence_of :title, :category, :author, :publisher, :description # :edition
   validates :isbn, :isbn_format => true
   validates_presence_of :otherCategory, :if => lambda { self.category == "27" }   #27
-  #validates_presence_of :edition, :unless => lambda { self.No_Edition != 0 }
-  #validates_numericality_of :edition, :unless => lambda { self.No_Edition != 0 }, :message => "has to be a number"
+  validates_presence_of :edition, :if => lambda { self.No_Edition == "0" }
+  validates_numericality_of :edition, :if => lambda { self.No_Edition == "0" }, :message => "has to be a number"
 
 
   #Associations
