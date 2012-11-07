@@ -665,6 +665,8 @@ legend
     padding-left: 40px;
     width: 94.3%;
     margin-bottom: 0px;
+    font-size: 14px;
+    font-weight: bold;
 }
 /* End For All Forms */
 
@@ -1064,10 +1066,19 @@ a.Default, a:hover.Default
 
 #listBoxWrapper .listing-text
 {
-    font-size: 19px;
+    font-size: 13px;
     padding-left: 74px;
     margin-bottom: 10px;
-    margin-top: 10px;    
+    margin-top: 10px;  
+    font-weight: bold;  
+}
+
+#listBoxWrapper .listing-text-shelf
+{
+    float: right;
+    font-size: 12px;
+    margin-right: 20px;
+    font-weight: normal;
 }
 
 #listBoxWrapper .listing-text-border
@@ -1428,6 +1439,7 @@ input[type='text'].inactive, textarea.inactive, select.inactive, option.inactive
     border-top: 0px;
     padding: 10px;
     padding-bottom: 20px;
+    height: 53px;
 }
 
 #google_books_result .noresp_padding

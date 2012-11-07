@@ -221,8 +221,34 @@ $(document).ready(function () {
 
     //for book photos
     $(".fancybox").fancybox();      
+
+    //site popovers and tooltips
     $('.element').tooltip();
+
+    $('#Price').popover({
+        title: "Pricing tip!",
+        content: "Average rental price ranges between 25% - 60% of the price of a new book...", 
+        trigger: focus
+    });
     
+    $('#Location').popover({
+        title: "Location tip!",
+        content: "Entering a location will increase your book's visibility to renters close to you...", 
+        trigger: focus
+    });
+
+    $('#Checkbox1').tooltip({
+        title: "You can select 1 or more rental periods!"
+    });
+
+    $('#Checkbox2').tooltip({
+        title: "You can select 1 or more rental periods!"
+    });
+
+    $('#Checkbox3').tooltip({
+        title: "You can select 1 or more rental periods!"
+    });
+
     //$(".alert").hide();
     //$(".alert").alert();
 

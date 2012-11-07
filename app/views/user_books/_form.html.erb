@@ -130,7 +130,7 @@
                <label class="control-label" for="First Name">Location</label>
                  <div class="controls">
                    
-                   <%= f.text_field :location, :class => "input-large", :id => "Location", :placeholder => "Ex. Los Angeles, CA or Paris, France", :size => 16 %>
+                   <%= f.text_field :location, :class => "input-large", :id => "Location", :placeholder => "Ex. Los Angeles, CA or Paris, France", :size => 16, :rel => "popover" %>
                    
                  </div> 
               </div>
@@ -147,31 +147,28 @@
                  <div class="form-inline">
                <div class="control-group" style="display: inline-table;">
                <label class="control-label" for="First Name">Price/Month</label>
-               <div class="list_page_tip" style="margin-top: 16px; margin-left:130px;">Average rental price ranges between 25% - <br />60% of the price of a new book...</div>
                  <div class="controls">
 
-                  <%= f.text_field :price, :class => "input-mini", :id => "Price" %>
+                  <%= f.text_field :price, :class => "input-mini", :id => "Price", :rel => "popover" %>
 
                   </div>
                 </div>
 
-
-
                 <div class="control-group">
                <label class="control-label" for="First Name">Duration (Month)</label>
-               <div class="list_page_tip">You can select more than 1 rental period!</div>
-                 <div class="controls form-inline" style="margin-top: -7px;">
+               
+                 <div class="controls form-inline" style="margin-top: -9px;">
                    <label class="checkbox inline">  
-                    <%= f.check_box :duration1, :id => "Checkbox1" %>1
+                    <%= f.check_box :duration1, :id => "Checkbox1", rel: "popover" %>1
                  
                </label> 
                <label class="checkbox inline">  
 
-                   <%= f.check_box :duration2, :id => "Checkbox2" %>2                 
+                   <%= f.check_box :duration2, :id => "Checkbox2", rel: "popover" %>2                 
                </label>
                <label class="checkbox inline">  
 
-                  <%= f.check_box :duration3, :id => "Checkbox3" %>3
+                  <%= f.check_box :duration3, :id => "Checkbox3", rel: "popover" %>3
 
                </label>
                   </div>

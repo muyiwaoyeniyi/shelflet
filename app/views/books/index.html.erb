@@ -1,4 +1,4 @@
-<% provide(:title, "My Shelf") %>
+<% provide(:title, "Search Results") %>
 
 <div class="MainBodyWrapper">
 
@@ -47,11 +47,11 @@
                       <%= link_to user_book_path(w), :class => "Title" do %>
                             
                             <% if w.book.cover_photo.present? %>
-                               <%= image_tag w.book.cover_photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border", :width => "88", :height => "114" %>
+                               <%= image_tag w.book.cover_photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
                             <% elsif w.user_book_photos.present? %>
-                               <%= image_tag w.user_book_photos.first.photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border", :width => "88", :height => "114" %>
+                               <%= image_tag w.user_book_photos.first.photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
                             <% else %>
-                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :class => "thumbnail_border", :width => "88", :height => "114" %>
+                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :class => "thumbnail_border" %>
                             <% end %> <%# end if cover photo is preser %>
 
                         <% end %>  <%# end cover photo link to image %>
@@ -110,7 +110,7 @@
                            
                       <p><strong>Rental Price: $<span class="Price">  <%= w.price %></span> / Month</strong></p>
 
-                      <div class="BCWRight_Border style="margin-top: -5px; margin-bottom: 10px;""></div>
+                      <div class="BCWRight_Border" style="margin-top: -5px; margin-bottom: 10px;"></div>
 
                 <form action="#" class="form-inline" style="margin-top: 11px; margin-bottom: -5px;">
 
