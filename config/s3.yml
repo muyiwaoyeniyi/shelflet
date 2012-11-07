@@ -1,0 +1,9 @@
+production:
+  bucket: shelflet_photos_prod
+  access_key_id: AKIAIWELXR6XA3HLAB5A
+  secret_access_key: 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
+
+development:
+  bucket: shelflet_photos_dev
+  access_key_id: AKIAIWELXR6XA3HLAB5A
+  secret_access_key: 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

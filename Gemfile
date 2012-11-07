@@ -31,7 +31,7 @@ gem 'active_attr'
 gem 'mysql2'
 
 gem 'rack-ssl'
-gem 'aws-sdk'
+gem 'aws-s3'
 
 group :development do
   gem 'annotate', '2.5.0'

@@ -70,12 +70,4 @@ Shelflet::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['shelflet_assets'],
-      :access_key_id => ENV['AKIAIWELXR6XA3HLAB5A'],
-      :secret_access_key => ENV['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']
-    }
-  }
 end
