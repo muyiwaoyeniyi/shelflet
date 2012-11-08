@@ -51,6 +51,8 @@ Shelflet::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
   config.action_controller.asset_host = "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
 
+  config.gzip_compression = true
+
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
 

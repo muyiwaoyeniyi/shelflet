@@ -1,4 +1,4 @@
-
+=begin
 AssetSync.configure do |config|
   config.fog_provider = 'AWS'
   config.aws_access_key_id = ENV['AKIAIWELXR6XA3HLAB5A']
@@ -21,3 +21,4 @@ AssetSync.configure do |config|
   # Fail silently.  Useful for environments such as Heroku
   # config.fail_silently = true
 end
+=end
