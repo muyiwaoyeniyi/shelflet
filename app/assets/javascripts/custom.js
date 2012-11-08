@@ -249,6 +249,9 @@ $(document).ready(function () {
         title: "You can select 1 or more rental periods!"
     });
 
+     $('.upload_Photos').tooltip({
+        title: "Adding photos can make a renter decide quickly. You can select multiple photos at the same time."
+    });
     //$(".alert").hide();
     //$(".alert").alert();
 

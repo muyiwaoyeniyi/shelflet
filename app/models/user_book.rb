@@ -30,7 +30,7 @@ class UserBook < ActiveRecord::Base
 
   
   #validations for book and category models
-  validates_presence_of :title, :category, :author, :publisher, :description # :edition
+  validates_presence_of :title, :category, :author, :description
   validates :isbn, :isbn_format => true
   validates_presence_of :otherCategory, :if => lambda { self.category == "27" }   #27
   validates_presence_of :edition, :if => lambda { self.No_Edition == "0" }

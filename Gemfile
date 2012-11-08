@@ -33,6 +33,7 @@ gem 'mysql2'
 gem 'rack-ssl'
 gem 'aws-s3'
 gem 'aws-sdk'
+gem "asset_sync"
 
 group :development do
   gem 'annotate', '2.5.0'

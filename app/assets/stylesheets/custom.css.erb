@@ -156,7 +156,7 @@
 #facebook-link
 {
     display: inline-block;
-    background: url('/assets/socials.png'); 
+    background: url(<%= asset_path 'socials.png' %>); 
     background-position: -109px 0; width: 59px; height: 60px;
     margin-top: 12px;
 }
@@ -169,7 +169,7 @@
 #twitter-link
 {
     display: inline-block;
-    background: url('/assets/socials.png') no-repeat;
+    background: url(<%= asset_path 'socials.png' %>) no-repeat;
     background-position: -327px 0; width: 59px; height: 60px;
     margin-top: 25px;
 }
@@ -952,7 +952,7 @@ a.Default, a:hover.Default
 #CartFormsWrapper .FacebookConnect
 {
     background-repeat: no-repeat;
-    background-image: url('/assets/facebook.png');
+    background-image: url(<%= asset_path 'facebook.png' %>);
     padding-bottom: 25px;
     display: block;
     margin-left: 63px;
@@ -1333,7 +1333,7 @@ a.Default, a:hover.Default
 
 /* credit card validation */
 form input.valid {
-  background: url(/assets/tick.png) 260px center no-repeat;
+  background: url(<%= asset_path 'tick.png' %>) 260px center no-repeat;
   background-size: 15px;
 }
 
@@ -1346,7 +1346,7 @@ form input.valid {
   -ms-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
-  background-image: url(/assets/card_logos.png);
+  background-image: url(<%= asset_path 'card_logos.png' %>);
   background-position: 0 0;
   float: left;
   height: 32px;
@@ -1523,4 +1523,9 @@ input[type='text'].inactive, textarea.inactive, select.inactive, option.inactive
 .MainBodyWrapper .HomeImageButtonsLearn
 {
     margin-left: 5px;
+}
+
+.required_asterisk
+{
+    color: crimson;
 }

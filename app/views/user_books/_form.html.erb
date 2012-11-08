@@ -16,7 +16,7 @@
 
 
  <div class="control-group">
-                  <label class="control-label" for="Title">Book Title</label>
+                  <label class="control-label" for="Title">Book Title <span class="required_asterisk">*</span></label>
                   <div class="controls">
     <%= f.text_field :title, placeholder: "Enter ISBN (recommended) or book title for suggestions by google", id: "book_title", :class => "input-xlarge input-title btitle", :autocomplete => "off" %>
   </div>
@@ -31,7 +31,7 @@
 <div class="partition">
               <div style="float: left;">
                 <div class="control-group">
-                  <label class="control-label" for="ISBN">ISBN 10 or 13</label>
+                  <label class="control-label" for="ISBN">ISBN 10 or 13 <span class="required_asterisk">*</span></label>
                   <div class="controls">
 
                     
@@ -41,7 +41,7 @@
                 </div>  
 
                 <div class="control-group">
-                  <label class="control-label" for="Author">Author(s)</label>
+                  <label class="control-label" for="Author">Author(s) <span class="required_asterisk">*</span></label>
                   <div class="controls">
 
                     <%= f.text_field :author, id: "authors", :class => "input-xlarge" %>
@@ -79,7 +79,7 @@
                </div>
 
                <div class="control-group" style="clear: both;">
-                  <label class="control-label" for="Edition">Edition</label>                  
+                  <label class="control-label" for="Edition">Edition <span class="required_asterisk">*</span></label>                  
                   <div class="controls">
 
                     <%= f.text_field :edition, id: "Edition", :class => "input-mini mini-fix" %>
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="control-group">
-                  <label class="control-label" for="Category">Category:</label>
+                  <label class="control-label" for="Category">Category <span class="required_asterisk">*</span></label>
                   <div class="controls">
                     <%= select("user_book", "category", Category.all.collect {|p| [ p.name, p.id ] }, { :prompt => true }, :id => "Category", :class => "input-xlarge") %>
 
@@ -102,7 +102,7 @@
                 </div>
               
                 <div class="control-group">
-                  <label class="control-label" for="Description">Description</label>
+                  <label class="control-label" for="Description">Description <span class="required_asterisk">*</span></label>
                   <div class="controls">
                     
                     <%= f.text_area :description, id: "Description", :rows => 5, :cols => 3, :class => "input-xlarge" %>
@@ -111,7 +111,7 @@
                 </div>
 
                   <div class="control-group">
-                  <label class="control-label" for="Condition">Condition</label>
+                  <label class="control-label" for="Condition">Condition <span class="required_asterisk">*</span></label>
                   <div class="controls">
 
                     <%= select("user_book", "condition_id", Condition.all.collect {|p| [ p.name, p.id ] }, { :prompt => true }, :id => "Condition", :class => "input-xlarge") %>
@@ -127,7 +127,7 @@
              <div class="listing-text-border"></div>              
             
                   <div class="control-group">
-               <label class="control-label" for="First Name">Location</label>
+               <label class="control-label" for="First Name">Location <span class="required_asterisk">*</span></label>
                  <div class="controls">
                    
                    <%= f.text_field :location, :class => "input-large", :id => "Location", :placeholder => "Ex. Los Angeles, CA or Paris, France", :size => 16, :rel => "popover" %>
@@ -136,7 +136,7 @@
               </div>
 
                <div class="control-group">
-               <label class="control-label" for="Quantity">Quantity</label>
+               <label class="control-label" for="Quantity">Quantity <span class="required_asterisk">*</span></label>
                  <div class="controls">
                    
                    <%= f.text_field :quantity, :class => "input-mini mini-fix", :id => "Quantity" %>
@@ -146,7 +146,7 @@
 
                  <div class="form-inline">
                <div class="control-group" style="display: inline-table;">
-               <label class="control-label" for="First Name">Price/Month</label>
+               <label class="control-label" for="First Name">Price ($/Month) <span class="required_asterisk">*</span></label>
                  <div class="controls">
 
                   <%= f.text_field :price, :class => "input-mini", :id => "Price", :rel => "popover" %>
@@ -155,7 +155,7 @@
                 </div>
 
                 <div class="control-group">
-               <label class="control-label" for="First Name">Duration (Month)</label>
+               <label class="control-label" for="First Name">Duration (Month) <span class="required_asterisk">*</span></label>
                
                  <div class="controls form-inline" style="margin-top: -9px;">
                    <label class="checkbox inline">  
@@ -178,9 +178,10 @@
                 <% if current_user %>
 
                  <div class="control-group" style="margin-top: 18px;">          
-                   <label class="control-label" for="Suggested Price">Add Photo(s)</label>
+                  
+                   <label class="control-label upload_Photos" rel="tooltip" for="Suggested Price">Add Photo(s)</label>
                    <div class="controls">                  
-                <%= file_field_tag 'user_book[user_book_photos_attributes][][photo]', :multiple => true do |p| %>
+                <%= file_field_tag 'user_book[user_book_photos_attributes][][photo]', :class => "upload_Photos", rel: "tooltip", :multiple => true do |p| %>
                             <%= p.file_field :photo %> 
                      <% end %>         
                     </div>     
