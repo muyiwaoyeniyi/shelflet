@@ -20,7 +20,7 @@
           <div class="resp_image">
 
           <% if b['volumeInfo']['imageLinks'] && b['volumeInfo']['imageLinks']['thumbnail'] %>
-            <div><img class="google_thumbnail" src="<%= b['volumeInfo']['imageLinks']['thumbnail'] %>" width="55" height="64" /></div>
+            <div><img style="border: 1px solid #DDD;" class="google_thumbnail" src="<%= b['volumeInfo']['imageLinks']['thumbnail'] %>" width="55" height="64" /></div>
           <% end %>
 
           </div>
