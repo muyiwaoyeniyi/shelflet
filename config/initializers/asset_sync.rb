@@ -1,6 +1,6 @@
 AssetSync.configure do |config|
   config.fog_provider = 'AWS'
-  config.fog_directory = 'shelflet_photos_prod'
+  config.fog_directory = 'shelflet'
   config.aws_access_key_id = 'AKIAIWELXR6XA3HLAB5A'
   config.aws_secret_access_key = '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'
 
