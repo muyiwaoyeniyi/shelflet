@@ -55,7 +55,7 @@ module Shelflet
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.initialize_on_precompile = true
+    config.assets.initialize_on_precompile = false
 
     config.asset_sync.fog_provider = 'AWS'
     config.asset_sync.aws_access_key_id = ENV['AKIAIWELXR6XA3HLAB5A']
