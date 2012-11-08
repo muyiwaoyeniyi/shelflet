@@ -1,9 +1,9 @@
-=begin
+
 AssetSync.configure do |config|
   config.fog_provider = 'AWS'
-  config.aws_access_key_id = ENV['AWS_ACCESS_KEY_ID']
-  config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-  config.fog_directory = ENV['FOG_DIRECTORY']
+  config.aws_access_key_id = ENV['AKIAIWELXR6XA3HLAB5A']
+  config.aws_secret_access_key = ENV['g/4ANKSeudNU1IuUos28BRlRi7VghFJ7jaByrqOW']
+  config.fog_directory = ENV['shelflet_photos_prod']
   
   # Increase upload performance by configuring your region
   # config.fog_region = 'eu-west-1'
@@ -21,4 +21,3 @@ AssetSync.configure do |config|
   # Fail silently.  Useful for environments such as Heroku
   # config.fail_silently = true
 end
-=end
