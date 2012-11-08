@@ -8,7 +8,7 @@ every 2.hours do
 end
 
 every :reboot do
-  heroku run rake "fs:start"		#rake "fs:start"
+  heroku run rake "fs:rebuild"		#rake "fs:start"
 end
 
 

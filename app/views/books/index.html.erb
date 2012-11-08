@@ -29,7 +29,7 @@
           <% end %>   <%# end to check if a user book for a book exist before suggestiing %>  
      <% else %>
 
-      <% if @books.count == 0 %> 
+      <% if @books.count == 0 || @books.count == nil %> 
   
           <%= render "emptyResults" %>      
 
