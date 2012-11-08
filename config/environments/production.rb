@@ -50,7 +50,7 @@ Shelflet::Application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
   
-  config.asset_sync.fog_provider = ENV['AWS']
+  config.asset_sync.fog_provider = "AWS"
   config.asset_sync.aws_access_key_id = ENV['AKIAIWELXR6XA3HLAB5A']
   config.asset_sync.aws_secret_access_key = ENV['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']
   config.asset_sync.fog_directory = ENV['shelflet_photos_prod']
