@@ -57,10 +57,10 @@ module Shelflet
 
     config.assets.initialize_on_precompile = false
 
-    config.fog_provider = 'AWS'
-    config.aws_access_key_id = ENV['AKIAIWELXR6XA3HLAB5A']
-    config.aws_secret_access_key = ENV['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']
-    config.fog_directory = ENV['shelflet_photos_prod']
+    config.asset_sync.fog_provider = 'AWS'
+    config.asset_sync.aws_access_key_id = ENV['AKIAIWELXR6XA3HLAB5A']
+    config.asset_sync.aws_secret_access_key = ENV['g/4ANKSeudNU1IuUos28BRlRi7VghFJ7jaByrqOW']
+    config.asset_sync.fog_directory = ENV['shelflet_photos_prod']
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
