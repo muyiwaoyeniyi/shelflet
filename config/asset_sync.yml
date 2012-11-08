@@ -1,6 +1,9 @@
 
-  	config.fog_provider = 'AWS'
-    config.fog_directory = 'shelflet'
-    config.aws_access_key_id = 'AKIAIWELXR6XA3HLAB5A'
-    config.aws_secret_access_key = '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'
-    config.gzip_compression = true
+
+
+fog_provider: AWS
+fog_directory: shelflet
+bucket: shelflet
+access_key_id: AKIAIWELXR6XA3HLAB5A
+secret_access_key: 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
+gzip_compression: true
