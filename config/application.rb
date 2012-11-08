@@ -55,12 +55,7 @@ module Shelflet
     # Enable the asset pipeline
     config.assets.enabled = true
 
-    config.assets.initialize_on_precompile = false
-
-    config.asset_sync.fog_provider = 'AWS'
-    config.asset_sync.aws_access_key_id = ENV['AKIAIWELXR6XA3HLAB5A']
-    config.asset_sync.aws_secret_access_key = ENV['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']
-    config.asset_sync.fog_directory = ENV['shelflet_photos_prod']
+    config.assets.initialize_on_precompile = true
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
