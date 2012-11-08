@@ -60,7 +60,7 @@ Shelflet::Application.configure do
   config.gzip_compression = true
 =end
   
-  config.action_controller.asset_host = "https://#{ENV['shelflet']}.s3.amazonaws.com"  
+  config.action_controller.asset_host = "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"  
   #config.action_controller.asset_host = "//#{ENV['shelflet_photos_prod']}.s3.amazonaws.com"
   #for asset sync stuffs
 
