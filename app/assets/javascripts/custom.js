@@ -255,6 +255,7 @@ $(document).ready(function () {
     //$(".alert").hide();
     //$(".alert").alert();
 
+
     //For form validation
     /*$("#settingsForm1").validVal();
     $("#settingsForm2").validVal();
