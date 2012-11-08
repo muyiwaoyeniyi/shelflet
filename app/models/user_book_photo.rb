@@ -9,7 +9,8 @@ class UserBookPhoto < ActiveRecord::Base
   has_attached_file :photo, :styles => { :cover => "97x125#", :thumbnail => "88x114#" },
                       :storage => :s3,
                         :s3_credentials => "#{Rails.root}/config/s3.yml",
-                        :path => "/:style/:id/:filename"
+                        :path => "/:style/:id/:filename",
+                        :url => "https://s3.amazonaws.com/shelflet/:style/:id/:filename"
   
   validates_attachment_size :photo, :less_than => 2.megabytes
   validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
