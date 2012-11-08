@@ -17,19 +17,23 @@
            <li>          	
          <div class="book_resp2">  	  
 
+          <div class="resp_image">
+
           <% if b['volumeInfo']['imageLinks'] && b['volumeInfo']['imageLinks']['thumbnail'] %>
-            <div style="float: left; clear: both"><img class="google_thumbnail" src="<%= b['volumeInfo']['imageLinks']['thumbnail'] %>" width="55" height="64" /></div>
+            <div><img class="google_thumbnail" src="<%= b['volumeInfo']['imageLinks']['thumbnail'] %>" width="55" height="64" /></div>
           <% end %>
 
-              
+          </div>
+
               <div class="resp_padding">   
                    
 
                    <% if b['volumeInfo']['title'] %>
                      <% i = 0 %>
                         <strong class="google_title"><%= b['volumeInfo']['title'] %> </strong><br />
+                   <% end %>    <%# end if b['volumeInfo']['title'] %>
 
-                      <% if b['volumeInfo']['title']['authors'] %>
+                      <% if b['volumeInfo']['authors'] %>
                         <span style="font-size: 11px;" class="google_authors"><% b['volumeInfo']['authors'].each do |p| %>  
                             <% i = i + 1 %>
                             <% if i == b['volumeInfo']['authors'].length  %>
@@ -40,7 +44,7 @@
                          <% end %> <%# end .each do |p| %>
                         </span><br /> 
                       <% end %>     <%# end if b['volumeInfo']['title']['authors'] %>            
-                  <% end %>    <%# end if b['volumeInfo']['title'] %>
+                  
 
 
                   <% if b['volumeInfo']['industryIdentifiers'] %>
@@ -94,7 +98,7 @@
                       <div style="display: none" class="google_description"><%= b['volumeInfo']['description'] %> </div>    
                   <% end %>                  	  
            	
-              </div>
+              </div> <%# book_resp2 div %>
 
               </li>
             </a>
