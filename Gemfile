@@ -33,7 +33,6 @@ gem 'mysql2'
 gem 'rack-ssl'
 gem 'aws-s3'
 gem 'aws-sdk'
-gem "asset_sync"
 
 group :development do
   gem 'annotate', '2.5.0'
@@ -55,6 +54,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem "asset_sync"
 end
 
 
