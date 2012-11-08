@@ -51,14 +51,17 @@ Shelflet::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
   
   #for asset sync stuffs
+=begin
   config.asset_sync.fog_provider = "AWS"
   config.asset_sync.aws_access_key_id = ENV['AKIAIWELXR6XA3HLAB5A']
   config.asset_sync.aws_secret_access_key = ENV['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']
   config.asset_sync.fog_directory = ENV['shelflet_photos_prod']
-
-  config.action_controller.asset_host = "https://#{ENV['FOG_DIRECTORY']}.s3.amazonaws.com"
-
+  
   config.gzip_compression = true
+=end
+  
+  #config.action_controller.asset_host = "https://#{ENV['shelflet_photos_prod']}.s3.amazonaws.com"  
+  config.action_controller.asset_host = "//#{ENV['shelflet_photos_prod']}.s3.amazonaws.com"
   #for asset sync stuffs
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
