@@ -3,3 +3,7 @@
  development:
     min_infix_len: 4
     enable_star: true
+
+ production:
+    min_infix_len: 4
+    enable_star: true
