@@ -5,6 +5,7 @@ $(document).ready(function () {
     var minlength = 4;
     var req;
     var timer;
+    //var set_google_cover = '';
 
     $("#book_title").keyup(function () {
 
@@ -104,6 +105,8 @@ $(document).ready(function () {
 
         //if google's cover photo is incorrect
         var google_cover = $(this).find(".google_thumbnail").attr("src");
+        var set_google_cover = $(this).find(".google_thumbnail").attr("src");
+
         if (google_cover) { 
             
             $('#cover_thumbnail').attr('src', google_cover);  
@@ -129,6 +132,14 @@ $(document).ready(function () {
             $('#google_books_result').hide();        
         });
       
+ /*alert(set_google_cover);
+        if (set_google_cover)
+          {
+            alert(set_google_cover);
+            $('#cover_thumbnail').attr('src', set_google_cover);
+      //      $("#cover_photo_url").val(set_google_cover);   
+          }*/
+      
 
         var mouseOver = false;
         $("#google_books_result").mouseover(function() { mouseOver = true; }).mouseout(function() { mouseOver = false; });
@@ -137,12 +148,7 @@ $(document).ready(function () {
             if (mouseOver) { return; }
             $('#google_books_result').hide(); 
         });
-    
-        var set_google_cover = $("#cover_photo_url").val();
-        if (set_google_cover != '')
-        {
-            $('#cover_thumbnail').attr('src', set_google_cover);
-        }
+
 
    // ***************************end for google book suggestion*************************************
 
