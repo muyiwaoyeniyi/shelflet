@@ -56,7 +56,6 @@ class UserBooksController < ApplicationController
     #end
     @user_book.isbn = @book.isbn
     @user_book.category = @book.categories.first.id   #would need to change this when we add multicategories
-    #@user_book.user.user_book_photos = @book.categories.first.id
 
   end
 
@@ -91,10 +90,6 @@ end
   # PUT /user_books/1.json
   def update
     @user_book = UserBook.find(params[:id])
-
-    if params["user_book"]["deletePhotos"] == "1"
-        UserBookPhoto.delete_all(:user_book_id => @user_book.id)
-    end
 
     respond_to do |format|
       if @user_book.update_attributes(params[:user_book])

@@ -1,26 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The change you wanted was rejected (422)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
-</head>
-
+    <title>Shelflet | The change you wanted was rejected (422)</title>
+    <meta charset="utf-8">
+    <link href="https://shelflet.s3.amazonaws.com/assets/application.css" rel="stylesheet" type="text/css"> 
+ </head>
 <body>
-  <!-- This file lives in public/422.html -->
-  <div class="dialog">
-    <h1>The change you wanted was rejected.</h1>
-    <p>Maybe you tried to change something you didn't have access to.</p>
-  </div>
+   <header class="headerWrapper">
+      <div class="navbar">
+         <div class="navbar-inner">
+            <div class="container">
+              <a class="brand" href="/">
+               <%= image_tag "shelflet.jpg", :alt => "Shelflet", :height => '37' %>
+              </a>
+              <!-- Everything you want hidden at 940px or less, place within here -->
+              <div class="nav-collapse">
+                <ul class="nav">
+                  <li><a style="font-size:20px; color: white; margin-left: -20px;" href="/">Shelflet</a></li>
+                 </ul>
+                
+              </div> <!-- nav-collapse -->             
+            </div>      
+           </div>
+         </div>        
+    </header>
+
+    <div class="MainBodyWrapper">            
+       <div class="container">
+        <div class="row">
+          <div class="span12">
+                 <p><strong style="font-size: 15px;">We're sorry, but the change you wanted was rejected (422). <br> Maybe you tried to change something you didn't have access to. Please return to shelflet...<a style="font-weight: bold; margin-left: 14px;" href="/" class="btn btn-info">Return to Shelflet</a></strong></p>
+                 <p style="border-top: 1px solid #E6E6E6;"></p>
+                 <p><%= image_tag "404.jpg", :alt => "Smiley" %></p>
+          </div>
+       </div>
+    </div>
+    </div>
 </body>
 </html>
+
+
+
+

@@ -19,10 +19,11 @@ class Book < ActiveRecord::Base
     has_attached_file :cover_photo, :styles => { :cover => "97x125#", :thumbnail => "88x114#" },
                       :storage => :s3,
                         :s3_credentials => "#{Rails.root}/config/s3.yml",
-                        :path => "/:style/:id/:filename"
+                        :path => "/cover/:style/:id/:filename",
+                        :s3_protocol => 'https'
 
   
-    validates_attachment_size :cover_photo, :less_than => 1.megabytes
+    validates_attachment_size :cover_photo, :less_than => 2.megabytes
     validates_attachment_content_type :cover_photo, :content_type => ['image/jpeg', 'image/png', 'image/gif']
     
     

@@ -32,7 +32,7 @@ class UserBook < ActiveRecord::Base
   #validations for book and category models
   validates_presence_of :title, :category, :author, :description
   validates :isbn, :isbn_format => true
-  validates_presence_of :otherCategory, :if => lambda { self.category == "27" }   #27
+  validates_presence_of :otherCategory, :if => lambda { self.category == "1000" }  
   validates_presence_of :edition, :if => lambda { self.No_Edition == "0" }
   validates_numericality_of :edition, :if => lambda { self.No_Edition == "0" }, :message => "has to be a number"
 
@@ -47,6 +47,7 @@ class UserBook < ActiveRecord::Base
 
   #callbacks
   before_save :set_book_and_category
+  before_save :delete_photos
 
 
   #functions
@@ -79,6 +80,13 @@ protected
      self.publisher = self.publisher.titleize
  end
 
+ def delete_photos
+    if self.deletePhotos
+        UserBookPhoto.delete_all(:user_book_id => @user_book.id)
+    end
+ end
+
+
  def set_book_and_category
    
     @book = Book.find_by_isbn(self.isbn)      #check if book exist first...
@@ -93,33 +101,25 @@ protected
                       :publisher => self.publisher, :edition => self.edition, 
                       :author => self.author, :description => self.description)
 
-
-
       if (cover_photo_url != '' && cover_photo_url != nil)      #check if url contains a string
         @book.get_cover_photo_from_google(self.cover_photo_url)
       end
-     
-      
-
 
       @book.save!
 
-      #create a new category only if user selects other category
-      if (self.category == 27) #27
-      
-        @category = Category.new(:name => self.otherCategory)
-        @category.save! 
-        self.category = @category.id
-
-      end            #end if for category
-
-      #Set the book and category association
-      @book_category = BookCategory.new
-      @book_category.category_id = self.category
-      @book_category.book_id = @book.id
-      @book_category.save!
+      #create a new category only if user selects other category or google returns a category and if that category doesnt already exist
+      if (self.category == "1000")      
+        self.otherCategory = self.otherCategory.titleize
+        @checkCategory = Category.where("name = ?", self.otherCategory)
+        if @checkCategory == nil
+          @category = Category.create(:name => self.otherCategory)
+          @book_category = BookCategory.create(:category_id => @category.id, :book_id => @book.id) 
+        else
+          @book_category = BookCategory.create(:category_id => @checkCategory.first.id, :book_id => @book.id) 
+        end
+      end       #end if for category     
      
-    end            #end if for book
+    end  #end if for book
     
     #set user book and book association
     self.book_id = @book.id

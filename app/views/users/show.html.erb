@@ -39,7 +39,7 @@
                             <% elsif w.user_book_photos.present? %>
                                <%= image_tag w.user_book_photos.first.photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
                             <% else %>
-                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :class => "thumbnail_border" %>
+                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :class => "thumbnail_border", width: "90", height: "116"%>
                             <% end %> <%# end if cover photo is preser %>
 
                         <% end %>  <%# end image link to book %>

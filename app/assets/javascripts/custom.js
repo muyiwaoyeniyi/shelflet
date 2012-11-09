@@ -96,7 +96,7 @@ $(document).ready(function () {
 
         var value = $(this).find('.google_categories').html();
         if (value) {
-            $("#Category").val("27");  //27
+            $("#Category").val("1000");  //27
             $("#otherCategory").show();
             value = value.trim().replace(/\s+/g, " ");
             $("#otherCategory").val(value);
@@ -202,7 +202,7 @@ $(document).ready(function () {
     // Hide Other Category and Condition
     $("#otherCategory").hide();
     $("#Category").change(function () {
-        if ($(this).val() == "27") {
+        if ($(this).val() == "1000") {
             $("#otherCategory").show("fast");
         } else {
             $("#otherCategory").hide();

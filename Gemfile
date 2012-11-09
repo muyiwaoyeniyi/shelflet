@@ -34,6 +34,8 @@ gem 'rack-ssl'
 gem 'aws-s3'
 gem 'aws-sdk'
 
+gem 'sprockets-image_compressor'
+
 group :development do
   gem 'annotate', '2.5.0'
   gem 'faker', '1.0.1'
