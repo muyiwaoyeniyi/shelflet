@@ -118,6 +118,9 @@ protected
            @category = Category.create(:name => self.otherCategory)
            @book_category = BookCategory.create(:category_id => @category.id, :book_id => @book.id)           
         end
+      else
+        @category = Category.find_by_id(self.category)
+        @book_category = BookCategory.create(:category_id => @category.id, :book_id => @book.id)         
       end       #end if for category     
      
     end  #end if for book
