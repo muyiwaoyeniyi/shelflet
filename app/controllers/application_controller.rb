@@ -14,8 +14,7 @@ class ApplicationController < ActionController::Base
           flash[:notice] = "Sweet, You have logged in and listed your book. You can add photos, list more or go to your shelf. :)"
           new_user_book_path
         else
-          flash[:alert] = "We couldn't save your book. You may have left out some required fields. Please reenter the book information"
-          flash[:notice] = ""
+          flash[:error] = "We couldn't add your book. You may have left out some required fields. Please re-enter the book information"
           new_user_book_path
         end
     else
@@ -45,4 +44,6 @@ class ApplicationController < ActionController::Base
   ensure
     Socket.do_not_reverse_lookup = orig
   end
+
+  
 end

@@ -47,7 +47,7 @@ class UserBook < ActiveRecord::Base
 
   #callbacks
   before_save :set_book_and_category
-  before_save :delete_photos
+  before_update :delete_photos
 
 
   #functions
@@ -82,8 +82,9 @@ protected
 
  def delete_photos
     if self.deletePhotos
-        UserBookPhoto.delete_all(:user_book_id => @user_book.id)
-    end
+         @user_book_photos = UserBookPhoto.where(:user_book_id => self.id)
+         @user_book_photos.destroy_all
+    end    
  end
 
 
@@ -110,12 +111,12 @@ protected
       #create a new category only if user selects other category or google returns a category and if that category doesnt already exist
       if (self.category == "1000")      
         self.otherCategory = self.otherCategory.titleize
-        @checkCategory = Category.where("name = ?", self.otherCategory)
-        if @checkCategory == nil
-          @category = Category.create(:name => self.otherCategory)
-          @book_category = BookCategory.create(:category_id => @category.id, :book_id => @book.id) 
+        @checkCategory = Category.find_by_name(self.otherCategory)
+        if @checkCategory
+           @book_category = BookCategory.create(:category_id => @checkCategory.id, :book_id => @book.id) 
         else
-          @book_category = BookCategory.create(:category_id => @checkCategory.first.id, :book_id => @book.id) 
+           @category = Category.create(:name => self.otherCategory)
+           @book_category = BookCategory.create(:category_id => @category.id, :book_id => @book.id)           
         end
       end       #end if for category     
      

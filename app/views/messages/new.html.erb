@@ -2,6 +2,7 @@
 
 <%= render "shared/searchbar" %>
 
+<%= render "shared/error_messages", :target => @message %> 
 
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
@@ -17,18 +18,7 @@
 
 <%= form_for @message do |f| %>
 
-    <% if @message.errors.any? %>15px
-    <div id="error_explanation">
-      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this your message from been sent. </h2>
-
-      <ul>
-      <% @message.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-   <% end %>
-
+  
        <div class="container">
         <div class="row">
 

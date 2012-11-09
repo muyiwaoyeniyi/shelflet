@@ -29,30 +29,35 @@ div {
 }
 
 .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
+  /*padding: 2px;
+  background-color: red;*/
+  display: inline-block;
 }
 
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
+  width: 924px;
+  border: 1px solid #EED3D7;
   padding: 7px;
   padding-bottom: 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0;
+  background-color: #F2DEDE;
+  color: #B94A48;
   h2 {
     text-align: left;
     font-weight: bold;
-    padding: 5px 5px 5px 15px;
+    padding: 0px 0px 0px 15px;
     font-size: 12px;
     margin: -7px;
     margin-bottom: 0px;
-    background-color: #c00;
-    color: #fff;
+    background-color: #F2DEDE;
+    color: #B94A48;
   }
   ul li {
     font-size: 12px;
-    list-style: square;
   }
+}
+
+.field_with_errors input, .field_with_errors textarea, .field_with_errors select
+{
+    border: 1px solid #F88379 !important;
 }

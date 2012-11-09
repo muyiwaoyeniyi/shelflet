@@ -1,0 +1,13 @@
+<div class="container">
+<% if target.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(target.errors.count, "error") %> stopped us from proceeding:</h2><%#prohibited this book from been saved:%>
+
+      <ul>
+      <% target.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+ </div>

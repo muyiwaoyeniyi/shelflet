@@ -12,7 +12,7 @@ class BooksController < ApplicationController
        #@categories = Category.find_all_by_id(12) 
     else    
        @books = Book.where(:id => [0..191]).paginate(:page => params[:page], :per_page => 10)  #paginate(:page => params[:page], :per_page => 1)    #(limit: 10)
-       flash.now[:notice] = "Please type in something to search. Some recent listings have been shown."
+       flash.now[:alert] = "Please type in something to search. Some recent listings have been shown."
     end
    
     respond_to do |format|

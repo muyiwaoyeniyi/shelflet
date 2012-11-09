@@ -1,13 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
-  </head>
-  <body>
-
-     <%#= image_tag attachments["shelflet.jpg"], :alt => "Shelflet", :height => '37' %><span>Shelflet</span><br><br>
-
-    Welcome <%= @user.first_name %>! <br><br>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Shelflet - Welcome</title>
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+  <style type="text/css">
+  body, td { color:#000000; font-size:14px; font-family:'PT Sans',Verdana,Helvetica,Arial; }
+  .divider { background-color: black; height:1px; }
+  #footer { font-size:11px; color:#555555; }
+  #footer a { color:#555555;}
+  </style>
+</head>
+<body>
+  <table width="100%" id="background" border="0" cellpadding="0" cellspacing="0">
+    <tr><td align="center" valign="top">
+      <table width="650" id="main" border="0" cellpadding="0" cellspacing="20">
+        <tr>
+          <td id="header" colspan="2">
+            <a href="localhost:3000"><img src="https://s3.amazonaws.com/shelflet/assets/shelflet.jpg" width ="37" height="37" style="margin-right: 10px;"></a><span style="font-size: 20px">Shelflet</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="divider" colspan="2" bgcolor="#555555" height="2"></td>
+        </tr>
+        <tr class="episode">
+          <td>
+            
+            Welcome <%= @user.first_name.to_s.humanize %> <br><br>
 
     Shelflet makes it easy to list and rent out your books to friends, peers and anyone else.<br><br>
 
@@ -15,8 +34,20 @@
 
     We’re really excited to have you join our market community!
 
-
-    <br><br><br>-- Shelflet team
-
-  </body>
+  <br><br><br>-- Shelflet team
+      
+        </tr>
+        <tr>
+          <td class="divider" colspan="2" bgcolor="#555555" height="2"></td>
+        </tr>
+        <tr>
+          <td id="footer" colspan="2" align="right">
+            <p><a href="https://blog.shelflet.com" style="margin-right: 15px; text-decoration: none;">BLOG</a><span><a href="https://facebook.com/shelflet" style="margin-right: 15px; text-decoration: none;">FACEBOOK</a></span><span><a style="text-decoration: none;" href="https://twitter.com/shelflet">TWITTER</a></span>
+            <p>&copy;2012 Tentie Inc.</p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
 </html>

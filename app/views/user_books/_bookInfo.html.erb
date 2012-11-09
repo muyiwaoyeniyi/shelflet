@@ -52,7 +52,7 @@
                 <% if can? :update, @user_book %>     
                    <div class="BCWRight BCWRight_Fix">                                
                       <%= link_to 'x', @user_book, confirm: 'Are you sure', method: :delete, :class => "x_icon_fix" %>
-                      <p><strong>Rental Price: $<span class="Price">  <%= @user_book.price %></span> / Month</strong></p>
+                      <p><strong>Rental Price: <span class="Price"> <%= number_to_currency(@user_book.price) %></span> / Month</strong></p>
                       <div class="BCWRight_Border"></div>
                       <p>Listed: <span class="orderDate">  <%= @user_book.created_at.strftime("%b %d, %y")  %>   </span></p>    
                       

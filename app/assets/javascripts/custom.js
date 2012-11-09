@@ -121,7 +121,7 @@ $(document).ready(function () {
                  $("#cover_photo_url").val(google_cover);     
             }
         });
-
+        
     //end if google's cover photo is incorrect
 
        // $('#Edition').attr('style', "border: 1px solid red");
@@ -138,6 +138,12 @@ $(document).ready(function () {
             $('#google_books_result').hide(); 
         });
     
+        var set_google_cover = $("#cover_photo_url").val();
+        if (set_google_cover != '')
+        {
+            $('#cover_thumbnail').attr('src', set_google_cover);
+        }
+
    // ***************************end for google book suggestion*************************************
 
         $("#No_Edition").change(function () {
@@ -148,6 +154,8 @@ $(document).ready(function () {
                 $('#Edition').removeAttr("disabled");
             }
         });
+
+     
 
   /* $("#search").keyup(function () {
 
@@ -208,6 +216,13 @@ $(document).ready(function () {
             $("#otherCategory").hide();
         }
     });
+
+    if ($('#otherCategory').val() != '')
+    {
+        $("#otherCategory").show("fast");
+    }
+
+
     $("#ConditionNotes").hide();
     $("#Condition").change(function () {
         if ($(this).val() == "1" || $(this).val() == "2" || $(this).val() == "3" || $(this).val() == "4" || $(this).val() == "5") {
@@ -252,9 +267,6 @@ $(document).ready(function () {
      $('.upload_Photos').tooltip({
         title: "Adding photos can make a renter decide quickly. You can select multiple photos at the same time."
     });
-    //$(".alert").hide();
-    //$(".alert").alert();
-
 
     //For form validation
     /*$("#settingsForm1").validVal();

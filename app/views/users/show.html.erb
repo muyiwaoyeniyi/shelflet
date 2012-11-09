@@ -97,7 +97,7 @@
 
           <%= link_to 'x', w, confirm: 'Are you sure', method: :delete, :class => "x_icon_fix" %>
                            
-                      <p><strong>Rental Price: $<span class="Price">  <%= w.price %></span> / Month</strong></p>
+                      <p><strong>Rental Price: <span class="Price"><%= number_to_currency(w.price) %></span> / Month</strong></p>
 
                       <div class="BCWRight_Border"></div>
 
