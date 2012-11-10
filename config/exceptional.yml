@@ -1,0 +1,9 @@
+#api-key: f9c178efcfa659bf0816789d70c46c58f5bbadb6
+
+development:
+  enabled: true
+  api-key: f9c178efcfa659bf0816789d70c46c58f5bbadb6
+
+production:
+  enabled: true
+  api-key: f9c178efcfa659bf0816789d70c46c58f5bbadb6

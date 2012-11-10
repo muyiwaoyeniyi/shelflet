@@ -35,6 +35,7 @@ gem 'aws-s3'
 gem 'aws-sdk'
 
 gem 'sprockets-image_compressor'
+gem 'exceptional'
 
 group :development do
   gem 'annotate', '2.5.0'

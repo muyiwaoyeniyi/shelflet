@@ -105,10 +105,9 @@ $(document).ready(function () {
 
         //if google's cover photo is incorrect
         var google_cover = $(this).find(".google_thumbnail").attr("src");
-        var set_google_cover = $(this).find(".google_thumbnail").attr("src");
+        //var set_google_cover = $(this).find(".google_thumbnail").attr("src");
 
         if (google_cover) { 
-            
             $('#cover_thumbnail').attr('src', google_cover);  
             $("#cover_photo_url").val(google_cover);     
             $('.wrong_cover_label').show();
@@ -223,10 +222,10 @@ $(document).ready(function () {
         }
     });
 
-    if ($('#otherCategory').val() != '')
+    /*if ($('#otherCategory').val() != '')
     {
         $("#otherCategory").show("fast");
-    }
+    }*/
 
 
     $("#ConditionNotes").hide();
