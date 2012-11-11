@@ -20,11 +20,11 @@
                             <% elsif w.user_book_photos.present? %>
                                <%= image_tag w.user_book_photos.first.photo.url(:cover), :alt => "Cover Photo" %>
                             <% else %>
-                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", width: "97", height: "125" %>
+                                <img src="https://s3.amazonaws.com/shelflet/assets/placehold.jpg" alt="Cover Photo" width="97" height = "127" />
                             <% end %> <%# end if cover photo is present %>
 
                         <% end %>
-                    <p><span class="Price"><%=  number_to_currency(w.price) %></span> / month</p>
+                    <p><span class="Price"><%= number_to_currency(w.price) %></span> / month</p>
                      
                   </li>
 

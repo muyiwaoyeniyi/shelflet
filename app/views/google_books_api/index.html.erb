@@ -80,21 +80,7 @@
                       <div style="display: none" class="google_publisher"><%= b['volumeInfo']['publisher'] %></div>
                    <% end %>
 
-                  
-                   <% if b['volumeInfo']['categories'] %>
-                       <% i = 0 %>
-                        <div style="display: none" class="google_categories"><% b['volumeInfo']['categories'].each do |x| %>  
-                              <% i = i + 1 %>
-                              <% if i == b['volumeInfo']['categories'].length  %>
-                                 <%= x %>
-                              <% else %>
-                                 <%= x %>,
-                              <% end %>
-                        <% end %></div>
-                  <% end %> 
-
-
-                  <% if b['volumeInfo']['description'] %>
+                   <% if b['volumeInfo']['description'] %>
                       <div style="display: none" class="google_description"><%= b['volumeInfo']['description'] %> </div>    
                   <% end %>                  	  
            	

@@ -53,8 +53,8 @@
                 <% if current_user %>
                 <div style="float: right;">
                    <div class="thumbnail">
-                     <%= image_tag "placehold.jpg", alt: "front cover", :id => "cover_thumbnail", width: "100", height: "116" %>
-                     <%= f.hidden_field :cover_photo_url, :class => "input-xlarge", :id => "cover_photo_url" %>
+        <img src="https://s3.amazonaws.com/shelflet/assets/placehold.jpg" alt="front cover" id="cover_thumbnail" width="100" height="116" />
+                     <%= f.hidden_field :cover_photo_url, :id => "cover_photo_url" %>
                    </div>
 
                    <div class="wrong_cover_label">
@@ -84,9 +84,8 @@
                 <div class="control-group">
                   <label class="control-label" for="Category">Category <span class="required_asterisk">*</span></label>
                   <div class="controls">
-                    <%= select("user_book", "category", Category.all.collect {|p| [ p.name, p.id ] }, { :prompt => true }, :id => "Category", :class => "input-xlarge") %>
 
-                      <%= f.text_field :otherCategory, id: "otherCategory", :style => "margin-top: 0px;", :placeholder => "Enter other category" %>
+<%= f.text_field :category_tokens, data: {load: @user_book_categories}, :id => "Category", :class => "input-xlarge" %>
                      
                   </div>
                 </div>
@@ -121,7 +120,14 @@
                  <div class="controls">
                    
                    <%= f.text_field :location, :class => "input-large", :id => "Location", :placeholder => "Ex. Los Angeles, CA or Paris, France", :size => 16, :rel => "popover" %>
-                   
+
+        <%= f.hidden_field :city %>
+        <%= f.hidden_field :state %>
+        <%= f.hidden_field :country %>
+        <%= f.hidden_field :country_code %>
+        <%= f.hidden_field :lat %>
+        <%= f.hidden_field :lng %>
+
                  </div> 
               </div>
 
@@ -136,7 +142,7 @@
 
                  <div class="form-inline">
                <div class="control-group" style="display: inline-table;">
-               <label class="control-label" for="First Name">Price ($/Month) <span class="required_asterisk">*</span></label>
+               <label class="control-label" for="First Name">Price/Month <span class="required_asterisk">*</span></label>
                  <div class="controls">
 
                   <%= f.text_field :price, :class => "input-mini", :id => "Price", :rel => "popover" %>

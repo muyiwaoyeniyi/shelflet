@@ -12,6 +12,8 @@
  *= require scaffolds
  *= require custom
  *= require jquery.fancybox.css
+ *= require token-input-facebook
+ *= require jqueryUI
  
 */
 

@@ -5,7 +5,6 @@ $(document).ready(function () {
     var minlength = 4;
     var req;
     var timer;
-    //var set_google_cover = '';
 
     $("#book_title").keyup(function () {
 
@@ -95,14 +94,6 @@ $(document).ready(function () {
             $("#ISBN").val(value2);
         }
 
-        var value = $(this).find('.google_categories').html();
-        if (value) {
-            $("#Category").val("1000");  //27
-            $("#otherCategory").show();
-            value = value.trim().replace(/\s+/g, " ");
-            $("#otherCategory").val(value);
-        }
-
         //if google's cover photo is incorrect
         var google_cover = $(this).find(".google_thumbnail").attr("src");
         //var set_google_cover = $(this).find(".google_thumbnail").attr("src");
@@ -115,7 +106,7 @@ $(document).ready(function () {
 
         $("input#wrongCover").click(function () {
             if ($("input#wrongCover").is(':checked')) {
-                $('#cover_thumbnail').attr('src', "/assets/placehold.jpg");     
+                $('#cover_thumbnail').attr('src', "https://s3.amazonaws.com/shelflet/assets/placehold.jpg");     
                 $("#cover_photo_url").val('');     
             }
             else {
@@ -125,8 +116,6 @@ $(document).ready(function () {
         });
         
     //end if google's cover photo is incorrect
-
-       // $('#Edition').attr('style', "border: 1px solid red");
 
             $('#google_books_result').hide();        
         });
@@ -210,24 +199,6 @@ $(document).ready(function () {
     }
     //End Code to toggle Search bar
 
-   
-
-    // Hide Other Category and Condition
-    $("#otherCategory").hide();
-    $("#Category").change(function () {
-        if ($(this).val() == "1000") {
-            $("#otherCategory").show("fast");
-        } else {
-            $("#otherCategory").hide();
-        }
-    });
-
-    /*if ($('#otherCategory').val() != '')
-    {
-        $("#otherCategory").show("fast");
-    }*/
-
-
     $("#ConditionNotes").hide();
     $("#Condition").change(function () {
         if ($(this).val() == "1" || $(this).val() == "2" || $(this).val() == "3" || $(this).val() == "4" || $(this).val() == "5") {
@@ -247,14 +218,15 @@ $(document).ready(function () {
 
     $('#Price').popover({
         title: "Pricing tip!",
-        content: "Average rental price ranges between 25% - 60% of the price of a new book...", 
+        content: "The average rental price on Shelflet ranges between 25% to 60% of the price of a new book, divided by the rental duration.", 
         trigger: focus
     });
     
     $('#Location').popover({
         title: "Location tip!",
         content: "Entering a location will increase your book's visibility to renters close to you...", 
-        trigger: focus
+        trigger: focus,
+        placement: 'top'
     });
 
     $('#Checkbox1').tooltip({
@@ -284,5 +256,71 @@ $(document).ready(function () {
    $("#signupForm").validVal();
    $("#resetForm").validVal();*/
     //End Form validation
+
+    $(function() {
+        function log( message ) {
+            $( "<div>" ).text( message ).prependTo( "#log" );
+            $( "#log" ).scrollTop( 0 );
+        }
+ 
+        $( "#Location" ).autocomplete({
+            source: function( request, response ) {
+                $.ajax({
+                    url: "http://ws.geonames.org/searchJSON",
+                    dataType: "jsonp",
+                    data: {
+                        featureClass: "P",
+                        style: "full",
+                        maxRows: 6,
+                        name_startsWith: request.term,
+                        username: 'muyiwaoyeniyi'
+                    },
+                    success: function( data ) {
+
+                        response( $.map( data.geonames, function( item ) {
+                                return {
+                                    //label: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
+                                    value: item.name + (item.adminName1 ? ", " + item.adminName1 : "") + ", " + item.countryName,
+                                    city: item.name,
+                                    adminName1: item.adminName1,
+                                    countryName: item.countryName,
+                                    countryCode: item.countryCode,
+                                    lat: item.lat,
+                                    lng: item.lng
+                        }
+                        }));
+                    },
+                /* error: function(jqXHR, textStatus, errorThrown){
+                    alert("error handler!");                        
+                    },*/
+                });                      
+            },
+            /*response: function(event, ui) {
+               // ui.content is the array that's about to be sent to the response callback.
+                 if (ui.content.length != 0) {
+                    //$( "#Location" ).autocomplete( "widget" );
+                    //$('#Location').text("No results")
+                    $(".ui-autocomplete").show();
+                    $(".ui-autocomplete").text("No results found");
+                    $(".ui-autocomplete").hide(20000);
+                } else {
+                   // $("#empty-message").empty();
+               //    }
+            },*/
+            minLength: 2,
+            select: function( event, ui ) {
+                //alert(ui.item.adminName1);
+                $('#user_book_city').val(ui.item.city);
+                $('#user_book_state').val(ui.item.adminName1);
+                $('#user_book_country').val(ui.item.countryName);
+                $('#user_book_country_code').val(ui.item.countryCode);
+                $('#user_book_lat').val(ui.item.lat);
+                $('#user_book_lng').val(ui.item.lng);
+            }
+        });
+        
+    });
+
+
 
 });

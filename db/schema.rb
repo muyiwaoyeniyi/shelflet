@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121106152231) do
+ActiveRecord::Schema.define(:version => 20121111092425) do
 
   create_table "book_categories", :force => true do |t|
     t.integer "category_id"
@@ -75,6 +75,12 @@ ActiveRecord::Schema.define(:version => 20121106152231) do
     t.boolean  "duration3"
     t.integer  "quantity"
     t.integer  "condition_id"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "country_code"
+    t.string   "lat"
+    t.string   "lng"
   end
 
   add_index "user_books", ["book_id"], :name => "index_user_books_on_book_id"

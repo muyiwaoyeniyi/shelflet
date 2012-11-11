@@ -7,8 +7,8 @@ class GoogleBooksApiController < ApplicationController
    if params.has_key?(:value) && params[:value].strip != ""
      text = params[:value]   #fix security
      @response =  HTTParty.get('https://www.googleapis.com/books/v1/volumes?q=' + 
-     	           text + '&fields=kind,items(volumeInfo/title),items(volumeInfo/authors),items(volumeInfo/publisher),items(volumeInfo/description),items(volumeInfo/categories),items(volumeInfo/industryIdentifiers),items(volumeInfo/imageLinks/thumbnail)' + '&maxResults=8' + '&key=AIzaSyCC5GZYiojTOSgN1nGr_hcII98-0IRbi9U' + '&userIp=' + local_ip) #current_user.current_sign_in_ip
-
+     	           text + '&fields=kind,items(volumeInfo/title),items(volumeInfo/authors),items(volumeInfo/publisher),items(volumeInfo/description),items(volumeInfo/industryIdentifiers),items(volumeInfo/imageLinks/thumbnail)' + '&maxResults=8' + '&key=AIzaSyCC5GZYiojTOSgN1nGr_hcII98-0IRbi9U' + '&userIp=' + local_ip) #current_user.current_sign_in_ip  
+                                  # ,items(volumeInfo/categories)
      respond_to do |format|
         format.html { render :layout => false }
         format.json { render json: @user_books }

@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   
   #stripping
   auto_strip_attributes :first_name, :last_name, :school_or_city, :nullify => false, :squish => true
+  before_validation :the_titleizer
 
   #Validations
   validates_presence_of :first_name, :last_name, :school_or_city
@@ -42,6 +43,12 @@ class User < ActiveRecord::Base
   end
 
 private
+
+  def the_titleizer       #remove leading and trailing whitespaces
+     self.first_name = self.first_name.titleize
+     self.last_name = self.last_name.titleize
+     self.school_or_city = self.school_or_city.titleize
+  end
 
   def welcome_message
     UserMailer.welcome_message(self).deliver

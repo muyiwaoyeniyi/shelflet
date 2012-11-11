@@ -6,13 +6,19 @@ class BooksController < ApplicationController
   def index
     if params.has_key?(:search) && params[:search].strip != ""     #for rental search across site
        @books = Book.search(params[:search], :match_mode => :any, :star => true, :page => params[:page], :per_page => 10)
-    elsif params[:value]                         #for autosuggest on search bar
-       @books = Book.search(params[:value], :match_mode => :any, :star => true)
-    #elsif params[:category]                        # would need this when I change quick search to category search
-       #@categories = Category.find_all_by_id(12) 
+    elsif params[:category]    #for category search
+        if (@book_ids = BookCategory.where('category_id = ?', params[:category]).pluck(:book_id))
+          @category = Category.find_by_id(params[:category])
+          @books = Book.where(:id => @book_ids).paginate(:page => params[:page], :per_page => 10)
+        else
+          @books.count = nil
+          #flash[:alert] = "We didn't find any book in this category :("  #not showing up
+        end
+    #elsif params[:value]                         #for autosuggest on search bar
+     #  @books = Book.search(params[:value], :match_mode => :any, :star => true)
     else    
        @books = Book.where(:id => [0..191]).paginate(:page => params[:page], :per_page => 10)  #paginate(:page => params[:page], :per_page => 1)    #(limit: 10)
-       flash.now[:alert] = "Please type in something to search. Some recent listings have been shown."
+       flash.now[:alert] = "Please type in something to search. Some recent listings have been shown. Also, we just opened up the listing feature :)"
     end
    
     respond_to do |format|

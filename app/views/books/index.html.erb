@@ -1,4 +1,9 @@
-<% provide(:title, "Search Results") %>
+
+<% if params[:category] %>
+    <% provide(:title, "Category -" + " " + @category.name) %>
+<% else %>
+    <% provide(:title, "Search Results") %>
+<% end %>
 
 <div class="MainBodyWrapper">
 
@@ -34,7 +39,7 @@
           <%= render "emptyResults" %>      
 
       <% else %>
-      
+      <%#= @books %>
             <ul>
               <% @books.each do |book| %>
 
@@ -52,7 +57,7 @@
                             <% elsif w.user_book_photos.present? %>
                                <%= image_tag w.user_book_photos.first.photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
                             <% else %>
-                                <%= image_tag "placehold.jpg", :alt => "Cover Photo", :class => "thumbnail_border" %>
+            <img src="https://s3.amazonaws.com/shelflet/assets/placehold.jpg" alt="Cover Photo" class="thumbnail_border" />
                             <% end %> <%# end if cover photo is preser %>
 
                         <% end %>  <%# end cover photo link to image %>
@@ -90,7 +95,17 @@
 
                       <div class="BCWCenter_Border"></div>
                       <p style="margin-left: -3px; margin-bottom: -2px;">
-                         <i class="icon-map-marker" style="margin-right: -6px;"></i> <%= w.location %>
+                         <i class="icon-map-marker" style="margin-right: -6px;"></i> 
+
+                         <% if w.country_code %>
+                              <% if w.country_code == "US" %>
+                                  <%= w.city %>, <%= w.state %>
+                              <% else %>
+                                  <%= w.city %>, <%= w.country %>
+                              <% end %>
+                          <% else %>
+                              <%= w.location %>
+                          <% end %>
                       </p>
                       
                       <p><span class="numberOfBooks" href="#"><%= w.user.user_books.count %> Books from Lister</span>
