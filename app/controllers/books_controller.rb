@@ -7,7 +7,8 @@ class BooksController < ApplicationController
     if params.has_key?(:search) && params[:search].strip != ""     #for rental search across site
        @books = Book.search(params[:search], :match_mode => :any, :star => true, :page => params[:page], :per_page => 10)
     elsif params[:category]    #for category search
-        if (@book_ids = BookCategory.where('category_id = ?', params[:category]).pluck(:book_id))
+        @book_ids = BookCategory.where('category_id = ?', params[:category]).pluck(:book_id)
+        if (@book_ids)
           @category = Category.find_by_id(params[:category])
           @books = Book.where(:id => @book_ids).paginate(:page => params[:page], :per_page => 10)
         else

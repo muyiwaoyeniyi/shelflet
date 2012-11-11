@@ -273,7 +273,7 @@ $(document).ready(function () {
                         style: "full",
                         maxRows: 6,
                         name_startsWith: request.term,
-                        username: 'muyiwaoyeniyi'
+                        username: 'demo'
                     },
                     success: function( data ) {
 
@@ -316,6 +316,12 @@ $(document).ready(function () {
                 $('#user_book_country_code').val(ui.item.countryCode);
                 $('#user_book_lat').val(ui.item.lat);
                 $('#user_book_lng').val(ui.item.lng);
+            },
+            open: function() {
+                $( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+            },
+            close: function() {
+                $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
             }
         });
         
