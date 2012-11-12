@@ -97,7 +97,7 @@
                       <p style="margin-left: -3px; margin-bottom: -2px;">
                          <i class="icon-map-marker" style="margin-right: -6px;"></i> 
 
-                         <% if w.country_code %>
+                         <% if w.country_code.present? %>
                               <% if w.country_code == "US" %>
                                   <%= w.city %>, <%= w.state %>
                               <% else %>
@@ -108,7 +108,7 @@
                           <% end %>
                       </p>
                       
-                      <p><span class="numberOfBooks" href="#"><%= w.user.user_books.count %> Books from Lister</span>
+                      <p><span class="numberOfBooks" href="#"><%= pluralize(w.user.user_books.count, "book") %> from Lister</span>
                         <span class="pipe">|</span>
                       <span class="Condition">
                         <%= w.condition.name %>

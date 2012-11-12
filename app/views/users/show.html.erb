@@ -80,7 +80,7 @@
                       <div class="BCWCenter_Border"></div>
                       <p class="map-marker"><i class="icon-map-marker" style="margin-right: -6px;"></i>  
                          
-                         <% if w.country_code %>
+                         <% if w.country_code.present? %>
                               <% if w.country_code == "US" %>
                                   <%= w.city %>, <%= w.state %>
                               <% else %>

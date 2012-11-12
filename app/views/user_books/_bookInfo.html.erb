@@ -30,7 +30,7 @@
 
                           <div class="BCWCenter_Border"></div>
                           <p class="map-marker" ><i class="icon-map-marker" style="margin-right: -6px;"></i>                     
-                          <% if @user_book.country_code %>
+                          <% if @user_book.country_code.present? %>
                               <% if @user_book.country_code == "US" %>
                                   <%= @user_book.city %>, <%= @user_book.state %>
                               <% else %>
@@ -44,7 +44,7 @@
                     <% if can? :update, @user_book %>  
                           <p>Quantity: <span class="Quantiy">  <%= @user_book.quantity %> 
                     <% else %>
-                          <p><span class="numberOfBooks" href="#"><%= @user_book.user.user_books.count %> Books from Lister
+                          <p><span class="numberOfBooks" href="#"><%= pluralize(@user_book.user.user_books.count, "book") %> from Lister
                     <% end %>
                         </span><span class="pipe">|</span><span class="Condition">
                       <%= @user_book.condition.name %>
