@@ -266,14 +266,14 @@ $(document).ready(function () {
         $( "#Location" ).autocomplete({
             source: function( request, response ) {
                 $.ajax({
-                    url: "https://ws.geonames.org/searchJSON",
+                    url: "https://ws.geonames.net/searchJSON",
                     dataType: "jsonp",
                     data: {
                         featureClass: "P",
                         style: "full",
                         maxRows: 6,
                         name_startsWith: request.term,
-                        username: 'demo'
+                        username: 'muyiwaoyeniyi'
                     },
                     success: function( data ) {
 

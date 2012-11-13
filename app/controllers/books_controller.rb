@@ -18,7 +18,7 @@ class BooksController < ApplicationController
     #elsif params[:value]                         #for autosuggest on search bar
      #  @books = Book.search(params[:value], :match_mode => :any, :star => true)
     else    
-       @books = Book.where(:id => [0..191]).paginate(:page => params[:page], :per_page => 10)  #paginate(:page => params[:page], :per_page => 1)    #(limit: 10)
+       @books = Book.where(:id => [1..191]).paginate(:page => params[:page], :per_page => 10)  #paginate(:page => params[:page], :per_page => 1)    #(limit: 10)
        flash.now[:alert] = "Please type in something to search. Some recent listings have been shown. Also, we just opened up the listing feature :)"
     end
    

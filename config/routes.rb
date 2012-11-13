@@ -2,6 +2,7 @@ Shelflet::Application.routes.draw do
     
   root to: 'static_pages#home'  
   match '/about',   to: 'static_pages#about'
+  match '/storeowners',   to: 'static_pages#storeowners'
   match 'contact' => 'messages#new', :as => 'contact', :via => :get
   match 'contact' => 'messages#create', :as => 'contact', :via => :post
   match '/terms',   to: 'static_pages#terms'

@@ -1,7 +1,7 @@
-<p>Hi <%= @resource.first_name %>,</p> <br>
+<p>Hi <%= @resource.first_name %>,</p>
 
-<p>We’re excited you’re here! Follow the link below to activate your account:</p><br>
+<p>We’re excited you’re here! Follow the link below to activate your account:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
 
-<br><br>-- Shelflet team
+<br>-- <i>Shelflet team</i>
