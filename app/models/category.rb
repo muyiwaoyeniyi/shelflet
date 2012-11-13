@@ -18,6 +18,7 @@ class Category < ActiveRecord::Base
 
 
 	def self.ids_from_tokens(tokens)
+      tokens = tokens.titleize
   		tokens.gsub!(/<<<(.+?)>>>/) { create!(name: $1).id }
   		tokens.split(',')
 	end
