@@ -34,7 +34,7 @@
           <% end %>   <%# end to check if a user book for a book exist before suggestiing %>  
      <% else %>
 
-      <% if @books.count == 0 || @books.count == nil %> 
+      <% if @books == nil || @books == 0 %> 
   
           <%= render "emptyResults" %>      
 
@@ -58,7 +58,7 @@
                                <%= image_tag w.user_book_photos.first.photo.url(:thumbnail), :alt => "Cover Photo", :class => "thumbnail_border" %>
                             <% else %>
             <img src="https://s3.amazonaws.com/shelflet/assets/placehold.jpg" alt="Cover Photo" class="thumbnail_border" />
-                            <% end %> <%# end if cover photo is preser %>
+                            <% end %> <%# end if cover photo is present %>
 
                         <% end %>  <%# end cover photo link to image %>
                     

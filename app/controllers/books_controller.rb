@@ -6,13 +6,19 @@ class BooksController < ApplicationController
   def index
     if params.has_key?(:search) && params[:search].strip != ""     #for rental search across site
        @books = Book.search(params[:search], :match_mode => :any, :star => true, :page => params[:page], :per_page => 10)
+       if (@books.count == 0)
+          @books = nil
+       end
+
     elsif params[:category]    #for category search
         @book_ids = BookCategory.where('category_id = ?', params[:category]).pluck(:book_id)
         if (@book_ids)
-          @category = Category.find_by_id(params[:category])
-          @books = Book.where(:id => @book_ids).paginate(:page => params[:page], :per_page => 10)
+            @books = Book.where(:id => @book_ids).paginate(:page => params[:page], :per_page => 10)
+            if (UserBook.find_by_book_id(@book_ids) == nil)
+              @books = nil
+            end
         else
-          @books.count = nil
+          @books = nil
           #flash[:alert] = "We didn't find any book in this category :("  #not showing up
         end
     #elsif params[:value]                         #for autosuggest on search bar
