@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   
   #stripping
   auto_strip_attributes :first_name, :last_name, :school_or_city, :nullify => false, :squish => true
-  before_validation :the_titleizer
+  before_save :the_titleizer
 
   #Validations
   validates_presence_of :first_name, :last_name, :school_or_city
@@ -30,6 +30,15 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
+      if !(auth.info.location.present?)
+        auth.info.location = "Not Provided"
+      end
+      if !(auth.extra.raw_info.first_name.present?)
+        auth.extra.raw_info.first_name = "Not Provided"
+      end
+      if !(auth.extra.raw_info.last_name.present?)
+        auth.extra.raw_info.last_name = "Not Provided"
+      end
       user = User.create(first_name:auth.extra.raw_info.first_name,
                         last_name:auth.extra.raw_info.last_name,
                         provider:auth.provider,
@@ -37,7 +46,7 @@ class User < ActiveRecord::Base
                          email:auth.info.email,
                          school_or_city:auth.info.location,
                          password:Devise.friendly_token[0,20]
-                         )
+                         )      
     end
     user
   end

@@ -45,6 +45,7 @@ class UserBook < ActiveRecord::Base
   #callbacks
   before_save :set_book_and_category
   before_update :delete_photos
+  before_save :the_titleizer
 
 
   #functions
@@ -72,6 +73,9 @@ protected
 
   def the_stripper       #remove leading and trailing whitespaces
      self.isbn = self.isbn.strip.to_s.upcase
+  end
+
+  def the_titleizer
      self.author = self.author.titleize
      self.publisher = self.publisher.titleize
   end
