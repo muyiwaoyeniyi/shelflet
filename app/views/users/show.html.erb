@@ -1,4 +1,4 @@
-<% provide(:title, "My Shelf") %>
+<% provide(:title, "My Bookshelf") %>
 
 <div class="MainBodyWrapper">
 
@@ -17,7 +17,9 @@
 
 <div class="span9">
           <div id="BookColumnWrapper"> 
-
+<script type="text/javascript">
+       mixpanel.track("Shelf Page")
+    </script>
 
 <% if @user_books_count == 0 %> 
   

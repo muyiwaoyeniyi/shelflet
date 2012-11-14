@@ -1,8 +1,8 @@
 
 <% if params[:category] %>
-    <% provide(:title, "Category Results") %>
+    <% provide(:title, "Book Category Results") %>
 <% else %>
-    <% provide(:title, "Search Results") %>
+    <% provide(:title, "Book Search Results") %>
 <% end %>
 
 <div class="MainBodyWrapper">
@@ -23,6 +23,9 @@
 
 <div class="span9" id="bcwSearchFix">
           <div id="BookColumnWrapper"> 
+            <script type="text/javascript">
+       mixpanel.track("Search Page")
+    </script>
 
    <% if params[:value] %>  <%# for rent search suggestion %>  
           <% @books.each do |t| %>   <%# to check if a user book for a book exist before suggestiing %>  

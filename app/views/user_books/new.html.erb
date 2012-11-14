@@ -1,4 +1,4 @@
-<% provide :title, "List" %>
+<% provide :title, "List Book" %>
 
 <%= render "shared/searchbar" %>
 
@@ -14,6 +14,10 @@
               <% if user_signed_in? %> 
     			<span class="listing-text-shelf"><%= link_to "Back to Shelf", current_user %></span>
 			   <% end %>
+
+			     <script type="text/javascript">
+       mixpanel.track("List Page")
+    </script>
             <div class="listing-text-border"></div>
             </p>
             

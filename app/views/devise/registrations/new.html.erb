@@ -11,6 +11,9 @@
         <div class="row">         
         <div class="span12">
         <div id="SettingsBoxWrapper">
+          <script type="text/javascript">
+       mixpanel.track("Sign Up Page")
+    </script>
            <div id="FormsWrapper"> 
            <%= link_to image_tag("facebook.png"), user_omniauth_authorize_path(:facebook), :class => "FacebookConnect" %>
             <h6>or</h6>
