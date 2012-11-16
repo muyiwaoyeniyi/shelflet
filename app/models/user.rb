@@ -28,7 +28,9 @@ class User < ActiveRecord::Base
 
   #for facebook login
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
+
     unless user
       if !(auth.info.location.present?)
         auth.info.location = "Not Provided"
@@ -48,7 +50,9 @@ class User < ActiveRecord::Base
                          password:Devise.friendly_token[0,20]
                          )      
     end
+    
     user
+    
   end
 
 private
