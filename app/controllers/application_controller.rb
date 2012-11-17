@@ -32,6 +32,7 @@ class ApplicationController < ActionController::Base
     # render file: "#{Rails.root}/public/403", formats: [:html], status: 403, layout: false
   end
 
+=begin
   require 'socket'
 
   def local_ip
@@ -44,6 +45,6 @@ class ApplicationController < ActionController::Base
   ensure
     Socket.do_not_reverse_lookup = orig
   end
-
+=end
   
 end
