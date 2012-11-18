@@ -201,7 +201,7 @@ $(document).ready(function () {
 
     $("#ConditionNotes").hide();
     $("#Condition").change(function () {
-        if ($(this).val() == "1" || $(this).val() == "2" || $(this).val() == "3" || $(this).val() == "4" || $(this).val() == "5") {
+        if ($(this).val() == "1" || $(this).val() == "11" || $(this).val() == "21" || $(this).val() == "31" || $(this).val() == "41") {
             $("#ConditionNotes").show("fast");
         } else {
             $("#ConditionNotes").hide();
