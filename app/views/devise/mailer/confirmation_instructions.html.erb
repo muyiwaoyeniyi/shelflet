@@ -1,7 +1,15 @@
 <p>Hi <%= @resource.first_name %>,</p>
 
-<p>We’re excited you’re here! Follow the link below to activate your account:</p>
+<p>Thank you for stopping by our booth the other day, you rock! Please follow the link below to activate your Shelflet account:</p>
+<%# <p>We’re excited you’re here! Follow the link below to activate your account:</p> %>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token) %></p>
+
+<p><strong>Account Info:</strong></p>
+
+Username: <%= @resource.email %> <br>
+Password: qwerty12
+
+<p>Be sure to reset your password after you log in.</p>
 
 <br>-- <i>Shelflet team</i>
