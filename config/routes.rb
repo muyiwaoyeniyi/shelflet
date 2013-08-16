@@ -10,6 +10,14 @@ Shelflet::Application.routes.draw do
   match '/howitworks', to: 'static_pages#howitworks'
   match '/faqs', to: 'static_pages#faqs'
 
+
+  
+  #match 'oauth2callback' => 'documents#set_google_drive_token' # user return to this after login  
+  #match 'list_google_doc'  => 'documents#list_google_docs', :as => :list_google_doc #for listing the google docs
+  #match 'download_google_doc'  => 'documents#download_google_docs', :as => :download_google_doc #downlo
+  
+
+
   devise_for :users, :path_names => { sign_in: "login", sign_out: "logout", sign_up: "signup" }, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   devise_scope :user do
       get '/users/auth/:provider' => 'users/omniauth_callbacks#passthru'
@@ -32,7 +40,7 @@ Shelflet::Application.routes.draw do
   match "/*other", to: 'static_pages#to_404'      #all non-existent routes go to 404
  
 
-  
+
 
 
 #  root :to => "home#index"

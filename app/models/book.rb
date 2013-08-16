@@ -7,7 +7,7 @@ class Book < ActiveRecord::Base
     #validates_presence_of :title, :isbn, :author, :publisher, :edition, :description
     #validates_numericality_of :edition, :message => "The book edition has to be a number"
    
-   	#for user listings
+    #for user listings
     has_many :user_books
     has_many :users, :through => :user_books  
 

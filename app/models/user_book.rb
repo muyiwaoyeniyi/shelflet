@@ -20,7 +20,6 @@ class UserBook < ActiveRecord::Base
   auto_strip_attributes :publisher, :edition, :description, :nullify => false, :squish => true
   before_validation :the_stripper
 
-
   #Validation
   validates_presence_of :price, :location, :quantity, :condition_id
   validates_numericality_of :price, :quantity, :message => "has to be a number"

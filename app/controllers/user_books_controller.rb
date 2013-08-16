@@ -44,7 +44,7 @@ class UserBooksController < ApplicationController
   def edit
 
     @user_book = UserBook.find(params[:id])
-    @book = Book.find_by_id(@user_book.book_id)    
+    @book = Book.find_by_id(@user_book.book_id)    #review this from school app
     @user_book.title = @book.title
     @user_book.author = @book.author
     @user_book.publisher = @book.publisher
@@ -68,7 +68,7 @@ def create
     else 
 
        @user_book = UserBook.new(params[:user_book])
-       @user_book = current_user.user_books.build(params[:user_book])   
+       @user_book = current_user.user_books.build(params[:user_book])
 
       respond_to do |format|
         if @user_book.save

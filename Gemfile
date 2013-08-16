@@ -19,8 +19,11 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem "paperclip", "~> 3.0"
 gem 'isbn_validation'
 gem "auto_strip_attributes", "~> 1.0"
+
 #gem 'money-rails'
 #gem "addressable"
+#gem 'google_drive'
+
 gem 'omniauth'
 gem 'oauth2'
 gem 'omniauth-facebook', '1.4.0'

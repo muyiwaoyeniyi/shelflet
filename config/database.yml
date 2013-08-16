@@ -31,9 +31,15 @@ production:
   adapter:  mysql2
   encoding: utf8
   collation: utf8_general_ci
-  database: us-cdbr-east-02.cleardb.com
-  username: bacfd9df52ae32
-  password: 5c7b7c88
+  database: us-cdbr-east-04.cleardb.com
+  username: b89b99ef1cca55
+  password: dbefa17a
+
+#maybe i can still retrieve data
+  #username: bacfd9df52ae32
+  #password: 5c7b7c88
+
+
   #reconnect: false
   #pool: 5
   #host: ec2-107-22-169-202.compute-1.amazonaws.com
